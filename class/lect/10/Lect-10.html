@@ -723,115 +723,393 @@ ol {
 }
 </style>
 
-<h1>Lecture 06 - News, Stocks, Go</h1>
+<h1>Lecture 10 - Go Concurrency / Start of Smart Contracts</h1>
 
-<h2>News</h2>
-
-<h2>Merkle Trees</h2>
-
-<h3>Pseudo Code</h3>
+<h1>News</h1>
 
 <ol>
-<li>Create a slice to hold the hashes of the leaves.  Each leaf hash is a <code>[]byte</code>.  So make the data type <code>[][]byte</code>.
-Make this slice of slice of byte then length of the data.  That would be <code>len(data)</code>.  Let&rsquo;s call this <code>hTmp</code>.</li>
-<li>For each data block
-
-<ol>
-<li>Calculate a hash for the data block using <code>hash.HashOf()</code>.</li>
-<li>Save this in the slice created in (1) above.</li>
-</ol></li>
-<li>Create a <code>[][]byte</code> slice to hold the intermediate hashes in the tree.
-This will need to be no more than <code>len(data)/2+1</code> in length.  The plus 1 is so that 0 blocks of hashing or an odd
-number of blocks will have enough space.  Let&rsquo;s call this <code>hMid</code>.</li>
-<li>Declare a variable <code>ln</code>, and set it to  <code>len(data)/2+1</code></li>
-<li>While <code>ln &gt;= 1</code> (Hint: the language only has <code>for</code> loops with lots of different ways of doing it)
-
-<ol>
-<li>For each pair of hashes (if you have an odd number just use the single hash)
-
-<ul>
-<li>Calculate the hash of the pair using <code>hash.Keccak256()</code>.  It takes a variable number of arguments so you can
-pass 1 or 2 arguments to it.</li>
-<li>Append this to <code>hMid</code>.</li>
-</ul></li>
-<li>Replace hTmp with hMid</li>
-<li>Recalculate <code>ln</code> set it to <code>len(hTmp)/2</code></li>
-<li>Generate a new empty hMid of allocated space of <code>len(hTmp)/2</code>.</li>
-</ol></li>
-<li>Return <code>hTmp[0]</code></li>
+<li>European Space Agency Funds Blockchain Project Recording Satellite Data</li>
+<li>Accounting in space</li>
+<li>3.6B in bitcoin ceased because it was be laundered by a married couple.</li>
 </ol>
 
-<p><img src="Hash_Tree.svg" alt="Hash_Tree.svg" title="Merkle Tree" /></p>
+<h1>Reading</h1>
 
-<table>
-<thead>
-<tr>
-<th>Block Data</th>
-<th>Hash</th>
-</tr>
-</thead>
+<p>Consensus Algorithms, PoW, PoS and better ones: <a href="https://medium.com/coinbundle/consensus-algorithms-dfa4f355259d">https://medium.com/coinbundle/consensus-algorithms-dfa4f355259d</a></p>
 
-<tbody>
-<tr>
-<td>L1</td>
-<td>21</td>
-</tr>
+<h1>Concurrency in Go</h1>
 
-<tr>
-<td>L2</td>
-<td>8</td>
-</tr>
+<h2>Go routines</h2>
 
-<tr>
-<td>L3</td>
-<td>10</td>
-</tr>
+<p>A Go Routine:</p>
 
-<tr>
-<td>L4</td>
-<td>40</td>
-</tr>
+<pre><code>	go func( a int ) {
+		fmt.Printf ( &quot;a=%d\n&quot;, a )
+	}( 12 )
+</code></pre>
 
-<tr>
-<td>21+8</td>
-<td>5</td>
-</tr>
+<p>10 Go Routines:</p>
 
-<tr>
-<td>10+40</td>
-<td>72</td>
-</tr>
+<pre><code>  1: package main
+  2: 
+  3: import &quot;fmt&quot;
+  4: 
+  5: func main() {
+  6:     for i := 0; i &lt; 10; i++ {
+  7:         go func(a int) {
+  8:             fmt.Printf(&quot;a=%d\n&quot;, a)
+  9:         }(12 + i)
+ 10:     }
+ 11: }
 
-<tr>
-<td>5+72</td>
-<td>14</td>
-</tr>
-</tbody>
-</table>
 
-<div class="pagebreak"></div>
+</code></pre>
 
-<h2>Stock Stuff</h2>
+<p>With NO output - Why?</p>
 
-<p>What is a Stock?</p>
+<pre><code>  1: package main
+  2: 
+  3: import (
+  4:     &quot;fmt&quot;
+  5:     &quot;sync&quot;
+  6: )
+  7: 
+  8: func main() {
+  9:     var wg sync.WaitGroup
+ 10:     for i := 0; i &lt; 10; i++ {
+ 11:         wg.Add(1)
+ 12:         go func(a int) {
+ 13:             defer wg.Done()
+ 14:             fmt.Printf(&quot;a=%d\n&quot;, a)
+ 15:         }(12 + i)
+ 16:     }
+ 17:     wg.Wait()
+ 18: }
 
-<p>What is a Dividend?</p>
 
-<p>SEC Reg(D)?</p>
+</code></pre>
 
-<p>SEC Enforcement of Securities Laws.</p>
+<p>And OUTPUT!!!!</p>
 
-<p>Wyoming Laws on Stocks.</p>
+<pre><code>a=21
+a=16
+a=15
+a=18
+a=17
+a=12
+a=19
+a=20
+a=13
+a=14
 
-<p>What is a NFT - and is it a security?</p>
 
-<p>What is a Bond?  What is a Fixed Coupon v.s. a Variable Capon?</p>
+</code></pre>
 
-<p>What is Yield?</p>
+<h1>Locks</h1>
 
-<p>How are dividends payed?</p>
+<pre><code>  1: package main
+  2: 
+  3: import (
+  4:     &quot;fmt&quot;
+  5:     &quot;sync&quot;
+  6:     &quot;time&quot;
+  7: )
+  8: 
+  9: func main() {
+ 10:     messages := make(chan int)
+ 11:     var wg sync.WaitGroup
+ 12: 
+ 13:     // you can also add these one at
+ 14:     // a time if you need to
+ 15: 
+ 16:     wg.Add(3)
+ 17:     go func() {
+ 18:         defer wg.Done()
+ 19:         time.Sleep(time.Second * 3)
+ 20:         messages &lt;- 1
+ 21:     }()
+ 22:     go func() {
+ 23:         defer wg.Done()
+ 24:         time.Sleep(time.Second * 2)
+ 25:         messages &lt;- 2
+ 26:     }()
+ 27:     go func() {
+ 28:         defer wg.Done()
+ 29:         time.Sleep(time.Second * 1)
+ 30:         messages &lt;- 3
+ 31:     }()
+ 32:     go func() {
+ 33:         for i := range messages {
+ 34:             fmt.Println(i)
+ 35:         }
+ 36:     }()
+ 37: 
+ 38:     wg.Wait()
+ 39:     time.Sleep(time.Second * 1)
+ 40: }
 
-<p>Other Investments (Gold, Diamonds, Houses, Apartments)</p>
+
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>3
+2
+
+m4_ omment(
+3
+2
+1
+)
+</code></pre>
+
+<p>Also &ldquo;map&rdquo;&rsquo;s are not concurrency protected.  You have to lock/unlock them
+yourself.</p>
+
+<p>Problems like this are easy to find.  There is a &ldquo;race detector&rdquo; built into
+go and you can run it as a part of your tests.</p>
+
+<p>You should decide if you need to protect a map.  Why? When?</p>
+
+<pre><code>  1: package main
+  2: 
+  3: import (
+  4:     &quot;fmt&quot;
+  5:     &quot;math/rand&quot;
+  6:     &quot;sync&quot;
+  7:     &quot;sync/atomic&quot;
+  8:     &quot;time&quot;
+  9: )
+ 10: 
+ 11: func main() {
+ 12:     state := make(map[int]int)
+ 13:     mutex := &amp;sync.Mutex{}
+ 14: 
+ 15:     var nRead uint64
+ 16:     var nWrite uint64
+ 17: 
+ 18:     const randRange = 15
+ 19: 
+ 20:     for ii := 0; ii &lt; 100; ii++ {
+ 21:         go func() {
+ 22:             total := 0
+ 23:             for {
+ 24:                 key := rand.Intn(randRange)
+ 25:                 mutex.Lock()
+ 26:                 total += state[key]
+ 27:                 mutex.Unlock()
+ 28:                 atomic.AddUint64(&amp;nRead, 1)
+ 29:                 time.Sleep(time.Millisecond)
+ 30:             }
+ 31:         }()
+ 32:     }
+ 33:     for jj := 0; jj &lt; 50; jj++ {
+ 34:         go func() {
+ 35:             for {
+ 36:                 key := rand.Intn(randRange)
+ 37:                 val := rand.Intn(100)
+ 38:                 mutex.Lock()
+ 39:                 state[key] = val
+ 40:                 mutex.Unlock()
+ 41:                 atomic.AddUint64(&amp;nWrite, 1)
+ 42:                 time.Sleep(time.Millisecond)
+ 43:             }
+ 44:         }()
+ 45:     }
+ 46: 
+ 47:     time.Sleep(time.Second * 1)
+ 48: 
+ 49:     nReadTotal := atomic.LoadUint64(&amp;nRead)
+ 50:     nWriteTotal := atomic.LoadUint64(&amp;nWrite)
+ 51: 
+ 52:     mutex.Lock()
+ 53:     fmt.Printf(&quot;ReadOps: %d\nWriteOps: %d\nFinal State: %+v\n&quot;, nReadTotal, nWriteTotal, state)
+ 54:     mutex.Unlock()
+ 55: }
+
+
+</code></pre>
+
+<p>The Output (run twice - it will produce non-deterministic output!):</p>
+
+<pre><code>$ go run atomic.go
+ReadOps: 81881
+WriteOps: 40936
+Final State: map[10:70 3:81 9:81 12:55 5:67 1:38 6:89 14:28 0:40 8:13 4:11 13:19 2:40 11:23 7:30]
+$ go run atomic.go
+ReadOps: 82500
+WriteOps: 41250
+Final State: map[2:34 10:2 4:28 5:80 14:42 0:46 3:55 1:65 12:63 9:10 13:50 7:17 6:19 11:91 8:14]
+</code></pre>
+
+<h1>Channels</h1>
+
+<pre><code>  1: package main
+  2: 
+  3: import (
+  4:     &quot;fmt&quot;
+  5:     &quot;os&quot;
+  6:     &quot;sync&quot;
+  7:     &quot;time&quot;
+  8: )
+  9: 
+ 10: func main() {
+ 11:     msg := make(chan string)
+ 12:     msg2 := make(chan string)
+ 13:     var wg sync.WaitGroup
+ 14:     for i := 0; i &lt; 10; i++ {
+ 15:         wg.Add(1)
+ 16:         go func(n int) {
+ 17:             for {
+ 18:                 time.Sleep(time.Millisecond * 50)
+ 19:                 msg &lt;- fmt.Sprintf(&quot;ping:%d&quot;, n)
+ 20:             }
+ 21:         }(i)
+ 22:     }
+ 23:     for i := 0; i &lt; 10; i++ {
+ 24:         wg.Add(1)
+ 25:         go func(n int) {
+ 26:             for {
+ 27:                 time.Sleep(time.Millisecond * 55)
+ 28:                 msg2 &lt;- fmt.Sprintf(&quot;PONG:%d&quot;, n)
+ 29:             }
+ 30:         }(i)
+ 31:     }
+ 32:     nMsg := 0
+ 33:     for {
+ 34:         select {
+ 35:         case out := &lt;-msg:
+ 36:             nMsg++
+ 37:             fmt.Printf(&quot;%s\n&quot;, out)
+ 38:         case out := &lt;-msg2:
+ 39:             nMsg++
+ 40:             fmt.Printf(&quot;%s\n&quot;, out)
+ 41:         }
+ 42:         if nMsg &gt; 20 {
+ 43:             os.Exit(0)
+ 44:         }
+ 45:     }
+ 46:     wg.Wait()
+ 47: }
+
+
+</code></pre>
+
+<p>Output (Again - non-deterministic output!):</p>
+
+<pre><code>ping:2
+ping:7
+ping:6
+ping:9
+ping:4
+ping:3
+ping:0
+ping:8
+ping:1
+ping:5
+PONG:2
+PONG:0
+PONG:3
+PONG:6
+PONG:9
+PONG:4
+PONG:5
+PONG:8
+PONG:7
+PONG:1
+ping:1
+
+
+</code></pre>
+
+<h1>Consensus</h1>
+
+<p>The original Byzantine Fault Tolerance is from research done by Leslie Lamport in 1978.  This was revolutionary because
+it was the first look at actual failures in control systems for flight.   Lamport used formal methods to prove that
+faiure was not just, &ldquo;it quit working&rdquo; but that falure could also be &ldquo;it became malicious and it lied&rdquo;.  The solution
+was not really a practical one.</p>
+
+<p>That leads us to: Practical Byzantine Fault Tolerance  (pBFT) is a consensus algorithm developed in 90s by Barbara Liskov
+and Miguel Castro.  They took a new look at (BFT) and figured out how to do it with a much better communication and
+performance and how to implement it so it can be made to work.  Lamport had gone on to develop a system that worked
+with clocks syncronizing nodes - and this is the basis of Googles F1 database.  pBFT works on an asyncronous
+network with no upper bound on when the requests will be received.  It is optimized for low overhead.
+It is used in important real world systems like AirBus, probes sent to Mars and in my Mersadies Sprinter Van.
+It also happens to be at the heart of concensus for Bitcoin.</p>
+
+<p>Concensus is when a set of nodes that are distributed reach a common agreement on the &ldquo;state&rdquo; of the world.
+This will not be taken to mean that they reach the &ldquo;correct&rdquo; or &ldquo;truthful&rdquo; state of the world.  It only means
+that they reach an &ldquo;agreement&rdquo; that the world is in &ldquo;a&rdquo; state.</p>
+
+<p>BFT&rsquo;s can aggree even when some of the nodes fail to repond or lie about a response.  The objective of BFT is
+to safeguard agains the failures in the system by applying a collective decision making process that reduces the
+risk of faulty nodes.  BFT is a solution to the Byzantine Generals’ Problem.</p>
+
+<h3>Byzantine Generals’ Problem</h3>
+
+<p>From the paper by Leslie Lamport, Robert Shostak and Marshall Pease at Microsoft Research in 1982:</p>
+
+<p>&ldquo;Imagine that several divisions of the Byzantine army are camped
+outside an enemy city, each division commanded by its own general.
+The generals can communicate with one another only by messenger.
+After observing the enemy, they must decide upon a common plan of
+action. However, some of the generals may be traitors, trying to
+prevent the loyal generals from reaching an agreement. The generals
+must decide on when to attack the city, but they need a strong
+majority of their army to attack at the same time. The generals
+must have an algorithm to guarantee that (a) all loyal generals
+decide upon the same plan of action, and (b) a small number of
+traitors cannot cause the loyal generals to adopt a bad plan. The
+loyal generals will all do what the algorithm says they should, but
+the traitors may do anything they wish. The algorithm must guarantee
+condition (a) regardless of what the traitors do. The loyal generals
+should not only reach agreement, but should agree upon a reasonable
+plan.&rdquo;</p>
+
+<p>A timeout with a default vote can be added to the system - and this is often done.  This puts a time bound
+on getting messages and what happens when that time bound is reached.   It also tends to hide nodes that
+have permanently disapeard.</p>
+
+<p>Lamport proved that with <code>3m+1</code> working processors a concensus on state can be calculated if at most <code>m</code>
+systems are faulty.  This implies that two thirds, <code>2/3</code>, of the number of computers should be properly working.</p>
+
+<p>There are a bunch of failure modes:</p>
+
+<ol>
+<li>no reponce</li>
+<li>stuck responce (the all 1&rsquo;s case, or continuous lies)</li>
+<li>responce with an invalid or incorrect result</li>
+<li>deliberate lies</li>
+</ol>
+
+<p>Bitcoin is using a Proof-of-Work system that is much closer to Lamport&rsquo;s 1978 paper.
+pBFT has a number of advantages.</p>
+
+<ol>
+<li>Finality is achieved immediatly.  Bitcoin will not finalize a transaction until 6 more blocks are added - and at a rate of 10min per block this is an hour.</li>
+<li>in pBFT all active nodes participate in voting.   This means that it is not a race - it is a common goal.  Rewards in the systme can be distributed evenly - instead of one winner.</li>
+<li>Much more enegrgy effecient.  No PoW - Zilliqa runs a PoW only once in every 100 blocks - instead of on every block.   Veification of blocks is not done like Bitcoin on every block every time before adding blocks.</li>
+</ol>
+
+<h3>pBFT approach.</h3>
+
+<p>pBFT a leader node is chosen.  If no leader is availabe the system can vote for a new leader.  All non-leader nodes are called Secondary or Backup nodes.</p>
+
+<p>A vote will be taken by sharing blocks where a majority of total nodes results in choosing the correct result.  Usually when a majority is achieved - the
+non-majority is then ignored.  IF youhave 5 notes, and 3 say &ldquo;state is X&rdquo;, then the other 2 can now be disregarded.  They may-or-may-not aggee - but
+concensus has been achieved.</p>
+
+<p>There are 4 phases in the pBFT consensus system (from the pBFT paper):</p>
+
+<ol>
+<li>The client sends a request to the primary(leader) node.</li>
+<li>The primary(leader) node broadcasts the request to the all the secondary(backup) nodes.</li>
+<li>The nodes(primary and secondaries) perform the service requested and then send back a reply to the client.</li>
+<li>The request is served successfully when the client receives ‘m+1’ replies from different nodes in the network with the same result, where m is the maximum number of faulty nodes allowed.</li>
+</ol>
+
+<p>Security increases as you have more nodes.
+Communication overhead increases at a <code>k**n</code> rate - so cost of communication grows Rapidly - making large networks very expensive.</p>
 
 </div>
 

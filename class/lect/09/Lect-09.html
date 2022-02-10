@@ -723,115 +723,75 @@ ol {
 }
 </style>
 
-<h1>Lecture 06 - News, Stocks, Go</h1>
+<h1>Lecture 9 -</h1>
 
-<h2>News</h2>
+<h2>Feb 7 2022</h2>
 
-<h2>Merkle Trees</h2>
+<h1>Blocks in our Go Code</h1>
 
-<h3>Pseudo Code</h3>
+<h2>Transactions in Blockchain</h2>
 
-<ol>
-<li>Create a slice to hold the hashes of the leaves.  Each leaf hash is a <code>[]byte</code>.  So make the data type <code>[][]byte</code>.
-Make this slice of slice of byte then length of the data.  That would be <code>len(data)</code>.  Let&rsquo;s call this <code>hTmp</code>.</li>
-<li>For each data block
+<p>Data Structure from &hellip;/block/block.go:</p>
 
-<ol>
-<li>Calculate a hash for the data block using <code>hash.HashOf()</code>.</li>
-<li>Save this in the slice created in (1) above.</li>
-</ol></li>
-<li>Create a <code>[][]byte</code> slice to hold the intermediate hashes in the tree.
-This will need to be no more than <code>len(data)/2+1</code> in length.  The plus 1 is so that 0 blocks of hashing or an odd
-number of blocks will have enough space.  Let&rsquo;s call this <code>hMid</code>.</li>
-<li>Declare a variable <code>ln</code>, and set it to  <code>len(data)/2+1</code></li>
-<li>While <code>ln &gt;= 1</code> (Hint: the language only has <code>for</code> loops with lots of different ways of doing it)
+<pre><code>// BlockType is a single block in the block chain.
+type BlockType struct {
+  Index         int                             // position of this
+                                                // block in the
+                                                // chain, 0, 1, ...
+  Desc          string                          // if &quot;genesis&quot; str.
+                                                // then this is a
+                                                // genesis block.
+  ThisBlockHash hash.BlockHashType              //
+  PrevBlockHash hash.BlockHashType              // This is 0 len.
+                                                // if this is a
+                                                // &quot;genesis&quot; block
+  Nonce         uint64                          //
+  Seal          hash.SealType                   //
+  MerkleHash    hash.MerkleHashType             // Hw 03 
+  Tx            []*transactions.TransactionType // Tx for Block
+}
 
-<ol>
-<li>For each pair of hashes (if you have an odd number just use the single hash)
+</code></pre>
 
-<ul>
-<li>Calculate the hash of the pair using <code>hash.Keccak256()</code>.  It takes a variable number of arguments so you can
-pass 1 or 2 arguments to it.</li>
-<li>Append this to <code>hMid</code>.</li>
-</ul></li>
-<li>Replace hTmp with hMid</li>
-<li>Recalculate <code>ln</code> set it to <code>len(hTmp)/2</code></li>
-<li>Generate a new empty hMid of allocated space of <code>len(hTmp)/2</code>.</li>
-</ol></li>
-<li>Return <code>hTmp[0]</code></li>
-</ol>
+<p><br><div class="pagebreak"> </div>
+Data Structure from &hellip;/transactions/tx.go:</p>
 
-<p><img src="Hash_Tree.svg" alt="Hash_Tree.svg" title="Merkle Tree" /></p>
+<pre><code>type TransactionType struct {
+  TxOffset       int               // The pos. of this in the block.
+  Input          []TxInputType     // Set of inputs to a transaction
+  Output         []TxOutputType    // Set of outputs to a tranaction
+  SCOwnerAccount addr.AddressType  // ... for SmartContracts ... 
+  SCAddress      addr.AddressType  // ... for SmartContracts ... 
+  SCOutputData   string            // ... for SmartContracts ... 
+  Account        addr.AddressType  //
+  Signature      lib.SignatureType //  Used in HW 5 - Signature 
+  Message        string            //  Used in HW 5 - Message
+  Comment        string            //
+}
 
-<table>
-<thead>
-<tr>
-<th>Block Data</th>
-<th>Hash</th>
-</tr>
-</thead>
+type TxInputType struct {
+  BlockNo     int // Which block is this from
+  TxOffset    int // The transaction in the block.
+                  // In the block[BlockHash].Tx[TxOffset]
+  TxOutputPos int // Position of the output in the transaction.
+                  // In the block[BlockHash].Tx[TxOffset].
+                  // Output[TxOutptuPos]
+  Amount      int // Value $$
+}
 
-<tbody>
-<tr>
-<td>L1</td>
-<td>21</td>
-</tr>
-
-<tr>
-<td>L2</td>
-<td>8</td>
-</tr>
-
-<tr>
-<td>L3</td>
-<td>10</td>
-</tr>
-
-<tr>
-<td>L4</td>
-<td>40</td>
-</tr>
-
-<tr>
-<td>21+8</td>
-<td>5</td>
-</tr>
-
-<tr>
-<td>10+40</td>
-<td>72</td>
-</tr>
-
-<tr>
-<td>5+72</td>
-<td>14</td>
-</tr>
-</tbody>
-</table>
-
-<div class="pagebreak"></div>
-
-<h2>Stock Stuff</h2>
-
-<p>What is a Stock?</p>
-
-<p>What is a Dividend?</p>
-
-<p>SEC Reg(D)?</p>
-
-<p>SEC Enforcement of Securities Laws.</p>
-
-<p>Wyoming Laws on Stocks.</p>
-
-<p>What is a NFT - and is it a security?</p>
-
-<p>What is a Bond?  What is a Fixed Coupon v.s. a Variable Capon?</p>
-
-<p>What is Yield?</p>
-
-<p>How are dividends payed?</p>
-
-<p>Other Investments (Gold, Diamonds, Houses, Apartments)</p>
+type TxOutputType struct {
+  BlockNo     int              // Which block is this in
+  TxOffset    int              // Which transaction in this block. 
+                               // block[this].Tx[TxOffset]
+  TxOutputPos int              // Pos. of the output in this block.
+                               // In the  block[this].Tx[TxOffset].
+                               // Output[TxOutptuPos]
+  Account     addr.AddressType // Acctount funds go to (If this is
+                               // &quot;&quot;chagne&quot;&quot; then this is the same
+                               // as TransactionType.Account
+  Amount      int              // Amoutn to go to accoutn
+}
+</code></pre>
 
 </div>
 

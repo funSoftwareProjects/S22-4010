@@ -1,6 +1,12 @@
 package mine
 
-import block "github.com/Univ-Wyo-Education/S22-4010/homework/02/block"
+import (
+	"encoding/hex"
+	"fmt"
+
+	block "github.com/Univ-Wyo-Education/S22-4010/homework/02/block"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/02/hash"
+)
 
 // TODO Replace above import with import below (commented out)
 /*
@@ -56,5 +62,29 @@ func MineBlock(bk *block.BlockType, difficulty string) {
 	//
 
 	// TODO: Start coding here.
-	InstructorImplementationMineBlock(bk, difficulty)
+	//InstructorImplementationMineBlock(bk, difficulty)
+
+	for {
+		//1 Serialize data from block for hashing
+		serializedBlock := block.SerializeForSeal(bk)
+
+		//2 Calculate hash of data
+		var myHash []byte
+		myHash = hash.HashOf(serializedBlock)
+
+		//3 Convert hash to string
+		theHashAsAString := hex.EncodeToString(myHash)
+
+		//4 Print status
+		fmt.Printf("((Mining)) Hash for Block [%s] nonce [%8d]\r", theHashAsAString, bk.Nonce)
+
+		//5 Check difficulty
+		if theHashAsAString[0:4] == difficulty {
+			bk.Seal = myHash
+			fmt.Printf("((Mining)) Hash for Block [%s] nonce [%8d]\n", theHashAsAString, bk.Nonce)
+			return
+		}
+		bk.Nonce++
+
+	}
 }

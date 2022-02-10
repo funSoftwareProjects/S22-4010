@@ -1,15 +1,39 @@
 package merkle
 
+//import "github.com/Univ-Wyo-Education/S22-4010/homework/02/hash"
+
 // TODO - uncomment the imports when you build your code.
-/*
+
 import (
 	"fmt"
 
 	"github.com/Univ-Wyo-Education/S22-4010/homework/02/hash"
 )
-*/
 
 func MerkleHash(data [][]byte) []byte {
+	hTmp := make([][]byte, len(data))
+
+	for i := 0; i < len(data); i++ {
+		hTmp[i] = hash.HashOf(data[i])
+	}
+
+	hMid := make([][]byte, len(data)/2+1)
+
+	ln := len(data)/2 + 1
+
+	for ln >= 1 {
+		if len(data)%2 == 0 {
+			hMid = append(hMid, hash.Keccak256(data[0], data[1]))
+		} else {
+			fmt.Printf("Here!!\n")
+			hMid = append(hMid, hash.Keccak256(data[0]))
+		}
+		hTmp = hMid
+		ln = len(hTmp) / 2
+		hMid = make([][]byte, len(hTmp)/2)
+
+	}
+	return hTmp[0]
 	// Replace this line with your code
 	/*
 	   ### Pseudo Code
@@ -34,5 +58,5 @@ func MerkleHash(data [][]byte) []byte {
 	   6. Return `hTmp[0]`
 	*/
 	// return []byte{0x1} // remove this line - repalce with your own return
-	return InstructorMerkleHash(data)
+	//return InstructorMerkleHash(data)
 }

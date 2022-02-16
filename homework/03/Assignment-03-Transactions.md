@@ -55,8 +55,10 @@ transferred amount then some "change" is owed back to the "from"
 account.  If "change" is needed then create a transaction output
 with the "change".
 
-The pseudo code is in a comment in the file `.../cli/cli.go` and it
+The pseudo code is in a comment in the file `.../bsvr/cli/cli.go` and it
 is reproduced below.
+
+<div class="pagebreak"></div>
 
 ```
 	//

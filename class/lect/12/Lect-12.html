@@ -731,6 +731,8 @@ ol {
 
 <h1>Lecture 12 - Elliptic Curve Digital Signatures</h1>
 
+<p><strong>Happy Valentines Day!</strong></p>
+
 <h2>Feb 14 2022</h2>
 
 <p>Every transaction has to be digitally signed to verify that the author
@@ -807,6 +809,54 @@ of all public keys around.  The disadvantage is that you have to check the recov
 are the first 24 bytes of the 32 byte public key.  So when we recover the public key we chop it to 24 bytes and compare it to the account number.</p>
 
 <p>Also when we recover a public key we can get 4 different answers.  This is what the <code>v</code> value is used for.</p>
+
+<h1>Reading</h1>
+
+<p>A simple ERC-20 Contract:
+<a href="https://www.toptal.com/ethereum/create-erc20-token-tutorial">https://www.toptal.com/ethereum/create-erc20-token-tutorial</a></p>
+
+<p>Zepplin ERC20:
+<a href="https://forum.openzeppelin.com/t/how-to-implement-erc20-supply-mechanisms/226">https://forum.openzeppelin.com/t/how-to-implement-erc20-supply-mechanisms/226</a></p>
+
+<pre><code>contract ERC20FixedSupply is ERC20 {
+    constructor() public {
+        _mint(msg.sender, 1000);
+    }
+}
+</code></pre>
+
+<h2>Stocks, ICOs, Bonds, etc&hellip;</h2>
+
+<p>Terms with explanation:</p>
+
+<ol>
+<li>Cash - this is what you buy your pizza with.</li>
+<li>what is a P&amp;L - financial statement of income and expenses that shows if the company is making or loosing money.</li>
+<li>What is Inflation?</li>
+<li>What is a Derivative</li>
+<li>Dividends - Payment of profit to investors as &ldquo;income&rdquo; or a reward for owning the stock.</li>
+<li>What is the &ldquo;Yield&rdquo;</li>
+<li>ICOs (Initial Coin Offering)</li>
+<li>Cost of &ldquo;going public&rdquo;</li>
+<li>Price to Earnings Radio - a P/E ratio is the cost of share of the company divided by Earnings of that particular share of a company.</li>
+<li>High speed trading</li>
+<li>What is a basis point (BPS), Example 50 BSP = 0.5%</li>
+<li>Stock Buy Back</li>
+<li>Index Fund</li>
+<li>Insider Trading</li>
+<li>&ldquo;Consumer Token Sale&rdquo;</li>
+<li>Junk Bonds - non investment grade bond.  Bonds are rated for default risk.</li>
+<li>Mutual Fund</li>
+<li>Asset Allocation</li>
+<li>Expense Ratio for a Mutual Fund</li>
+<li>Prospectus</li>
+<li>Pro-Forma</li>
+<li>KYI - Know Your Investor (See SEC 506(d))</li>
+<li>KYC - Know your customer</li>
+<li>Certified Investor</li>
+<li>Going public - Make a public offering.  Cost etc.</li>
+<li>Money Laundering</li>
+</ol>
 
 </div>
 

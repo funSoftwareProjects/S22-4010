@@ -1,7 +1,4 @@
-.markdown-body {
-	x-font-size: 14px;
-}
-</style>
+m4_include(../../../setup.m4)
 
 m4_comment([[[
 

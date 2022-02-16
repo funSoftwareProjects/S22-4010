@@ -1,20 +1,21 @@
+
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
 .markdown-body {
-	x-font-size: 14px;
+	font-size: 12px;
+}
+.markdown-body td {
+	font-size: 12px;
 }
 </style>
 
-m4_comment([[[
 
-   February 2022      
-Su Mo Tu We Th Fr Sa  
-       1  2  3  4  5  
- 6  7  8  9 10 11 12  
-13 14 15 16 17 18 19  
-          ^--------------------
-20 21 22 23 24 25 26  
-27 28                 
-                      
-]]])
+
 
 # Lecture 13 - Investing
 

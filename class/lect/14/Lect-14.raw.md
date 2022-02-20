@@ -96,7 +96,7 @@ Example
     Debits      | Credits
     ------------|-----------
     Assets      | Liabilities
-    Cash:50000    | Loan:50000
+    Cash:50000  | Loan:50000
 ```
 
 2. Rent for $1000. An Expense.
@@ -104,14 +104,14 @@ Example
     Debits      | Credits
     ------------|-----------
     Expense     | 
-    Rent:1000    | Cash:1000
+    Rent:1000   | Cash:1000
 ```
 
 2. CNC Milling Machine for $4000. An Asset.
 ```
     Debits      | Credits
     ------------|-----------
-    Asset         | 
+    Asset       | 
     CNC:4000    | Cash:4000
 ```
 
@@ -119,16 +119,16 @@ Example
 ```
     Debits      | Credits
     ------------|-----------
-    Draw         | 
-    Owner:500    | Cash:500
+    Draw        | 
+    Owner:500   | Cash:500
 ```
 
 4. Services $12,000.00.
 ```
     Debits      | Credits
     ------------|-----------
-    Assets         | 
-    Cash:12000    | Service:12,000
+    Assets      | 
+    Cash:12000  | Service:12,000
 ```
 
 5. Intangible Assets - fair value.   There is nothing micky-mouse about micky-mouse.
@@ -143,5 +143,5 @@ Example
 4. Labor Theft, $33 billion in labor theft a year.
 5. Plugging in values (URS Griner Woodward Clyde), $5,000,000.00.
 6. Cash and my Auto Mechanic / Airplane Mechanic / Boat Mechanic.  Tax Evasion.
-
+7. What Letisha James is after the Trump Organization for.
 

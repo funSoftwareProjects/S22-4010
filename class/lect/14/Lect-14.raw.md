@@ -36,6 +36,10 @@ Blockchain and Accounting
 
 ## News
 
+1. The FBI has a new Crypto Unit!
+2. Colorado will now allow you to pay your taxes in Crypto.  They will take both Bitcoin and Eth.
+3. There is to be a Executive Order on crypto this week.
+4. Canada freezes crypto accounts of Truck Demonstrators.  How are they are going to actually do this???
 
 
 
@@ -92,7 +96,7 @@ Example
     Debits      | Credits
     ------------|-----------
     Assets      | Liabilities
-	Cash:50000	| Loan:50000
+    Cash:50000    | Loan:50000
 ```
 
 2. Rent for $1000. An Expense.
@@ -100,31 +104,31 @@ Example
     Debits      | Credits
     ------------|-----------
     Expense     | 
-	Rent:1000	| Cash:1000
+    Rent:1000    | Cash:1000
 ```
 
 2. CNC Milling Machine for $4000. An Asset.
 ```
     Debits      | Credits
     ------------|-----------
-    Asset     	| 
-	CNC:4000	| Cash:4000
+    Asset         | 
+    CNC:4000    | Cash:4000
 ```
 
 3. Money to owner of business $500.  A "draw".
 ```
     Debits      | Credits
     ------------|-----------
-    Draw     	| 
-	Owner:500	| Cash:500
+    Draw         | 
+    Owner:500    | Cash:500
 ```
 
 4. Services $12,000.00.
 ```
     Debits      | Credits
     ------------|-----------
-    Assets     	| 
-	Cash:12000	| Service:12,000
+    Assets         | 
+    Cash:12000    | Service:12,000
 ```
 
 5. Intangible Assets - fair value.   There is nothing micky-mouse about micky-mouse.

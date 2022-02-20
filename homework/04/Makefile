@@ -8,7 +8,7 @@ build:
 
 PP=`pwd`
 FN=Assignment-04-Signatures
-FN1=
+FN1=README
 FN2=development-steps
 DIR=.././../
 IMG=
@@ -19,7 +19,7 @@ all: setup all2
 setup:
 	../mk_all_nu.sh
 
-all2: ${FN}.html ${PY} ${FN2}.html
+all2: ${FN}.html ${PY} ${FN1}.html ${FN2}.html
 
 
 .PRECIOUS: %.md 

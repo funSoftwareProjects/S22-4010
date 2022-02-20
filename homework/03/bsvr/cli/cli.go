@@ -564,7 +564,7 @@ func (cc *CLI) AppendBlock(bk *block.BlockType) {
 
 // Debug flags to turn on output in sections of the code.
 const db1 = false
-const db2 = true
+const db2 = false
 const db3 = false
 const db4 = false
 const db5 = false

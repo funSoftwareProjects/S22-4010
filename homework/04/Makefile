@@ -3,6 +3,8 @@ all: build
 
 build:
 	( cd bsvr/main ; go build )
+	( cd sig-test ; go build )
+	( cd wallet-client ; go build )
 
 PP=`pwd`
 FN=Assignment-04-Signatures

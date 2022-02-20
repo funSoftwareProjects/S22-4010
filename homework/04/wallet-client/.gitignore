@@ -3,3 +3,4 @@ ins_main.go
 .bk?
 .bak
 wallet-client
+.DS_Store

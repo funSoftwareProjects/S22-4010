@@ -11,7 +11,7 @@ T1=29e68e530d0718dd01759e8c9a5276d20687bc5ec23e60dce063c2b97ba6b04f.json
 start_server_on_my_ip:
 	go build
 	echo Starting server on port 9191
-	./main --server 192.168.0.36:9191 &
+	./main --server 127.0.0.1:9191 &
 
 run:
 	./run-server.sh

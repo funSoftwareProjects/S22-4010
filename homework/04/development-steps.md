@@ -1,14 +1,19 @@
 
 
-
-
-
-
-
-
-
-
-
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+.markdown-body {
+	font-size: 12px;
+}
+.markdown-body td {
+	font-size: 12px;
+}
+</style>
 
 
 
@@ -72,4 +77,3 @@ thing that I want to know is can I talk to from my end to the correct system on 
 across the web.  In the case of Homework 5 this is the function `DoGet` that performs a GET request.
 
 
-We will have a set of videos that walks thorugh the process in detail.

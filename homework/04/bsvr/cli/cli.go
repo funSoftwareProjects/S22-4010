@@ -196,11 +196,17 @@ func (cc *CLI) SendFundsTransaction(
 	err error,
 ) {
 
-	fmt.Printf("ATAT: %s\n", godebug.LF())
+	if db3 {
+		fmt.Printf("ATAT: %s\n", godebug.LF())
+	}
 
-	//	if isValid, err := cc.InstructorValidateSignature(from, sig, message); !isValid { // addr, sig, msg string) (isValid bool, err error) {
-	if !lib.ValidSignature(sig, message, from) { // Assignment 5 implements, just true for now.
+	// if isValid, err := cc.InstructorValidateSignature(from, sig, message); !isValid { // addr, sig, msg string) (isValid bool, err error) {
+	if !lib.ValidSignature(sig, message, from) { // Assignment 4 implements, just true for now.
+
 		// return nil, fmt.Errorf("Signature not valid")
+		if db8 {
+			fmt.Printf("%sSignature is not valid - early return NIL pointer: %s, AT:%s%s\n", MiscLib.ColorYellow, godebug.LF(), MiscLib.ColorReset)
+		}
 		return nil, err
 	}
 
@@ -564,8 +570,9 @@ func (cc *CLI) AppendBlock(bk *block.BlockType) {
 
 // Debug flags to turn on output in sections of the code.
 const db1 = false
-const db2 = true
-const db3 = false
+const db2 = false
+const db3 = true // may also want db8 to be true - prints on invalid signature
 const db4 = false
 const db5 = false
 const db6 = false
+const db8 = true

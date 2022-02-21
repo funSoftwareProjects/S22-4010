@@ -1,6 +1,7 @@
 
 PP=`pwd`
 FN=Lect-14
+FN1=midterm
 DIR=../../../
 IMG=
 PY=
@@ -10,7 +11,7 @@ all: setup all2
 setup:
 	../mk_all_nu.sh
 
-all2: ${FN}.html ${PY}
+all2: ${FN}.html ${PY} ${FN1}.html
 
 
 #%.html: %.raw.md

@@ -237,46 +237,7 @@ func (cc *CLI) SendFundsTransaction(
 	//    TxOutputType.
 	// 10. Return
 	//
-	tot := cc.GetTotalValueForAccount(from)
-	if tot < amount {
-		return nil, fmt.Errorf("Insufficient funds")
-	}
-	oldOutputs := cc.GetNonZeroForAccount(from)
-	if db3 {
-		fmt.Printf("%sOld Outputs (Step 1): %s, AT:%s%s\n", MiscLib.ColorYellow, lib.SVarI(oldOutputs), godebug.LF(), MiscLib.ColorReset)
-	}
-	// remvoe inputs from index.
-	fromHashKey := fmt.Sprintf("%s", from)
-	tmp1, ok := cc.BlockIndex.FindValue.AddrIndex[fromHashKey]
-	if ok {
-		delete(cc.BlockIndex.FindValue.AddrIndex, fromHashKey)
-	}
-	tx = transactions.NewEmptyTx(memo, from)
-	// create inputs into tranaction from "oldOutputs"
-	txIn, err := transactions.CreateTxInputsFromOldOutputs(oldOutputs)
-	if err != nil {
-		cc.BlockIndex.FindValue.AddrIndex[fromHashKey] = tmp1
-		return nil, err
-	}
-	if db3 {
-		fmt.Printf("%sNew Inputs (Step 2): %s, AT:%s%s\n", MiscLib.ColorYellow, lib.SVarI(txIn), godebug.LF(), MiscLib.ColorReset)
-	}
-	tx.Input = txIn
-	txOut, err := transactions.CreateTxOutputWithFunds(to, amount)
-	if err != nil {
-		cc.BlockIndex.FindValue.AddrIndex[fromHashKey] = tmp1
-		return nil, err
-	}
-	transactions.AppendTxOutputToTx(tx, txOut)
-	change := tot - amount
-	if change > 0 {
-		txOut, err := transactions.CreateTxOutputWithFunds(from, change)
-		if err != nil {
-			cc.BlockIndex.FindValue.AddrIndex[fromHashKey] = tmp1
-			return nil, err
-		}
-		transactions.AppendTxOutputToTx(tx, txOut)
-	}
+
 	return
 }
 

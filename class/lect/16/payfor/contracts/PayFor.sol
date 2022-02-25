@@ -12,6 +12,7 @@ contract PayFor {
 	event ReceivedFunds(address sender, uint256 value, uint256 application, uint256 loc);
 	event Withdrawn(address to, uint256 amount);
 	event SetProductPrice ( uint256 product, uint256 minPrice );
+	event LogDepositReceived(address sender);
 
     uint256 internal nPayments;
     uint256 internal paymentID;
@@ -62,11 +63,11 @@ contract PayFor {
     /**
      * @return true for funds received.  Emit a ReceivedFunds event.
      */
-	function ReceiveFunds(uint256 forProduct) public payable returns(bool) {
+	function receiveFunds(uint256 forProduct) public payable returns(bool) {
 		// Check that product is valid
 		require(productMinPrice[forProduct].isValue, 'Invalid product');
 		// Validate that the sender has payed for the prouct.
-		require(msg.value > productMinPrice[forProduct].price, 'Insufficient funds for product');
+		require(productMinPrice[forProduct].price <= msg.value, 'Insufficient funds for product');
 
 		uint256 pos;
 		uint256 tot;
@@ -106,7 +107,7 @@ contract PayFor {
      * @dev widthdraw funds form the contract.
      */
 	function withdraw( uint256 amount ) public onlyOwner returns(bool) {
-		require(amount <= address(this).balance, "Insufficient funds for witdrawl");
+		require(address(this).balance >= amount, "Insufficient Balance for withdrawl");
 		address(owner_address).transfer(amount);
 		emit Withdrawn(owner_address, amount);
 		return true;
@@ -117,6 +118,14 @@ contract PayFor {
      */
 	function getBalanceContract() public view onlyOwner returns(uint256){
 		return address(this).balance;
+	}
+
+    /**
+     * @return Catch and save funds for abstrc transfer.
+     */
+	function() external payable {
+		require(msg.data.length == 0);
+		emit LogDepositReceived(msg.sender);
 	}
 
 }

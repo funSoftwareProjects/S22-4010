@@ -3,7 +3,7 @@ PP=`pwd`
 FN=Lect-16
 DIR=../../../
 IMG=
-PY=
+PY= PayFor.sol
 
 all: setup all2
 

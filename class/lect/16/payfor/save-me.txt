@@ -1,0 +1,29 @@
+
+		// address address2 = address(1);
+		// address address1 = address(0);
+		// address x = pay.owner();
+		// Assert.equal(x == address1, false, "Should be owner");
+//    function testNewDocument() public {
+//        string memory name = "docName";
+//        bytes32 infoHash = "infohash";
+//        string memory info = "document info";
+//
+//        pay.newDocument(name, infoHash, info);
+//
+//        Assert.equal(pay.nDocuments(), 1, "Should be a single document");
+//        Assert.equal(pay.ownerOfDocument(infoHash), address(this), "Owner should be msg.sender");
+//        Assert.equal(pay.getDocName(0), name, "First and only document should have name that was set");
+//        Assert.equal(pay.getDocInfoHash(0), infoHash, "Should have infoHash that was set");
+//        Assert.equal(pay.getDocInfo(0), info, "Should have info that was set");
+//    }
+//
+//	function testGetPayment() public {
+//		// PayFor doc0 = PayFor(address(this));
+//		PayFor doc0 = PayFor(DeployedAddresses.PayFor());
+//
+//		uint expected = 123;
+//		doc0.setPayment(expected);
+//
+//		Assert.equal(doc0.getPayment(), expected, "Payment should be 123");
+//		doc0.setPayment(0);
+//	}

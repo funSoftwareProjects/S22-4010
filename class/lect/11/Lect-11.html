@@ -1,0 +1,1010 @@
+<style>
+@font-face {
+	font-family: octicons-link;
+	src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.5;
+	color: #24292e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+	color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+	color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+	color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+	color: #24292e;
+}
+
+.markdown-body .pl-ent {
+	color: #22863a;
+}
+
+.markdown-body .pl-k {
+	color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+	color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+	color: #e36209;
+}
+
+.markdown-body .pl-bu {
+	color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+	color: #fafbfc;
+	background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+	color: #fafbfc;
+	background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+	content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+	font-weight: bold;
+	color: #22863a;
+}
+
+.markdown-body .pl-ml {
+	color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+	font-weight: bold;
+	color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+	font-style: italic;
+	color: #24292e;
+}
+
+.markdown-body .pl-mb {
+	font-weight: bold;
+	color: #24292e;
+}
+
+.markdown-body .pl-md {
+	color: #b31d28;
+	background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+	color: #22863a;
+	background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+	color: #e36209;
+	background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+	color: #f6f8fa;
+	background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+	font-weight: bold;
+	color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+	color: #586069;
+}
+
+.markdown-body .pl-sg {
+	color: #959da5;
+}
+
+.markdown-body .pl-corl {
+	text-decoration: underline;
+	color: #032f62;
+}
+
+.markdown-body .octicon {
+	display: inline-block;
+	vertical-align: text-top;
+	fill: currentColor;
+}
+
+.markdown-body a {
+	background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+	outline-width: 0;
+}
+
+.markdown-body strong {
+	font-weight: inherit;
+}
+
+.markdown-body strong {
+	font-weight: bolder;
+}
+
+.markdown-body h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+.markdown-body img {
+	border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+.markdown-body hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+.markdown-body input {
+	font: inherit;
+	margin: 0;
+}
+
+.markdown-body input {
+	overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.markdown-body * {
+	box-sizing: border-box;
+}
+
+.markdown-body input {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.markdown-body a {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.markdown-body a:hover {
+	text-decoration: underline;
+}
+
+.markdown-body strong {
+	font-weight: 600;
+}
+
+.markdown-body hr {
+	height: 0;
+	margin: 15px 0;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body hr::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+	padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body h1 {
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.markdown-body h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.markdown-body h3 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.markdown-body h4 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.markdown-body h5 {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.markdown-body h6 {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.markdown-body p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+	margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+	x-list-style-type: lower-roman;
+	  list-style-type: decimal;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+	list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+	margin-left: 0;
+}
+
+.markdown-body code {
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body .octicon {
+	vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+	padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+	padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+	padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+	padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+	padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+	padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+	padding-left: 40px !important;
+}
+
+.markdown-body::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+	color: inherit;
+	text-decoration: none;
+}
+
+.markdown-body .anchor {
+	float: left;
+	padding-right: 4px;
+	margin-left: -20px;
+	line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 0.25em;
+	padding: 0;
+	margin: 24px 0;
+	background-color: #e1e4e8;
+	border: 0;
+}
+
+.markdown-body blockquote {
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: 0.25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #c6cbd1;
+	border-bottom-color: #959da5;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	color: #1b1f23;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	visibility: visible;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+	font-size: 1.25em;
+}
+
+.markdown-body h4 {
+	font-size: 1em;
+}
+
+.markdown-body h5 {
+	font-size: 0.875em;
+}
+
+.markdown-body h6 {
+	font-size: 0.85em;
+	color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li {
+	word-wrap: break-all;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body li+li {
+	margin-top: 0.25em;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+}
+
+.markdown-body table th {
+	font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f6f8fa;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	box-sizing: content-box;
+	background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+	padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+	padding-right: 20px;
+}
+
+.markdown-body code {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(27,31,35,0.05);
+	border-radius: 3px;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f6f8fa;
+	border-radius: 3px;
+}
+
+.markdown-body pre code {
+	display: inline;
+	max-width: auto;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+	color: #005cc5;
+	border-color: #005cc5;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #d1d5da;
+	border-bottom-color: #c6cbd1;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+	position: relative;
+	z-index: 1;
+	border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+	list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+	margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+	margin: 0 0.2em 0.25em -1.6em;
+	vertical-align: middle;
+}
+
+.markdown-body hr {
+	border-bottom-color: #eee;
+}
+
+</style>
+<style>
+ol {
+    display: block;
+    list-style-type: decimal;
+}
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+
+<div class="markdown-body">
+
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+.markdown-body {
+    font-size: 12px;
+}
+.markdown-body td {
+    font-size: 12px;
+}
+</style>
+
+<style>
+.markdown-body {
+    x-font-size: 14px;
+}
+</style>
+
+<h1>Lecture 11 - Elliptic Curve</h1>
+
+<h2>Feb 11 2022</h2>
+
+<p>Every transaction has to be digitally signed to verify that the author
+of the transaction (the spender) is valid.   Both Bitcoin and Ethereum
+use EC cryptography to do this.  Specifically the ECDSA or Elliptic Curve
+Digital Signature Algorithm to do this.</p>
+
+<p>Let&rsquo;s take a look at how EC works.  This is not a how-to-implement EC,
+this is, &ldquo;lets understand EC enough that we can effectively use EC&rdquo; approach.</p>
+
+<p>Let a = -3 and b = 5 with:</p>
+
+<p><center><img src="formula1.png"></center></p>
+
+<p>We get a graph that looks like</p>
+
+<p><center><img src="p1.png"></center></p>
+
+<p>Note: it is not a function.</p>
+
+<p>Also there are good and bad elliptic curves for this so picking a good one
+is required.</p>
+
+<p>Also this process will require prior agreement between the parties on what
+curve is to be used.  So we have a bunch of standardized curves like
+Curve25519 and P-256 etc.</p>
+
+<p>For our example we have a tiny curve with small values - the real values
+are <code>2**256</code> in size.</p>
+
+<p>We can define addition on this curve with points <code>A</code> and <code>B</code> as, find <code>A</code>, find <code>B</code>,
+draw a line between them - switch sides and this is <code>A + B</code>.</p>
+
+<p><center><img src="p2.png"></center></p>
+
+<p>It is important to node that we do not have any definition of subtraction.
+This will be our &ldquo;trapdoor&rdquo; later in our encryption process.  All of our
+operations are uni-directional.</p>
+
+<p>Given that we have addition we can define multiplication as using repeated
+addition.  We will get a more efficient multiplication later.   Since
+subtraction is not defined, there is no division.</p>
+
+<p>Let&rsquo;s add a new value, &lsquo;C&rsquo;.</p>
+
+<p><center><img src="p3.png"></center></p>
+
+<p>All of this is good until we find that <code>A == B</code>, or we are adding a point
+to itself.   Let&rsquo;s call this point P where we are adding <code>P + P</code>.
+We can&rsquo;t draw a line from <code>P</code> to <code>P</code>, so what we need is the tangent
+line to the point <code>P</code>.</p>
+
+<p>Our original formula is, <code>y**2 = x**3 -3x + 5</code>, so let&rsquo;s take the derivative
+as that gives us the tangent to a curve.   We have to take the derivative on
+both sides, then combine because this is not a function.</p>
+
+<p>So&hellip; that gives us <code>dx/dy y**2 = 2y</code> and <code>dy/dx x**3 -3x + 5 = 3x**2 - 3</code>.
+Now we combine to get a function:  <code>( 3x**2 - 3 ) / 2y</code> and we can calculate
+the slope of our tangent line!</p>
+
+<p>So <code>P + P == 2P</code> looks like:</p>
+
+<p><center><img src="p4.png"></center></p>
+
+<p>It turns out that we will want <code>2P + P == 3P</code> a little later so this
+works out as just doing the <code>P + P = 2P</code> above, then doing a <code>2P + P</code>
+add operation.</p>
+
+<p>The results look like:</p>
+
+<p><center><img src="p5.png"></center></p>
+
+<p>So we can multiply <code>N</code> times <code>P</code> to get <code>NP</code>.</p>
+
+<p>This looks like&hellip;</p>
+
+<p><center><img src="p6.png"></center></p>
+
+<p>After doing this is there any way to determine <code>P</code> from <code>NP</code>.
+Remember that subtraction and division are not defined.  So with
+large values of <code>P</code> and <code>N</code> we have a one way function.</p>
+
+<p><code>NP</code> is our public key - the one we share with the world.
+<code>N</code> is our private key.  Think non-private = <code>NP</code> and
+private = <code>N</code> for Never-Loose-This, but if we have more than one party we will
+make <code>N</code> be <code>M</code> for the 2nd party. (That makes <code>M</code> more-never-loose-this).</p>
+
+<h2>Faster Multiplication.</h2>
+
+<p>If we had to do repeated addition to get multiplication this would be
+<strong>really</strong> slow!   But there is a process.  First you need to remember that
+we store numbers in binary.  Also we have to have some algebra applied.
+We need <code>A + ( B + C ) == ( A + B ) + C</code>.   The proof of this is really
+complex.   If you want to read about its See <a href="EllipticCurvesGroupLaw.pdf">Elliptic Curves Group Law</a>
+in this lecturer&rsquo;s notes.</p>
+
+<p>By knowing this we can determine that <code>P + 3P == 2P + 2P == 4P</code>.</p>
+
+<p>So a binary number, let&rsquo;s say <code>227P</code> is really:</p>
+
+<p><center><img src="227p.png"></center></p>
+
+<p>And that is an representation of a sum that looks like:</p>
+
+<p><center><img src="sum1.png"></center></p>
+
+<p>With the exponents converted:</p>
+
+<p><center><img src="sum2.png"></center></p>
+
+<p>So we can just double and add:</p>
+
+<ol>
+<li>Add P and double P</li>
+<li>Add 2P and double 2P</li>
+<li>Double 4P</li>
+<li>Double 8P</li>
+<li>Double 16P</li>
+<li>Add 32P and double 32P</li>
+<li>Add 64P and double 64P</li>
+<li>Add 128P and double 128P</li>
+</ol>
+
+<p>This makes our <code>P + P</code> derivation above really important because we are doubling and adding
+all the time.</p>
+
+<p>In 8 steps we have multiplied by 227.    This gives us an <code>O(log n)</code> way to multiply and with
+a real size of <code>2**256</code> for our space we know that we can multiply any number in 256 steps.</p>
+
+<h2>Key Exchange.</h2>
+
+<p>Lot&rsquo;s of times we want 2 parties to be able to exchange keys without every transmitting the
+keys to each other.    The keys are values that we can then use in a symmetric encryption
+system, like Aes256.   Aes256 takes a 32 byte key, so a <code>2**256</code> key is just perfect - it is
+32 bytes!</p>
+
+<p>To setup our communication we do this key-exchange, then each side has the key (without ever
+transmitting it) and then they each use Aes256 to encrypt data.  This leaves out a bunch
+of details that are important but is the underlying system with TLS 1.3 that supports <code>https:</code>
+in our browsers.</p>
+
+<p>This process is called Elliptic Curve Diffie-Hellman.</p>
+
+<div class="pagebreak"></div>
+
+<p>Let&rsquo;s start with <code>4 * 3 = 12</code> and <code>3 * 4 = 12</code>.  This relies on our group law.</p>
+
+<p><center><img src="4x3.png"></center></p>
+
+<p>Is the same as:</p>
+
+<p><center><img src="3x4.png"></center></p>
+
+<p>Both parties, <code>A</code> for Alice and <code>B</code> for Bob agree before hand on what the starting point <code>P</code> is
+and what curve they are working on.    So they can share public keys, <code>MP</code> and <code>NP</code>.   Now each
+of them will compute:</p>
+
+<p><code>N * MP</code>:</p>
+
+<p><center><img src="NxMP.png"></center></p>
+
+<p>And <code>M * NP</code>:</p>
+
+<p><center><img src="MxNP.png"></center></p>
+
+<p>Each of these values generates the same result, <code>N * MP == M * NP</code>.   The resulting value is
+secret because Bob keeps <code>N</code> a secret and Alice keeps <code>M</code> a secret.  So without sending values
+they can each derive a key.</p>
+
+<h2>Encrypted Communication</h2>
+
+<p>Once we have the ability to share keys - encrypted communication becomes easy.  Perform
+the key share process.  Then take the shared keys and use Aes256 to encrypt the data.  The
+one thing that you have to do is verity that each side authentic - that the public key <code>MP</code>
+and <code>NP</code> really belong to the people that are using the key.</p>
+
+<p>The web-of-trust that is in <code>https</code> provides this.  Let&rsquo;s Encrypt today provides about <sup>3</sup>&frasl;<sub>4</sub>
+of all the <code>https</code> keys in the world.   To get a key you have to prove that the domain
+you are getting the key for is yours.  Suppose your domain is <code>pschlump.com</code>.   Let&rsquo;s Encrypt has a protocol called ACME.  They
+give you a secret and  (big random number) and you put that into a file on your server
+in a know location, <code>http://pschlump.com/.knownsecrets/acme.txt</code>.  Then Let&rsquo;s Encrypt fetches back the secret - from the domain.
+If it matches then you control the domain and they provide you with a set of Public/Private
+keys for the domain.   When somebody visits the site they ask Let&rsquo;s Encrypt for the hash of the public key for <code>pschlump.com</code> and
+ask <code>https://pschlump.com</code> for it&rsquo;s public key.  They hash the key and compare to the results from Let&rsquo;s Encrypt.  If they match
+then then know that you are using the correct public key.</p>
+
+<h2>All of this can be done on integers!</h2>
+
+<p>All of the graphs so far have been continuous - floating point calculations are inaccurate - and when you encrypt you don&rsquo;t
+want inaccurate results.  So&hellip; We can do all of this on integer only values.   This is what is called a <code>finite field</code>
+in math.</p>
+
+<p>Using the same a = -3 and b = 5 with a modulo number of <code>p = 19</code>
+(this is really icky because we use <code>p</code> lower case to be the modulo
+size and <code>P</code> to be the picked shared staring point.   Careful to
+not mix your <code>P</code>s with you <code>p</code>s.  I often wonder if mathematicians
+know that you can declare a variable with more than 1 letter?  In
+other papers this is referred to as <strong>Order(n)</strong> and this is much
+better.)</p>
+
+<p><center><img src="ff-p1.png"></center></p>
+
+<p>we get a set of points that looks like:</p>
+
+<p><center><img src="ff-p2.png"></center></p>
+
+<p>In this <code>y*2 (mod p)</code> is exactly equal to a new point at <code>x**3 - 3x + 5</code>.  Let&rsquo;s try a calculation:</p>
+
+<p>Given a point <code>(11,7)</code> where <code>x = 11 and y == 7</code>, let&rsquo;s start on the y side with, <code>y**2</code>:</p>
+
+<p><center><img src="y__2.png"></center></p>
+
+<p>and <code>x</code> side with:</p>
+
+<p><center><img src="x_calc.png"></center></p>
+
+<p>Visualizing this gives us:</p>
+
+<p><center><img src="ff-p3.png"></center></p>
+
+<h2>Signatures and Validation</h2>
+
+<p>So&hellip; there are a bunch of uses of EC but the use that we want is to <strong>sign</strong> content to prove that the person holding the private key <code>N</code> is who they claim to be.
+In Bitcoin and Ethereum (and our homework) we are using this to verify transactions - this keeps other people from opening the UTxO&rsquo;s that belong to you.</p>
+
+<p>In our examples <code>p</code> the (Order(n)) size of our examples is 19.  It has to be relatively prime and is a prime number in this case.</p>
+
+<p>Our starting point, <code>P</code> is <code>(11,7)</code>.  In the real Ed25519 signature system (Based on Curve25519) the modulo value is the <code>2**255-19</code> and the base point is</p>
+
+<p>x=15112221349535400772501151409588531511454012693041857206046113283949847762202</p>
+
+<p>y=46316835694926478169428394003475163141307993866256225615783033603165251855960</p>
+
+<p>So big numbers&hellip;</p>
+
+<p>Curve25519 also defines the values that give us the exact curve (the &lsquo;a&rsquo; and &lsquo;b&rsquo; values).</p>
+
+<h3>Signing Algorithm</h3>
+
+<p>Input is our public and private keys.   You have to have the private key to sign, you have to have the
+public key to verify.  The agreement on curve, starting point and order need to be in place to start
+the this.</p>
+
+<p>Output is a pair <code>{r,s}</code> that act as a verifiable signature.  In our special case this is actually <code>{r,s,v}</code>
+where v is a 0, 1 (we will get back to <code>v</code> in a moment)</p>
+
+<ol>
+<li>take the message and calculate the hash of the message.  This is a 32 byte Sha256 or Keccak hash of the message.
+<code>h = hash(msg)</code>.</li>
+<li>Generate securely a random number <code>k</code> in the range <code>[1..n-1]</code>.  The value must be from 1 to <code>2**256</code> in our case.  So a 32 byte random value.</li>
+<li>Calculate the random point <code>R = k * P</code> and take its x-coordinate: <code>r = R.x</code></li>
+<li>Calculate the signature proof: <img style="inline:block;" src="proof1.png"></li>
+<li>Return the <code>signature {r, s}</code>.</li>
+</ol>
+
+<h2>Verification Algorithm</h2>
+
+<p>The algorithm to verify a ECDSA signature takes as input the signed message msg + the signature {r, s} produced from the signing algorithm + the public key pubKey, corresponding to the signer&rsquo;s private key. The output is boolean value: valid or invalid signature. The ECDSA signature verify algorithm works as follows (with minor simplifications):</p>
+
+<ol>
+<li>Calculate the message hash, with the same cryptographic hash function used during the signing: <code>h = hash(msg)</code>.   This can also be achieved by passing both the message, the hash and then re-hashing the message and comparing the generated hash with the passed hash.   We will do it this way.</li>
+<li>Calculate the modular inverse of the signature proof: <img style="inline:block;" src="s1.png"></li>
+<li>Recover the random point used during the signing: <code>R' = (h * s1) * G + (r * s1) * pubKey</code></li>
+<li>Take from <code>R'</code> its x-coordinate: <code>r' = R'.x</code></li>
+<li>Calculate the signature validation result by comparing whether <code>r' == r</code></li>
+</ol>
+
+<p>The idea behind signature verification is to recover the point <code>R'</code> using the public key and check whether it is same point <code>R</code>, generated randomly when the message was signed.</p>
+
+<p>This scheme allows for the recovery of the public key from the signature and the message.  This means that a receiver of a signed message will not need to keep a huge table
+of all public keys around.  The disadvantage is that you have to check the recovered key is the correct public key for the account.  In our system (and Ethereum) are accounts
+are the first 24 bytes of the 32 byte public key.  So when we recover the public key we chop it to 24 bytes and compare it to the account number.</p>
+
+<p>Also when we recover a public key we can get 4 different answers.  This is what the <code>v</code> value is used for.</p>
+
+</div>
+

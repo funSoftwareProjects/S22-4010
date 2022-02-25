@@ -1,0 +1,47 @@
+lenght = 2
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+lenght = 1
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+lenght = 2
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+Top of inner loop: i=2
+Bot of inner loop: i=4, after += 2
+lenght = 1
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+lenght = 3
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+Top of inner loop: i=2
+Bot of inner loop: i=4, after += 2
+lenght = 1
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+lenght = 3
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+Top of inner loop: i=2
+Bot of inner loop: i=4, after += 2
+lenght = 1
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+lenght = 3
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+Top of inner loop: i=2
+Bot of inner loop: i=4, after += 2
+Top of inner loop: i=4
+Bot of inner loop: i=6, after += 2
+lenght = 1
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+Top of inner loop: i=2
+Bot of inner loop: i=4, after += 2
+lenght = 1
+Top of inner loop: i=0
+Bot of inner loop: i=2, after += 2
+PASS
+ok  	github.com/Univ-Wyo-Education/Blockchain-4010-Fall-2018/Assignments/A-05/bsvr/merkle	0.010s

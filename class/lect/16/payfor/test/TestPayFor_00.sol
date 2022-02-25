@@ -10,6 +10,7 @@ contract TestPayFor_00 {
 
 	function testHasCorrectOwner() public {
 		Assert.equal(pay.isOwner(), true, "isOwner should return true");
+		Assert.equal(pay.getNPayments(), 0, "no payments yet");
 	}
 
 }

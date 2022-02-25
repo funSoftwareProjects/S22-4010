@@ -21,6 +21,7 @@ contract PayFor {
 
 	paymentsStruct[] private paymentsFor;
     mapping (uint256 => productPriceStruct) internal productMinPrice;
+    uint256[] private listOfSKU;
 
 	constructor() public {
         owner_address = msg.sender;
@@ -51,9 +52,10 @@ contract PayFor {
     /**
      * @dev set the minimum price for a product.  Emit SetProductPrice when a price is set.
      */
-	function setProductPrice(uint256 productNumber, uint256 minPrice) public onlyOwner {
-		productMinPrice[productNumber] = productPriceStruct ( minPrice, true );
-		emit SetProductPrice ( productNumber, minPrice );
+	function setProductPrice(uint256 SKU, uint256 minPrice) public onlyOwner {
+		productMinPrice[SKU] = productPriceStruct ( minPrice, true );
+		listOfSKU.push(SKU);
+		emit SetProductPrice ( SKU, minPrice );
 	}
 
     /**
@@ -85,6 +87,22 @@ contract PayFor {
 	function getPaymentInfo(uint256 n) public onlyOwner view returns(address, uint256, uint256) {
 		require(n >= 0 && n < paymentsFor.length, 'Invalid entry');
 		return ( paymentsFor[n].listOfPayedBy, paymentsFor[n].listOfPayments, paymentsFor[n].payFor );
+	}
+	
+    /**
+     * @return the number of Products (SKUs).
+     */
+	function getNSKU() public view returns(uint256) {
+		return ( listOfSKU.length );
+	}
+
+    /**
+     * @return the price for the nth SKU and its product number.
+     */
+	function getSKUInfo(uint256 n) public view returns(uint256, uint256) {
+		require(n >= 0 && n < listOfSKU.length, 'Invalid entry');
+		uint256 sku = listOfSKU[n];
+		return ( sku, productMinPrice[sku].price );
 	}
 	
     /**

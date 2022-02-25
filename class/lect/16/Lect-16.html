@@ -723,7 +723,63 @@ ol {
 }
 </style>
 
-<h1>Lecture 15 - Solidity - Creating a 1st contract</h1>
+<h1>Lecture 15 - Creating a 1st contract</h1>
+
+<h2>Setting up a new project</h2>
+
+<pre><code>$ mkdir payfor2
+$ cd payfor2
+$ truffle init 
+</code></pre>
+
+<p>Scaffold commands to start with</p>
+
+<pre><code>$ truffle create contract PayFor 
+$ truffle create test PayFor    
+</code></pre>
+
+<p>You can now build the empty contract and test it.</p>
+
+<p>In a 2nd window start ganache-cli</p>
+
+<pre><code>$ ganache-cli
+</code></pre>
+
+<p>Edit truffle-config.js - to connect to ganache.  Around line 74</p>
+
+<pre><code>74:    development: {
+75:      host: &quot;127.0.0.1&quot;, 
+76:      port: 8545,       
+77:      network_id: &quot;*&quot;, 
+78:    },
+</code></pre>
+
+<p>add a &ldquo;migration&rdquo; file in the ./migrations/ directory
+create <code>2_initial_migrations.js</code> with:</p>
+
+<pre><code>const PayFor = artifacts.require(&quot;PayFor&quot;);
+
+module.exports = function(deployer) {
+  deployer.deploy(PayFor);
+};
+</code></pre>
+
+<p>Now Compile and load the contract:</p>
+
+<pre><code>$ truffle comile
+$ truffle migrate
+</code></pre>
+
+<p>Save the output from the migrate - it is important!</p>
+
+<p>and&hellip; Run the empty test</p>
+
+<pre><code>$ truffle test
+</code></pre>
+
+<p>It procures a cute output:</p>
+
+<p><img src="output-test.png" alt="output-test.png" /></p>
 
 </div>
 

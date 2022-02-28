@@ -7,10 +7,15 @@ const PayFor = artifacts.require("PayFor");
 contract("PayFor", function (accounts) {
 	let payfor;
 
+	let account0 = accounts[0];
+	let account1 = accounts[1];
+	let account2 = accounts[2];
+
 	beforeEach(async () => {
 		payfor = await PayFor.new();
 	});
 
+	// This tests that the owner is the one calling and that you can create products and price them.
 	it("should be able to create a product SKU #8 and #10, selling for 2 and 4 WEI", async function() {
 		// await payfor.setProductPrice( 8, 2 );
 		let ok = await payfor.setProductPrice( 8, 2 ).then((result) => {
@@ -32,6 +37,14 @@ contract("PayFor", function (accounts) {
 		assert.equal(ok, true, "Expected to create SKU #8.");
 		await payfor.setProductPrice( 10, 4 );
 		assert.equal(await payfor.getNSKU(), 2, "Expected to have 2 products setup.");
+
+		// function receiveFunds(uint256 forProduct) public payable returns(bool) {
+		await payfor.receiveFunds(10, { from: account2, value: 4});
+		// function getNPayments() public onlyOwner view returns(uint256) {
+		assert.equal(await payfor.getNPayments(), 1, "Expected to have 1 paymnet.");
+
+	// function getPaymentInfo(uint256 n) public onlyOwner view returns(address, uint256, uint256) {
+
 		return assert.isTrue(true);
 	});
 	//it("should be have 2 products setup", async function() {

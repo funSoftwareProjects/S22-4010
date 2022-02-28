@@ -96,4 +96,7 @@ m4_include(payfor4/contracts/PayFor.sol.nu)
 
 
 
+m4_comment([[[
 
+https://michalzalecki.com/ethereum-test-driven-introduction-to-solidity-part-2/
+]]])

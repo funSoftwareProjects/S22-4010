@@ -83,32 +83,33 @@
  83:      * @return the address that payeed with the payment amount and what was payed for.
  84:      */
  85:     function getPaymentInfo(uint256 n) public onlyOwner view returns(address, uint256, uint256) {
- 86:         return ( paymentsFor[n].listOfPayedBy, paymentsFor[n].listOfPayments, paymentsFor[n].payFor );
- 87:     }
- 88:     
- 89:     /**
- 90:      * @dev widthdraw funds form the contract.
- 91:      */
- 92:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
- 93:         require(address(this).balance >= amount, "Insufficient Balance for withdrawl");
- 94:         address(owner_address).transfer(amount);
- 95:         emit Withdrawn(owner_address, amount);
- 96:         return true;
- 97:     }
- 98: 
- 99:     /**
-100:      * @return the amount of funds that can be withdrawn.
-101:      */
-102:     function getBalanceContract() public view onlyOwner returns(uint256){
-103:         return address(this).balance;
-104:     }
-105: 
-106:     /**
-107:      * @return Catch and save funds for abstrc transfer.
-108:      */
-109:     function() external payable {
-110:         require(msg.data.length == 0);
-111:         emit LogDepositReceived(msg.sender);
-112:     }
-113: 
-114: }
+ 86:         require(n >= 0 && n < paymentsFor.length, 'Invalid entry');
+ 87:         return ( paymentsFor[n].listOfPayedBy, paymentsFor[n].listOfPayments, paymentsFor[n].payFor );
+ 88:     }
+ 89:     
+ 90:     /**
+ 91:      * @dev widthdraw funds form the contract.
+ 92:      */
+ 93:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
+ 94:         require(address(this).balance >= amount, "Insufficient Balance for withdrawl");
+ 95:         address(owner_address).transfer(amount);
+ 96:         emit Withdrawn(owner_address, amount);
+ 97:         return true;
+ 98:     }
+ 99: 
+100:     /**
+101:      * @return the amount of funds that can be withdrawn.
+102:      */
+103:     function getBalanceContract() public view onlyOwner returns(uint256){
+104:         return address(this).balance;
+105:     }
+106: 
+107:     /**
+108:      * @return Catch and save funds for abstrc transfer.
+109:      */
+110:     function() external payable {
+111:         require(msg.data.length == 0);
+112:         emit LogDepositReceived(msg.sender);
+113:     }
+114: 
+115: }

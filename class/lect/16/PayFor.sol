@@ -83,6 +83,7 @@ contract PayFor {
      * @return the address that payeed with the payment amount and what was payed for.
      */
 	function getPaymentInfo(uint256 n) public onlyOwner view returns(address, uint256, uint256) {
+		require(n >= 0 && n < paymentsFor.length, 'Invalid entry');
 		return ( paymentsFor[n].listOfPayedBy, paymentsFor[n].listOfPayments, paymentsFor[n].payFor );
 	}
 	

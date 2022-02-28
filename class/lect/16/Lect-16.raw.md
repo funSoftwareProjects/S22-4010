@@ -1,7 +1,7 @@
 
 m4_include(../../../setup.m4)
 
-Lecture 15 - Creating a 1st contract
+Lecture 16 - Creating a 1st contract
 ==
 
 ## Setting up a new project

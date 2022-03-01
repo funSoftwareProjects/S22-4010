@@ -113,7 +113,7 @@ func (cc *CLI) ValidateSignature(addrStr, signature, msg string) (isValid bool, 
 		fmt.Printf("%sAT: %s - failed to convert from >%s< to address%s\n", MiscLib.ColorYellow, godebug.LF(), addrStr, MiscLib.ColorReset)
 		return false, err
 	}
-	if !lib.ValidSignature(lib.SignatureType(signature), msg, addr) { // Assignment 5 implements, just true for now.
+	if true { //!lib.ValidSignature(lib.SignatureType(signature), msg, addr) { // Assignment 5 implements, just true for now.
 		fmt.Printf("%sAT: %s - signature not valid sig >%s< msg >%s<- addr %x to address%s\n", MiscLib.ColorRed, godebug.LF(), signature, msg, addr, MiscLib.ColorReset)
 		// return nil, fmt.Errorf("Signature not valid")
 		return false, err

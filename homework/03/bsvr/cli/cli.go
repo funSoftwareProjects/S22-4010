@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -199,10 +200,12 @@ func (cc *CLI) SendFundsTransaction(
 	fmt.Printf("ATAT: %s\n", godebug.LF())
 
 	//	if isValid, err := cc.InstructorValidateSignature(from, sig, message); !isValid { // addr, sig, msg string) (isValid bool, err error) {
-	if !lib.ValidSignature(sig, message, from) { // Assignment 5 implements, just true for now.
-		// return nil, fmt.Errorf("Signature not valid")
-		return nil, err
-	}
+	/*
+			if !lib.ValidSignature(sig, message, from) { // Assignment 5 implements, just true for now.
+			// return nil, fmt.Errorf("Signature not valid")
+			return nil, err
+		}
+	*/
 
 	// fmt.Printf("ATAT: %s\n", godebug.LF())
 
@@ -215,11 +218,17 @@ func (cc *CLI) SendFundsTransaction(
 	// Pseudo Code:
 	// 1. Calcualte the total value of the account 'from'.  Call this 'tot'.
 	//    You can do this by calling `cc.GetTotalValueForAccount(from)`.
+	tot := cc.GetTotalValueForAccount(from)
 	// 2. If the total, `tot` is less than the amount that is to be transfered,
 	//	  `amount` then fail.  Return an error "Insufficient funds".  The person
 	//    is trying to bounce a check.
+	if tot < amount {
+		return nil, errors.New("Insufficient funds")
+	}
 	// 3. Get the list of output tranactions ( ../transactions/tx.go TxOutputType ).
 	//    Call this 'oldOutputs'.
+	SerializeTransactionOutput()
+	oldOutputs := 
 	// 4. Find the set of (may be empty - check for that) values that are pointed
 	//    to in the index - from the 'from' account.  Delete this from the
 	//    index.

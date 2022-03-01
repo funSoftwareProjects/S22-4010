@@ -1,0 +1,26 @@
+pschlump=# SELECT
+pschlump-#   i.invoice_id,
+pschlump-#   il.line_no,
+pschlump-#   SUM(i.tax) OVER(PARTITION BY i.invoice_id) AS sum_tax,
+pschlump-#   AVG(i.tax) OVER(PARTITION BY i.invoice_id) AS avg_tax,
+pschlump-#   zip_code
+pschlump-# FROM invoice AS  i
+pschlump-# JOIN invoice_line AS il
+pschlump-# ON i.invoice_id = il.invoice_id
+pschlump-# JOIN address AS ad
+pschlump-# ON ad.invoice_id = i.invoice_id
+pschlump-# GROUP BY i.invoice_id, il.line_no, i.tax, zip_code
+pschlump-# ORDER BY i.invoice_id, il.line_no ASC;
+              invoice_id              | line_no | sum_tax |      avg_tax       | zip_code 
+--------------------------------------+---------+---------+--------------------+----------
+ 04bb1113-953c-4605-a9ae-124778f11be3 |       1 |  2.5200 | 2.5200000000000000 | 82071
+ 74b5badf-51e0-4df5-98f9-a7b71e18e21d |       1 |  2.5200 | 2.5200000000000000 | 82071
+ 7d2b09d3-425d-4155-964a-d37b4bb7f67f |       1 | 18.9000 | 6.3000000000000000 | 82071
+ 7d2b09d3-425d-4155-964a-d37b4bb7f67f |       2 | 18.9000 | 6.3000000000000000 | 82071
+ 7d2b09d3-425d-4155-964a-d37b4bb7f67f |       3 | 18.9000 | 6.3000000000000000 | 82071
+ af59d464-e36e-4860-a1fb-65198212812f |       1 | 18.9000 | 6.3000000000000000 | 82071
+ af59d464-e36e-4860-a1fb-65198212812f |       2 | 18.9000 | 6.3000000000000000 | 82071
+ af59d464-e36e-4860-a1fb-65198212812f |       3 | 18.9000 | 6.3000000000000000 | 82071
+(8 rows)
+
+

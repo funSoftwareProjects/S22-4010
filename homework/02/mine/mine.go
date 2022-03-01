@@ -4,6 +4,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
+	"github.com/Univ-Wyo-Education/S22-4010/homework/02/block"
 	block "github.com/Univ-Wyo-Education/S22-4010/homework/02/block"
 	"github.com/Univ-Wyo-Education/S22-4010/homework/02/hash"
 )
@@ -25,6 +26,30 @@ import (
 // Difficulty can be increaesed by requiring more digits to be 0 or by
 // requring some other pattern to apear in the resulting hash.
 func MineBlock(bk *block.BlockType, difficulty string) {
+
+	for {
+		//1 Serialize data from block for hashing
+		serializedBlock := block.SerializeForSeal(bk)
+
+		//2 Calculate hash of data
+		var myHash []byte
+		myHash = hash.HashOf(serializedBlock)
+
+		//3 Convert hash to string
+		theHashAsAString := hex.EncodeToString(myHash)
+
+		//4 Print status
+		fmt.Printf("((Mining)) Hash for Block [%s] nonce [%8d]\r", theHashAsAString, bk.Nonce)
+
+		//5 Check difficulty
+		if theHashAsAString[0:3] == difficulty {
+			bk.Seal = myHash
+			fmt.Printf("((Mining)) Hash for Block [%s] nonce [%8d]\n", theHashAsAString, bk.Nonce)
+			return
+		}
+		bk.Nonce++
+
+	}
 	// Pseudo-Code:
 	//
 	// 1. Use an infinite loop to:

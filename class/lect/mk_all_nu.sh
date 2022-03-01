@@ -50,6 +50,16 @@ if ls */*.sol >/dev/null 2>&1 ; then
 		cd $XXX
 	done
 fi
+if ls */*/*.sol >/dev/null 2>&1 ; then
+	XXX=$(pwd)
+	for i in $( find . -name "*.sol") ; do
+		DN=$(dirname $i)
+		BN=$(basename $i)
+		cd $DN
+		mk_nu $BN
+		cd $XXX
+	done
+fi
 
 
 

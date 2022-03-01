@@ -1,16 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract PayFor {
+contract PayForOrig {
 
 	struct productPriceStruct {
 		uint256 price;
 		bool isValue;
-	}
-	struct paymentsStruct {
-		address listOfPayedBy;
-		uint256 listOfPayments;
-		uint256 payFor;
 	}
 
     address payable owner_address;
@@ -19,12 +14,20 @@ contract PayFor {
 	event SetProductPrice ( uint256 product, uint256 minPrice );
 	event LogDepositReceived(address sender);
 
-	paymentsStruct[] private paymentsFor;
+    uint256 internal nPayments;
+    uint256 internal paymentID;
+
+    address[] private listOfPayedBy;
+    uint256[] private listOfPayments;
+    uint256[] private payFor;
+
     mapping (uint256 => productPriceStruct) internal productMinPrice;
-    uint256[] private listOfSKU;
+
+    mapping (address => uint256) internal totalByAccount;
 
 	constructor() public {
         owner_address = msg.sender;
+    	nPayments = 0;
 	}
 
     /**
@@ -52,10 +55,9 @@ contract PayFor {
     /**
      * @dev set the minimum price for a product.  Emit SetProductPrice when a price is set.
      */
-	function setProductPrice(uint256 SKU, uint256 minPrice) public onlyOwner {
-		productMinPrice[SKU] = productPriceStruct ( minPrice, true );
-		listOfSKU.push(SKU);
-		emit SetProductPrice ( SKU, minPrice );
+	function setProductPrice(uint256 productNumber, uint256 minPrice) public onlyOwner {
+		productMinPrice[productNumber] = productPriceStruct ( minPrice, true );
+		emit SetProductPrice ( productNumber, minPrice );
 	}
 
     /**
@@ -68,41 +70,37 @@ contract PayFor {
 		require(productMinPrice[forProduct].price <= msg.value, 'Insufficient funds for product');
 
 		uint256 pos;
-		pos = paymentsFor.length;
-		paymentsFor.push ( paymentsStruct ( msg.sender, msg.value, forProduct ) );
+		uint256 tot;
+		nPayments++;
+		pos = listOfPayments.length;
+    	listOfPayedBy.push(msg.sender);
+    	listOfPayments.push(msg.value);
+    	payFor.push(forProduct);
+		tot = totalByAccount[msg.sender];
+		totalByAccount[msg.sender] = tot + msg.value;
     	emit ReceivedFunds(msg.sender, msg.value, forProduct, pos);
 		return true;
 	}
 
     /**
+     * @return the total that has been payed by an account.
+     */
+	function getNPayments(address lookUp) public onlyOwner view returns(uint256) {
+		return ( totalByAccount[lookUp] );
+	}
+
+    /**
      * @return the number of paymetns.
      */
-	function getNPayments() public onlyOwner view returns(uint256) {
-		return ( paymentsFor.length );
+	function getNPayments() public onlyOwner payable returns(uint256) {
+		return ( nPayments );
 	}
 
     /**
      * @return the address that payeed with the payment amount and what was payed for.
      */
-	function getPaymentInfo(uint256 n) public onlyOwner view returns(address, uint256, uint256) {
-		require(n >= 0 && n < paymentsFor.length, 'Invalid entry');
-		return ( paymentsFor[n].listOfPayedBy, paymentsFor[n].listOfPayments, paymentsFor[n].payFor );
-	}
-	
-    /**
-     * @return the number of Products (SKUs).
-     */
-	function getNSKU() public view returns(uint256) {
-		return ( listOfSKU.length );
-	}
-
-    /**
-     * @return the price for the nth SKU and its product number.
-     */
-	function getSKUInfo(uint256 n) public view returns(uint256, uint256) {
-		require(n >= 0 && n < listOfSKU.length, 'Invalid entry');
-		uint256 sku = listOfSKU[n];
-		return ( sku, productMinPrice[sku].price );
+	function getPaymentInfo(uint256 n) public onlyOwner payable returns(address, uint256, uint256) {
+		return ( listOfPayedBy[n], listOfPayments[n], payFor[n] );
 	}
 	
     /**

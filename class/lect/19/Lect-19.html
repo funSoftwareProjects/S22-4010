@@ -769,7 +769,7 @@ ol {
  40:         return ( minPayment );
  41:     }
  42: 
- 43:     // ----------------------------------------------------------------------------------------------------------------------
+ 43:     // -----------------------------------------------------------------------------------------------------------
  44: 
  45:     /**
  46:      * @dev Update an existing set of data if the data was created with permissions to be updated.
@@ -796,84 +796,87 @@ ol {
  67:     /**
  68:      * @dev Create a new hash and save it's relevant data.  Check that this is a new set of data.
  69:      */
- 70:     function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
- 71:         if ( _name == 0 ) {
- 72:             revert(&quot;Invalid _name with value of 0&quot;);
- 73:         }
- 74:         if ( _app == 0 ) {
- 75:             revert(&quot;Invalid _app with value of 0&quot;);
- 76:         }
- 77:         if ( msg.sender == address(0) ) {
- 78:             revert(&quot;Invalid msg sender&quot;);
- 79:         }
- 80:         bool ex = dExists[_app][_name];
- 81:         if ( ex ) {
- 82:             revert(&quot;Data already exists for this app and name.&quot;);
- 83:         }
- 84:         dOowner[_app][_name] = msg.sender;
- 85:         dData[_app][_name] = _data;
- 86:         dMayChange[_app][_name] = _mayChange;
- 87:         dWhen[_app][_name] = now;
- 88:         dExists[_app][_name] = true;
- 89:         emit DataChange(_app, _name, _data, msg.sender);
- 90:         emit ReceivedFunds(msg.sender, msg.value, _app, _name);
- 91:     }
- 92: 
- 93:     /**
- 94:      * @dev return the data by looking up _app and _name in dData.  Return both the hash and the date when it was stored..
- 95:      *      Return 0's if no data exits.
- 96:      */
- 97:     function getHash ( uint256 _app, uint256 _name ) public view returns ( bytes32, uint256 ) {
- 98:         bool ex = dExists[_app][_name];
- 99:         if ( !ex ) {
-100:             return ( 0, 0 );
-101:         }
-102:         return ( dData[_app][_name], dWhen[_app][_name] );
-103:     }
-104: 
-105:     // ----------------------------------------------------------------------------------------------------------------------
-106: 
-107:     /**
-108:      * @dev payable fallback
-109:      */
-110:     function () external payable {
-111:         emit ReceivedFunds(msg.sender, msg.value, 0, 1);
-112:     }
-113: 
-114:     /**
-115:      * @dev genReceiveFunds - generate a receive funds event.
-116:      */
-117:     function genReceivedFunds ( uint256 application, uint256 payFor ) public payable {
-118:         emit ReceivedFunds(msg.sender, msg.value, application, payFor);
-119:     }
-120: 
-121:     /**
-122:      * @dev Withdraw contract value amount.
-123:      */
-124:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
-125:         address(owner_address).transfer(amount);
-126:         // owner_address.send(amount);
-127:         emit Withdrawn(owner_address, amount);
-128:         return true;
-129:     }
-130: 
-131:     /**
-132:      * @dev How much do I got?
-133:      */
-134:     function getBalanceContract() public view onlyOwner returns(uint256){
-135:         return address(this).balance;
-136:     }
-137: 
-138:     /**
-139:      * @dev For futute to end the contract, take the value.
-140:      */
-141:     function kill() public onlyOwner {
-142:         emit Withdrawn(owner_address, address(this).balance);
-143:         selfdestruct(owner_address);
-144:     }
-145: }
+ 70:     function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange )
+ 71:         public needMinPayment payable {
+ 72:         if ( _name == 0 ) {
+ 73:             revert(&quot;Invalid _name with value of 0&quot;);
+ 74:         }
+ 75:         if ( _app == 0 ) {
+ 76:             revert(&quot;Invalid _app with value of 0&quot;);
+ 77:         }
+ 78:         if ( msg.sender == address(0) ) {
+ 79:             revert(&quot;Invalid msg sender&quot;);
+ 80:         }
+ 81:         bool ex = dExists[_app][_name];
+ 82:         if ( ex ) {
+ 83:             revert(&quot;Data already exists for this app and name.&quot;);
+ 84:         }
+ 85:         dOowner[_app][_name] = msg.sender;
+ 86:         dData[_app][_name] = _data;
+ 87:         dMayChange[_app][_name] = _mayChange;
+ 88:         dWhen[_app][_name] = now;
+ 89:         dExists[_app][_name] = true;
+ 90:         emit DataChange(_app, _name, _data, msg.sender);
+ 91:         emit ReceivedFunds(msg.sender, msg.value, _app, _name);
+ 92:     }
+ 93: 
+ 94:     /**
+ 95:      * @dev return the data by looking up _app and _name in dData.  Return both the hash and the date when
+ 96:      *      it was stored..  Return 0's if no data exits.
+ 97:      */
+ 98:     function getHash ( uint256 _app, uint256 _name ) public view returns ( bytes32, uint256 ) {
+ 99:         bool ex = dExists[_app][_name];
+100:         if ( !ex ) {
+101:             return ( 0, 0 );
+102:         }
+103:         return ( dData[_app][_name], dWhen[_app][_name] );
+104:     }
+105: 
+106:     // -------------------------------------------------------------------------------------------------------
+107: 
+108:     /**
+109:      * @dev payable fallback
+110:      */
+111:     function () external payable {
+112:         emit ReceivedFunds(msg.sender, msg.value, 0, 1);
+113:     }
+114: 
+115:     /**
+116:      * @dev genReceiveFunds - generate a receive funds event.
+117:      */
+118:     function genReceivedFunds ( uint256 application, uint256 payFor ) public payable {
+119:         emit ReceivedFunds(msg.sender, msg.value, application, payFor);
+120:     }
+121: 
+122:     /**
+123:      * @dev Withdraw contract value amount.
+124:      */
+125:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
+126:         address(owner_address).transfer(amount);
+127:         // owner_address.send(amount);
+128:         emit Withdrawn(owner_address, amount);
+129:         return true;
+130:     }
+131: 
+132:     /**
+133:      * @dev How much do I got?
+134:      */
+135:     function getBalanceContract() public view onlyOwner returns(uint256){
+136:         return address(this).balance;
+137:     }
+138: 
+139:     /**
+140:      * @dev For futute to end the contract, take the value.
+141:      */
+142:     function kill() public onlyOwner {
+143:         emit Withdrawn(owner_address, address(this).balance);
+144:         selfdestruct(owner_address);
+145:     }
+146: }
 
 </code></pre>
+
+<div class="pagebreak"></div>
 
 <p>and the test</p>
 
@@ -891,43 +894,47 @@ ol {
  12:         let amount = 1000;
  13:         var ok = true;
  14: 
- 15:         //function createSignature ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
- 16:         var tx = await sd.createHash( 10, 4, &quot;0x0213e3852b8afeb08929a0f448f2f693b0fc3ebe&quot;, true, {&quot;value&quot;:amount} );
- 17:         // console.log ( tx );
- 18: 
- 19:         // function setData ( uint256 _app, uint256 _name, bytes32 _data ) public needMinPayment payable {
- 20:         tx = await sd.setHash( 10, 4, &quot;0x11111111111afeb08929a0f448f2f693b0fc3ebe&quot;, {&quot;value&quot;:amount} );
- 21:         // console.log ( &quot;tx after setHash&quot;, tx );
- 22: 
- 23:         var x, hh, ww;
- 24:         x = await sd.getHash ( 10, 4 );
- 25:         hh = x[0];
- 26:         ww = x[1].toNumber();
- 27: 
- 28: 
- 29:         // console.log ( x, &quot;hh=&quot;, hh, &quot;ww=&quot;, ww );
- 30:         let expect = &quot;0x11111111111afeb08929a0f448f2f693b0fc3ebe000000000000000000000000&quot;;
- 31:         assert.equal(hh, expect, &quot;Invalid stored hash&quot;);
- 32:         if ( hh != expect ) {
- 33:             ok = false;
- 34:         }
- 35: 
- 36:         var today = new Date();
- 37:         var sDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
- 38: 
- 39:         var timestamp = ww * 1000;    // Convert from number of seconds (Eth) since 1970 to mili-seconds
- 40:         var date = new Date(timestamp);
- 41:         // console.log(date.getDate())
- 42:         // console.log(date, sDate) // 2022-03-04T14:40:57.000Z
- 43:         var gDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
- 44:         assert.equal(sDate,gDate, &quot;Invalid date for this hash.&quot;);
- 45:         if ( sDate != gDate ) {
- 46:             ok = false;
- 47:         }
- 48: 
- 49:         return assert.isTrue(ok);
- 50:     });
- 51: });
+ 15:         //function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public 
+ 16:         // needMinPayment payable {
+ 17:         var tx = await sd.createHash( 10, 4, &quot;0x0213e3852b8afeb08929a0f448f2f693b0fc3ebe&quot;, true,
+ 18:             {&quot;value&quot;:amount} );
+ 19:         // console.log ( tx );
+ 20: 
+ 21:         // function setData ( uint256 _app, uint256 _name, bytes32 _data ) public needMinPayment
+ 22:         // payable {
+ 23:         tx = await sd.setHash( 10, 4, &quot;0x11111111111afeb08929a0f448f2f693b0fc3ebe&quot;,
+ 24:             {&quot;value&quot;:amount} );
+ 25:         // console.log ( &quot;tx after setHash&quot;, tx );
+ 26: 
+ 27:         var x, hh, ww;
+ 28:         x = await sd.getHash ( 10, 4 );
+ 29:         hh = x[0];
+ 30:         ww = x[1].toNumber();
+ 31: 
+ 32: 
+ 33:         // console.log ( x, &quot;hh=&quot;, hh, &quot;ww=&quot;, ww );
+ 34:         let expect = &quot;0x11111111111afeb08929a0f448f2f693b0fc3ebe000000000000000000000000&quot;;
+ 35:         assert.equal(hh, expect, &quot;Invalid stored hash&quot;);
+ 36:         if ( hh != expect ) {
+ 37:             ok = false;
+ 38:         }
+ 39: 
+ 40:         var today = new Date();
+ 41:         var sDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+ 42: 
+ 43:         var timestamp = ww * 1000;    // Convert from number of seconds (Eth) since 1970 to mili-seconds
+ 44:         var date = new Date(timestamp);
+ 45:         // console.log(date.getDate())
+ 46:         // console.log(date, sDate) // 2022-03-04T14:40:57.000Z
+ 47:         var gDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+ 48:         assert.equal(sDate,gDate, &quot;Invalid date for this hash.&quot;);
+ 49:         if ( sDate != gDate ) {
+ 50:             ok = false;
+ 51:         }
+ 52: 
+ 53:         return assert.isTrue(ok);
+ 54:     });
+ 55: });
 
 </code></pre>
 

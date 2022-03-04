@@ -40,7 +40,7 @@
  40:         return ( minPayment );
  41:     }
  42: 
- 43:     // ----------------------------------------------------------------------------------------------------------------------
+ 43:     // -----------------------------------------------------------------------------------------------------------
  44: 
  45:     /**
  46:      * @dev Update an existing set of data if the data was created with permissions to be updated.
@@ -67,79 +67,80 @@
  67:     /**
  68:      * @dev Create a new hash and save it's relevant data.  Check that this is a new set of data.
  69:      */
- 70:     function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
- 71:         if ( _name == 0 ) {
- 72:             revert("Invalid _name with value of 0");
- 73:         }
- 74:         if ( _app == 0 ) {
- 75:             revert("Invalid _app with value of 0");
- 76:         }
- 77:         if ( msg.sender == address(0) ) {
- 78:             revert("Invalid msg sender");
- 79:         }
- 80:         bool ex = dExists[_app][_name];
- 81:         if ( ex ) {
- 82:             revert("Data already exists for this app and name.");
- 83:         }
- 84:         dOowner[_app][_name] = msg.sender;
- 85:         dData[_app][_name] = _data;
- 86:         dMayChange[_app][_name] = _mayChange;
- 87:         dWhen[_app][_name] = now;
- 88:         dExists[_app][_name] = true;
- 89:         emit DataChange(_app, _name, _data, msg.sender);
- 90:         emit ReceivedFunds(msg.sender, msg.value, _app, _name);
- 91:     }
- 92: 
- 93:     /**
- 94:      * @dev return the data by looking up _app and _name in dData.  Return both the hash and the date when it was stored..
- 95:      *      Return 0's if no data exits.
- 96:      */
- 97:     function getHash ( uint256 _app, uint256 _name ) public view returns ( bytes32, uint256 ) {
- 98:         bool ex = dExists[_app][_name];
- 99:         if ( !ex ) {
-100:             return ( 0, 0 );
-101:         }
-102:         return ( dData[_app][_name], dWhen[_app][_name] );
-103:     }
-104: 
-105:     // ----------------------------------------------------------------------------------------------------------------------
-106: 
-107:     /**
-108:      * @dev payable fallback
-109:      */
-110:     function () external payable {
-111:         emit ReceivedFunds(msg.sender, msg.value, 0, 1);
-112:     }
-113: 
-114:     /**
-115:      * @dev genReceiveFunds - generate a receive funds event.
-116:      */
-117:     function genReceivedFunds ( uint256 application, uint256 payFor ) public payable {
-118:         emit ReceivedFunds(msg.sender, msg.value, application, payFor);
-119:     }
-120: 
-121:     /**
-122:      * @dev Withdraw contract value amount.
-123:      */
-124:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
-125:         address(owner_address).transfer(amount);
-126:         // owner_address.send(amount);
-127:         emit Withdrawn(owner_address, amount);
-128:         return true;
-129:     }
-130: 
-131:     /**
-132:      * @dev How much do I got?
-133:      */
-134:     function getBalanceContract() public view onlyOwner returns(uint256){
-135:         return address(this).balance;
-136:     }
-137: 
-138:     /**
-139:      * @dev For futute to end the contract, take the value.
-140:      */
-141:     function kill() public onlyOwner {
-142:         emit Withdrawn(owner_address, address(this).balance);
-143:         selfdestruct(owner_address);
-144:     }
-145: }
+ 70:     function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange )
+ 71:         public needMinPayment payable {
+ 72:         if ( _name == 0 ) {
+ 73:             revert("Invalid _name with value of 0");
+ 74:         }
+ 75:         if ( _app == 0 ) {
+ 76:             revert("Invalid _app with value of 0");
+ 77:         }
+ 78:         if ( msg.sender == address(0) ) {
+ 79:             revert("Invalid msg sender");
+ 80:         }
+ 81:         bool ex = dExists[_app][_name];
+ 82:         if ( ex ) {
+ 83:             revert("Data already exists for this app and name.");
+ 84:         }
+ 85:         dOowner[_app][_name] = msg.sender;
+ 86:         dData[_app][_name] = _data;
+ 87:         dMayChange[_app][_name] = _mayChange;
+ 88:         dWhen[_app][_name] = now;
+ 89:         dExists[_app][_name] = true;
+ 90:         emit DataChange(_app, _name, _data, msg.sender);
+ 91:         emit ReceivedFunds(msg.sender, msg.value, _app, _name);
+ 92:     }
+ 93: 
+ 94:     /**
+ 95:      * @dev return the data by looking up _app and _name in dData.  Return both the hash and the date when
+ 96:      *      it was stored..  Return 0's if no data exits.
+ 97:      */
+ 98:     function getHash ( uint256 _app, uint256 _name ) public view returns ( bytes32, uint256 ) {
+ 99:         bool ex = dExists[_app][_name];
+100:         if ( !ex ) {
+101:             return ( 0, 0 );
+102:         }
+103:         return ( dData[_app][_name], dWhen[_app][_name] );
+104:     }
+105: 
+106:     // -------------------------------------------------------------------------------------------------------
+107: 
+108:     /**
+109:      * @dev payable fallback
+110:      */
+111:     function () external payable {
+112:         emit ReceivedFunds(msg.sender, msg.value, 0, 1);
+113:     }
+114: 
+115:     /**
+116:      * @dev genReceiveFunds - generate a receive funds event.
+117:      */
+118:     function genReceivedFunds ( uint256 application, uint256 payFor ) public payable {
+119:         emit ReceivedFunds(msg.sender, msg.value, application, payFor);
+120:     }
+121: 
+122:     /**
+123:      * @dev Withdraw contract value amount.
+124:      */
+125:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
+126:         address(owner_address).transfer(amount);
+127:         // owner_address.send(amount);
+128:         emit Withdrawn(owner_address, amount);
+129:         return true;
+130:     }
+131: 
+132:     /**
+133:      * @dev How much do I got?
+134:      */
+135:     function getBalanceContract() public view onlyOwner returns(uint256){
+136:         return address(this).balance;
+137:     }
+138: 
+139:     /**
+140:      * @dev For futute to end the contract, take the value.
+141:      */
+142:     function kill() public onlyOwner {
+143:         emit Withdrawn(owner_address, address(this).balance);
+144:         selfdestruct(owner_address);
+145:     }
+146: }

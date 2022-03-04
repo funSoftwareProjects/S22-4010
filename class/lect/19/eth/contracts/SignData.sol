@@ -40,7 +40,7 @@ contract SignData is Ownable {
 		return ( minPayment );
 	}
 
-	// ----------------------------------------------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------------------------------
 
 	/**
 	 * @dev Update an existing set of data if the data was created with permissions to be updated.
@@ -67,7 +67,8 @@ contract SignData is Ownable {
 	/**
 	 * @dev Create a new hash and save it's relevant data.  Check that this is a new set of data.
 	 */
-	function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
+	function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange )
+		public needMinPayment payable {
 		if ( _name == 0 ) {
 			revert("Invalid _name with value of 0");
 		}
@@ -91,8 +92,8 @@ contract SignData is Ownable {
 	}
 
 	/**
-	 * @dev return the data by looking up _app and _name in dData.  Return both the hash and the date when it was stored..
-	 *      Return 0's if no data exits.
+	 * @dev return the data by looking up _app and _name in dData.  Return both the hash and the date when
+	 *      it was stored..  Return 0's if no data exits.
 	 */
 	function getHash ( uint256 _app, uint256 _name ) public view returns ( bytes32, uint256 ) {
 		bool ex = dExists[_app][_name];
@@ -102,7 +103,7 @@ contract SignData is Ownable {
 		return ( dData[_app][_name], dWhen[_app][_name] );
 	}
 
-	// ----------------------------------------------------------------------------------------------------------------------
+	// -------------------------------------------------------------------------------------------------------
 
 	/**
 	 * @dev payable fallback

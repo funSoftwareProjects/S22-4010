@@ -4,112 +4,48 @@ const SignData = artifacts.require("SignData");
  * Ethereum client
  */
 contract("SignData", function (accounts) {
-  it("should Create contract and sign data", async function () {
-    let sd = await SignData.deployed();
+	it("should Create contract and sign data", async function () {
+		let sd = await SignData.deployed();
 
-	let account0 = accounts[0];
-	let account1 = accounts[1];
-	let amount = 1000;
-	var ok = true;
+		let account0 = accounts[0];
+		let account1 = accounts[1];
+		let amount = 1000;
+		var ok = true;
 
-	//function createSignature ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
-	await sd.createSignature( 10, 4, "0x0213e3852b8afeb08929a0f448f2f693b0fc3ebe", false, {"value":amount} );
+		//function createSignature ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
+		var tx = await sd.createHash( 10, 4, "0x0213e3852b8afeb08929a0f448f2f693b0fc3ebe", true, {"value":amount} );
+		// console.log ( tx );
 
-    return assert.isTrue(ok);
-  });
-});
+		// function setData ( uint256 _app, uint256 _name, bytes32 _data ) public needMinPayment payable {
+		tx = await sd.setHash( 10, 4, "0x11111111111afeb08929a0f448f2f693b0fc3ebe", {"value":amount} );
+		// console.log ( "tx after setHash", tx );
+
+		var x, hh, ww;
+		x = await sd.getHash ( 10, 4 );
+		hh = x[0];
+		ww = x[1].toNumber();
 
 
-/*
-const PayFor = artifacts.require("PayFor");
+		// console.log ( x, "hh=", hh, "ww=", ww );
+    	let expect = "0x11111111111afeb08929a0f448f2f693b0fc3ebe000000000000000000000000";
+    	assert.equal(hh, expect, "Invalid stored hash");
+		if ( hh != expect ) {
+			ok = false;
+		}
 
-From: https://medium.com/coinmonks/testing-solidity-with-truffle-and-async-await-396e81c54f93
+		var today = new Date();
+		var sDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-it("should send coin correctly", async function () {
-    // Get initial balances of first and second account.
-    var account_one = accounts[0];
-    var account_two = accounts[1];
+		var timestamp = ww * 1000;	// Convert from number of seconds (Eth) since 1970 to mili-seconds
+		var date = new Date(timestamp);
+		// console.log(date.getDate())
+		// console.log(date, sDate) // 2022-03-04T14:40:57.000Z
+		var gDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+		assert.equal(sDate,gDate, "Invalid date for this hash.");
+		if ( sDate != gDate ) {
+			ok = false;
+		}
 
-    var amount = 10;
-
-    let meta = await MetaCoin.deployed();
-    let balance1 = await meta.getBalance.call(account_one);
-    let balance2 = await meta.getBalance.call(account_two);
-
-    let account_one_starting_balance = balance1.toNumber();
-    let account_two_starting_balance = balance2.toNumber();
-
-    await meta.sendCoin(account_two, amount, {from: account_one});
-
-    let balance3 = await meta.getBalance.call(account_one);
-    let balance4 = await meta.getBalance.call(account_two);
-
-    let account_one_ending_balance = balance3.toNumber();
-    let account_two_ending_balance = balance4.toNumber();
-
-    assert.equal(account_one_ending_balance, account_one_starting_balance - 10, "Amount wasn't correctly taken from the sender");
-    assert.equal(account_two_ending_balance, account_two_starting_balance + 10, "Amount wasn't correctly sent to the receiver");
-  });
-/*
- * Ethereum client
- * See docs: https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript
- *
-contract("PayFor", function (accounts) {
-	let payfor;
-
-	let account0 = accounts[0];
-	let account1 = accounts[1];
-	let account2 = accounts[2];
-
-	beforeEach(async () => {
-		payfor = await PayFor.new();
+		return assert.isTrue(ok);
 	});
-
-	// This tests that the owner is the one calling and that you can create products and price them.
-	it("should be able to create a product SKU #8 and #10, selling for 2 and 4 WEI", async function() {
-		// await payfor.setProductPrice( 8, 2 );
-		let ok = await payfor.setProductPrice( 8, 2 ).then((result) => {
-			// Look for event in transaction receipt
-			console.log ( "result=", result );
-			for (var i = 0; i < result.logs.length; i++) {
-				var log = result.logs[i];
-				if (log.event == "SetProductPrice") {
-					let sku = log.args.product.toNumber();
-					let minPrice = log.args.minPrice.toNumber();
-					console.log('Product SKU=', sku);
-					assert.equal(sku, 8, "Expected SKU == 8.");
-					console.log('Product Price=', minPrice);
-					assert.equal(minPrice, 2, "Expected Price == 2.")
-					return ( sku == 8 && minPrice == 2 );
-				}
-			}
-		});
-		assert.equal(ok, true, "Expected to create SKU #8.");
-		await payfor.setProductPrice( 10, 4 );
-		assert.equal(await payfor.getNSKU(), 2, "Expected to have 2 products setup.");
-
-		// function receiveFunds(uint256 forProduct) public payable returns(bool) {
-		await payfor.receiveFunds(10, { from: account2, value: 4});
-		// function getNPayments() public onlyOwner view returns(uint256) {
-		assert.equal(await payfor.getNPayments(), 1, "Expected to have 1 paymnet.");
-
-		// function getPaymentInfo(uint256 n) public onlyOwner view returns(address, uint256, uint256) {
-		let x = await payfor.getPaymentInfo(0);
-		console.log ( x );
-		console.log ( 'account: 0x'+x[0]+' price: '+x[1].toString()+" product: "+x[2].toString() )
-
-		assert.equal(x[1].toString(), "4", "Expected to have paymnet of 4.");
-		return assert.isTrue(true);
-		assert.equal(x[2].toString(), "10", "Expected to have product of 10.");
-
-		return assert.isTrue(true);
-
-	});
-	//it("should be have 2 products setup", async function() {
-		// assert.equal((await payfor.getNSKU()).toNumber(), 2, "Expected to have 2 products setup.");
-		// assert.equal(await payfor.getNSKU(), 2, "Expected to have 2 products setup.");
-	//	return assert.isTrue(true);
-	//});
-
 });
-*/

@@ -12,6 +12,7 @@ contract SignData is Ownable {
 	mapping(uint256 => mapping(uint256 => address)) dOowner;
 	mapping(uint256 => mapping(uint256 => bool)) dMayChange;
 	mapping(uint256 => mapping(uint256 => bool)) dExists;
+	mapping(uint256 => mapping(uint256 => uint256)) dWhen;
 	event DataChange(uint256 App, uint256 Name, bytes32 Value, address By);
 
 	event ReceivedFunds(address sender, uint256 value, uint256 application, uint256 payFor);
@@ -42,12 +43,9 @@ contract SignData is Ownable {
 	// ----------------------------------------------------------------------------------------------------------------------
 
 	/**
-	 * @dev TODO if the data is empty, or if the msg.sender is the original createor of the data:
-	 *      then : save the msg.sender into dOwner, save the data into dData
-     *             create a DataChange event.
-     *      else : revert an error.
+	 * @dev Update an existing set of data if the data was created with permissions to be updated.
 	 */
-	function setData ( uint256 _app, uint256 _name, bytes32 _data ) public needMinPayment payable {
+	function setHash ( uint256 _app, uint256 _name, bytes32 _data ) public needMinPayment payable {
 		address tmp = dOowner[_app][_name];
 		bool mayChange = dMayChange[_app][_name];
 		if ( tmp == msg.sender && !mayChange ) {
@@ -61,17 +59,15 @@ contract SignData is Ownable {
 			revert("No data found." );
 		}
 		dData[_app][_name] = _data;
+		dWhen[_app][_name] = now;
 		emit DataChange(_app, _name, _data, msg.sender);
 		emit ReceivedFunds(msg.sender, msg.value, _app, _name);
 	}
 
 	/**
-	 * @dev TODO if the data is empty, or if the msg.sender is the original createor of the data:
-	 *      then : save the msg.sender into dOwner, save the data into dData
-     *             create a DataChange event.
-     *      else : revert an error.
+	 * @dev Create a new hash and save it's relevant data.  Check that this is a new set of data.
 	 */
-	function createSignature ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
+	function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
 		if ( _name == 0 ) {
 			revert("Invalid _name with value of 0");
 		}
@@ -88,16 +84,22 @@ contract SignData is Ownable {
 		dOowner[_app][_name] = msg.sender;
 		dData[_app][_name] = _data;
 		dMayChange[_app][_name] = _mayChange;
+		dWhen[_app][_name] = now;
 		dExists[_app][_name] = true;
 		emit DataChange(_app, _name, _data, msg.sender);
 		emit ReceivedFunds(msg.sender, msg.value, _app, _name);
 	}
 
 	/**
-	 * @dev TODO return the data by looking up _app and _name in dData.
+	 * @dev return the data by looking up _app and _name in dData.  Return both the hash and the date when it was stored..
+	 *      Return 0's if no data exits.
 	 */
-	function getSignature ( uint256 _app, uint256 _name ) public view returns ( bytes32 ) {
-		return ( dData[_app][_name] );
+	function getHash ( uint256 _app, uint256 _name ) public view returns ( bytes32, uint256 ) {
+		bool ex = dExists[_app][_name];
+		if ( !ex ) {
+			return ( 0, 0 );
+		}
+		return ( dData[_app][_name], dWhen[_app][_name] );
 	}
 
 	// ----------------------------------------------------------------------------------------------------------------------

@@ -3,7 +3,9 @@ PP=`pwd`
 FN=Lect-19
 DIR=../../../
 IMG=
-PY= eth/contracts/SignData.sol
+PY= \
+	eth/contracts/SignData.sol \
+	eth/test/sign_data.js
 
 
 all: setup all2

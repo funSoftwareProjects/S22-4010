@@ -11,128 +11,135 @@
  11:     mapping(uint256 => mapping(uint256 => bytes32)) dData;
  12:     mapping(uint256 => mapping(uint256 => address)) dOowner;
  13:     mapping(uint256 => mapping(uint256 => bool)) dMayChange;
- 14:     event DataChange(uint256 App, uint256 Name, bytes32 Value, address By);
- 15: 
- 16:     event ReceivedFunds(address sender, uint256 value, uint256 application, uint256 payFor);
- 17:     event Withdrawn(address to, uint256 amount);
- 18: 
- 19:     constructor() public {
- 20:         owner_address = msg.sender;
- 21:         minPayment = 1000;
- 22:     }
- 23: 
- 24:     modifier needMinPayment {
- 25:         require(msg.value >= minPayment, "Insufficient payment.  Must send more than minPayment.");
- 26:         _;
- 27:     }
- 28: 
- 29:     function init() public {
- 30:         minPayment = 1000;
- 31:     }
- 32: 
- 33:     function setMinPayment( uint256 _minPayment ) public onlyOwner {
- 34:         minPayment = _minPayment;
- 35:     }
- 36: 
- 37:     function getMinPayment() public onlyOwner view returns ( uint256 ) {
- 38:         return ( minPayment );
- 39:     }
- 40: 
- 41:     // ----------------------------------------------------------------------------------------------------------------------
+ 14:     mapping(uint256 => mapping(uint256 => bool)) dExists;
+ 15:     mapping(uint256 => mapping(uint256 => uint256)) dWhen;
+ 16:     event DataChange(uint256 App, uint256 Name, bytes32 Value, address By);
+ 17: 
+ 18:     event ReceivedFunds(address sender, uint256 value, uint256 application, uint256 payFor);
+ 19:     event Withdrawn(address to, uint256 amount);
+ 20: 
+ 21:     constructor() public {
+ 22:         owner_address = msg.sender;
+ 23:         minPayment = 1000;
+ 24:     }
+ 25: 
+ 26:     modifier needMinPayment {
+ 27:         require(msg.value >= minPayment, "Insufficient payment.  Must send more than minPayment.");
+ 28:         _;
+ 29:     }
+ 30: 
+ 31:     function init() public {
+ 32:         minPayment = 1000;
+ 33:     }
+ 34: 
+ 35:     function setMinPayment( uint256 _minPayment ) public onlyOwner {
+ 36:         minPayment = _minPayment;
+ 37:     }
+ 38: 
+ 39:     function getMinPayment() public onlyOwner view returns ( uint256 ) {
+ 40:         return ( minPayment );
+ 41:     }
  42: 
- 43:     /**
- 44:      * @dev TODO if the data is empty, or if the msg.sender is the original createor of the data:
- 45:      *      then : save the msg.sender into dOwner, save the data into dData
- 46:      *             create a DataChange event.
- 47:      *      else : revert an error.
- 48:      */
- 49:     function setData ( uint256 _app, uint256 _name, bytes32 _data ) public needMinPayment payable {
- 50:         address tmp = dOowner[_app][_name];
- 51:         bool mayChange = dMayChange[_app][_name];
- 52:         if ( tmp == msg.sender && !mayChange ) {
- 53:             revert("Data is not changable");
- 54:         }
- 55:         if ( tmp != msg.sender ) {
- 56:             revert("Not owner of data.");
- 57:         }
- 58:         dData[_app][_name] = _data;
- 59:         emit DataChange(_app, _name, _data, msg.sender);
- 60:         emit ReceivedFunds(msg.sender, msg.value, _app, _name);
- 61:     }
- 62: 
- 63:     /**
- 64:      * @dev TODO if the data is empty, or if the msg.sender is the original createor of the data:
- 65:      *      then : save the msg.sender into dOwner, save the data into dData
- 66:      *             create a DataChange event.
- 67:      *      else : revert an error.
- 68:      */
- 69:     function createSignature ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
- 70:         if ( _name == 0 ) {
- 71:             revert("Invalid _name with value of 0");
- 72:         }
- 73:         if ( _app == 0 ) {
- 74:             revert("Invalid _app with value of 0");
- 75:         }
- 76:         if ( msg.sender == address(0) ) {
- 77:             revert("Invalid msg sender");
- 78:         }
- 79:         address tmp = dOowner[_app][_name];
- 80:         if ( tmp != address(0) ) {    // Check that it has not already been created, 0 retuned if not exists
- 81:             dOowner[_app][_name] = msg.sender;
- 82:             dData[_app][_name] = _data;
- 83:             dMayChange[_app][_name] = _mayChange;
- 84:             emit DataChange(_app, _name, _data, msg.sender);
- 85:             emit ReceivedFunds(msg.sender, msg.value, _app, _name);
- 86:         } else {
- 87:             revert("Not owner of data.");
- 88:         }
- 89:     }
- 90: 
- 91:     /**
- 92:      * @dev TODO return the data by looking up _app and _name in dData.
- 93:      */
- 94:     function getSignature ( uint256 _app, uint256 _name ) public view returns ( bytes32 ) {
- 95:         return ( dData[_app][_name] );
- 96:     }
- 97: 
- 98:     // ----------------------------------------------------------------------------------------------------------------------
- 99: 
-100:     /**
-101:      * @dev payable fallback
-102:      */
-103:     function () external payable {
-104:         emit ReceivedFunds(msg.sender, msg.value, 0, 1);
-105:     }
+ 43:     // ----------------------------------------------------------------------------------------------------------------------
+ 44: 
+ 45:     /**
+ 46:      * @dev Update an existing set of data if the data was created with permissions to be updated.
+ 47:      */
+ 48:     function setHash ( uint256 _app, uint256 _name, bytes32 _data ) public needMinPayment payable {
+ 49:         address tmp = dOowner[_app][_name];
+ 50:         bool mayChange = dMayChange[_app][_name];
+ 51:         if ( tmp == msg.sender && !mayChange ) {
+ 52:             revert("Data is not changable");
+ 53:         }
+ 54:         if ( tmp != msg.sender ) {
+ 55:             revert("Not owner of data.");
+ 56:         }
+ 57:         bool ex = dExists[_app][_name];
+ 58:         if ( !ex ) {
+ 59:             revert("No data found." );
+ 60:         }
+ 61:         dData[_app][_name] = _data;
+ 62:         dWhen[_app][_name] = now;
+ 63:         emit DataChange(_app, _name, _data, msg.sender);
+ 64:         emit ReceivedFunds(msg.sender, msg.value, _app, _name);
+ 65:     }
+ 66: 
+ 67:     /**
+ 68:      * @dev Create a new hash and save it's relevant data.  Check that this is a new set of data.
+ 69:      */
+ 70:     function createHash ( uint256 _app, uint256 _name, bytes32 _data, bool _mayChange ) public needMinPayment payable {
+ 71:         if ( _name == 0 ) {
+ 72:             revert("Invalid _name with value of 0");
+ 73:         }
+ 74:         if ( _app == 0 ) {
+ 75:             revert("Invalid _app with value of 0");
+ 76:         }
+ 77:         if ( msg.sender == address(0) ) {
+ 78:             revert("Invalid msg sender");
+ 79:         }
+ 80:         bool ex = dExists[_app][_name];
+ 81:         if ( ex ) {
+ 82:             revert("Data already exists for this app and name.");
+ 83:         }
+ 84:         dOowner[_app][_name] = msg.sender;
+ 85:         dData[_app][_name] = _data;
+ 86:         dMayChange[_app][_name] = _mayChange;
+ 87:         dWhen[_app][_name] = now;
+ 88:         dExists[_app][_name] = true;
+ 89:         emit DataChange(_app, _name, _data, msg.sender);
+ 90:         emit ReceivedFunds(msg.sender, msg.value, _app, _name);
+ 91:     }
+ 92: 
+ 93:     /**
+ 94:      * @dev return the data by looking up _app and _name in dData.  Return both the hash and the date when it was stored..
+ 95:      *      Return 0's if no data exits.
+ 96:      */
+ 97:     function getHash ( uint256 _app, uint256 _name ) public view returns ( bytes32, uint256 ) {
+ 98:         bool ex = dExists[_app][_name];
+ 99:         if ( !ex ) {
+100:             return ( 0, 0 );
+101:         }
+102:         return ( dData[_app][_name], dWhen[_app][_name] );
+103:     }
+104: 
+105:     // ----------------------------------------------------------------------------------------------------------------------
 106: 
 107:     /**
-108:      * @dev genReceiveFunds - generate a receive funds event.
+108:      * @dev payable fallback
 109:      */
-110:     function genReceivedFunds ( uint256 application, uint256 payFor ) public payable {
-111:         emit ReceivedFunds(msg.sender, msg.value, application, payFor);
+110:     function () external payable {
+111:         emit ReceivedFunds(msg.sender, msg.value, 0, 1);
 112:     }
 113: 
 114:     /**
-115:      * @dev Withdraw contract value amount.
+115:      * @dev genReceiveFunds - generate a receive funds event.
 116:      */
-117:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
-118:         address(owner_address).transfer(amount);
-119:         // owner_address.send(amount);
-120:         emit Withdrawn(owner_address, amount);
-121:         return true;
-122:     }
-123: 
-124:     /**
-125:      * @dev How much do I got?
-126:      */
-127:     function getBalanceContract() public view onlyOwner returns(uint256){
-128:         return address(this).balance;
+117:     function genReceivedFunds ( uint256 application, uint256 payFor ) public payable {
+118:         emit ReceivedFunds(msg.sender, msg.value, application, payFor);
+119:     }
+120: 
+121:     /**
+122:      * @dev Withdraw contract value amount.
+123:      */
+124:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
+125:         address(owner_address).transfer(amount);
+126:         // owner_address.send(amount);
+127:         emit Withdrawn(owner_address, amount);
+128:         return true;
 129:     }
 130: 
 131:     /**
-132:      * @dev For futute to end the contract, take the value.
+132:      * @dev How much do I got?
 133:      */
-134:     function kill() public onlyOwner {
-135:         emit Withdrawn(owner_address, address(this).balance);
-136:         selfdestruct(owner_address);
-137:     }
-138: }
+134:     function getBalanceContract() public view onlyOwner returns(uint256){
+135:         return address(this).balance;
+136:     }
+137: 
+138:     /**
+139:      * @dev For futute to end the contract, take the value.
+140:      */
+141:     function kill() public onlyOwner {
+142:         emit Withdrawn(owner_address, address(this).balance);
+143:         selfdestruct(owner_address);
+144:     }
+145: }

@@ -11,6 +11,7 @@ contract SignData is Ownable {
 	mapping(uint256 => mapping(uint256 => bytes32)) dData;
 	mapping(uint256 => mapping(uint256 => address)) dOowner;
 	mapping(uint256 => mapping(uint256 => bool)) dMayChange;
+	mapping(uint256 => mapping(uint256 => bool)) dExists;
 	event DataChange(uint256 App, uint256 Name, bytes32 Value, address By);
 
 	event ReceivedFunds(address sender, uint256 value, uint256 application, uint256 payFor);
@@ -55,6 +56,10 @@ contract SignData is Ownable {
 		if ( tmp != msg.sender ) {
 			revert("Not owner of data.");
 		}
+		bool ex = dExists[_app][_name];
+		if ( !ex ) {
+			revert("No data found." );
+		}
 		dData[_app][_name] = _data;
 		emit DataChange(_app, _name, _data, msg.sender);
 		emit ReceivedFunds(msg.sender, msg.value, _app, _name);
@@ -76,16 +81,16 @@ contract SignData is Ownable {
 		if ( msg.sender == address(0) ) {
 			revert("Invalid msg sender");
 		}
-		address tmp = dOowner[_app][_name];
-		if ( tmp != address(0) ) {	// Check that it has not already been created, 0 retuned if not exists
-			dOowner[_app][_name] = msg.sender;
-			dData[_app][_name] = _data;
-			dMayChange[_app][_name] = _mayChange;
-			emit DataChange(_app, _name, _data, msg.sender);
-			emit ReceivedFunds(msg.sender, msg.value, _app, _name);
-		} else {
-			revert("Not owner of data.");
+		bool ex = dExists[_app][_name];
+		if ( ex ) {
+			revert("Data already exists for this app and name.");
 		}
+		dOowner[_app][_name] = msg.sender;
+		dData[_app][_name] = _data;
+		dMayChange[_app][_name] = _mayChange;
+		dExists[_app][_name] = true;
+		emit DataChange(_app, _name, _data, msg.sender);
+		emit ReceivedFunds(msg.sender, msg.value, _app, _name);
 	}
 
 	/**

@@ -227,11 +227,15 @@ func (cc *CLI) SendFundsTransaction(
 	}
 	// 3. Get the list of output tranactions ( ../transactions/tx.go TxOutputType ).
 	//    Call this 'oldOutputs'.
-	SerializeTransactionOutput()
-	oldOutputs := 
+
+	oldOutputs := cc.GetNonZeroForAccount(from)
+	if db3 {
+		fmt.Printf("%s Old Outputs (Step 1): %s, AT:%s%s\n", MiscLibColor.Yellow, lib.SVarI(oldOutputs), godebug.LF(), MiscLib.ColorReset)
+	}
 	// 4. Find the set of (may be empty - check for that) values that are pointed
 	//    to in the index - from the 'from' account.  Delete this from the
 	//    index.
+
 	// 5. Create a new empty transaction.  Call `transctions.NewEmptyTx` to create.
 	//	  Pass in the 'memo' and the 'from' for this tranaction.
 	// 6. Convert the 'oldOutputs' into a set of new inputs.  The type is

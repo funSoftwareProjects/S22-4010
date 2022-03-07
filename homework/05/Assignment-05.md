@@ -17,6 +17,22 @@
 
 ## Assignment 5 - Develop a Document Contract.
 
+300pts (in 2 parts) <br>
+Due Mar 11 - 100pts - the hello truffle part <br>
+Due Mar 25 - 200pts - the document contract <br>
+
+
+
+
+## Part 1 - Install Truffle, Ganache
+
+1. Install truffle
+2. Get the sample contract to work (MetaToken)
+3. Get open-zepplin installed
+4. Get the Doc0.sol contract to compile, migrate, and run a non-useful test on it.
+
+## Part 2 - Develop a Document Contract
+
 One of the common uses of the blockchain is as a proof of authenticity
 for external data.   The way that this works is to take some set of external
 data, generate a hash for that data (SHA1 hash, or PGP2 signature example) and then write the
@@ -38,8 +54,6 @@ Develop the contract using truffle and solidity.
 
 Turn in your contract and the test code.
 
-400pts - Due - Apr 15th.
-
 
 
 
@@ -58,7 +72,7 @@ Sample Code and Interface
 Complete the following code:
 
 ```
-pragma solidity >=0.4.25 <0.6.0;
+pragma solidity >=0.4.25 <0.9.0;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 

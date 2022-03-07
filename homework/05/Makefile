@@ -1,11 +1,32 @@
 
-all: Homework-06.html 
+all: build
 
-FR=../../Lectures/01
+build:
 
-Homework-06.html: Homework-06.md
-	markdown-cli --input=./Homework-06.md --output=Homework-06.html
-	cat ${FR}/css/pre ${FR}/css/markdown.css ${FR}/css/post ../../md.css ${FR}/css/hpre Homework-06.html ${FR}/css/hpost >/tmp/Homework-06.html
-	mv /tmp/Homework-06.html ./Homework-06.html
+PP=`pwd`
+FN=Assignment-05
+FN1=README
+FN2=development-steps
+DIR=.././../
+IMG=
+PY=
 
+all: setup all2
+
+setup:
+	../mk_all_nu.sh
+
+all2: ${FN}.html ${PY} ${FN1}.html ${FN2}.html
+
+
+.PRECIOUS: %.md 
+%.md: %.raw.md $(PY) $(IMG)
+	m4 -P $< >$@
+
+%.html: %.md
+	blackfriday-tool ./$< $@
+	echo cat ./${DIR}/css/md.css $@ >/tmp/$@
+	cat ./${DIR}/css/pre ./${DIR}/css/markdown.css ./${DIR}/css/post ./${DIR}/css/md.css ./${DIR}/css/hpre $@ ./${DIR}/css/hpost >/tmp/$@
+	mv /tmp/$@ ./$@
+	echo "file://${PP}/$@" >>open.1
 

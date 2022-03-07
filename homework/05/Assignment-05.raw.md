@@ -1,4 +1,4 @@
-## Assignment 6 - Develop a Document Contract.
+## Assignment 5 - Develop a Document Contract.
 
 One of the common uses of the blockchain is as a proof of authenticity
 for external data.   The way that this works is to take some set of external

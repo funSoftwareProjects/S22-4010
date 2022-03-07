@@ -1,3 +1,5 @@
+m4_include(../.././setup.m4)
+
 ## Assignment 5 - Develop a Document Contract.
 
 One of the common uses of the blockchain is as a proof of authenticity

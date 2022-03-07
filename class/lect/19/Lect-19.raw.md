@@ -1,7 +1,7 @@
 
 m4_include(../../../setup.m4)
 
-Lecture 17 - Hash / Attestation Example
+Lecture 19 - Hash / Attestation Example
 ==
 
 ## Document Attestation Contract

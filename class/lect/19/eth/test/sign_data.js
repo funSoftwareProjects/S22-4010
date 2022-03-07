@@ -30,7 +30,7 @@ contract("SignData", function (accounts) {
 		ww = x[1].toNumber();
 
 
-		// console.log ( x, "hh=", hh, "ww=", ww );
+		console.log ( x, "hh=", hh, "ww=", ww );
     	let expect = "0x11111111111afeb08929a0f448f2f693b0fc3ebe000000000000000000000000";
     	assert.equal(hh, expect, "Invalid stored hash");
 		if ( hh != expect ) {

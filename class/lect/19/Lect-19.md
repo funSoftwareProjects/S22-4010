@@ -16,7 +16,7 @@
 </style>
 
 
-Lecture 17 - Hash / Attestation Example
+Lecture 19 - Hash / Attestation Example
 ==
 
 ## Document Attestation Contract
@@ -208,7 +208,7 @@ and the test
  30:         ww = x[1].toNumber();
  31: 
  32: 
- 33:         // console.log ( x, "hh=", hh, "ww=", ww );
+ 33:         console.log ( x, "hh=", hh, "ww=", ww );
  34:         let expect = "0x11111111111afeb08929a0f448f2f693b0fc3ebe000000000000000000000000";
  35:         assert.equal(hh, expect, "Invalid stored hash");
  36:         if ( hh != expect ) {

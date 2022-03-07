@@ -1,6 +1,7 @@
-pragma solidity >=0.4.25 <0.6.0;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.25 <0.9.0;
 
-import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Doc0 is Ownable {
 
@@ -22,7 +23,7 @@ contract Doc0 is Ownable {
 	event DocumentNoterized(string, bytes32, string, address indexed);
 	event LogWithdrawal(address,  uint256);
 
-	constructor() public {
+	constructor() {
 		minPayment = 1;
 	}
 
@@ -31,6 +32,7 @@ contract Doc0 is Ownable {
 	}
 
 	// TODO - add a getPayment function that is a public view.
+	// function...
 
 	function setNoterizer ( address aNotery ) public onlyOwner {
 		isNotery[aNotery] = true;
@@ -42,6 +44,7 @@ contract Doc0 is Ownable {
 
 	// TODO - add a isValidNoterizer function as a public view that returns true if the passed address is a valid
 	// noterizer.
+	// function...
 
 	function newDocument ( string memory name, bytes32 infoHash, string memory info ) public payable returns(bool) {
 		require(!infoSet[infoHash], "already set, already has owner.");		// Validate that this is a new document
@@ -106,7 +109,7 @@ contract Doc0 is Ownable {
      */
     function withdraw(uint amount) public onlyOwner returns(bool success) {
         emit LogWithdrawal(msg.sender, amount);
-        msg.sender.transfer(amount);
+        payable(msg.sender).transfer(amount);
         return true;
     }
 

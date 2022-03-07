@@ -732,9 +732,9 @@ Due Mar 25 - 200pts - the document contract <br></p>
 <h2>Part 1 - Install Truffle, Ganache</h2>
 
 <ol>
-<li>Install truffle</li>
+<li>Install truffle, ganache-cli</li>
 <li>Get the sample contract to work (MetaToken)</li>
-<li>Get open-zepplin installed</li>
+<li>Get open-zeppelin installed</li>
 <li>Get the Doc0.sol contract to compile, migrate, and run a non-useful test on it.</li>
 </ol>
 
@@ -774,9 +774,12 @@ that show that your contract works.</p>
 
 <p>Complete the following code:</p>
 
-<pre><code>pragma solidity &gt;=0.4.25 &lt;0.9.0;
+<p>File: Doc0.sol</p>
 
-import &quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
+<pre><code>// SPDX-License-Identifier: MIT
+pragma solidity &gt;=0.4.25 &lt;0.9.0;
+
+import &quot;@openzeppelin/contracts/access/Ownable.sol&quot;;
 
 contract Doc0 is Ownable {
 
@@ -798,7 +801,7 @@ contract Doc0 is Ownable {
 	event DocumentNoterized(string, bytes32, string, address indexed);
 	event LogWithdrawal(address,  uint256);
 
-	constructor() public {
+	constructor() {
 		minPayment = 1;
 	}
 
@@ -807,6 +810,7 @@ contract Doc0 is Ownable {
 	}
 
 	// TODO - add a getPayment function that is a public view.
+	// function...
 
 	function setNoterizer ( address aNotery ) public onlyOwner {
 		isNotery[aNotery] = true;
@@ -818,6 +822,7 @@ contract Doc0 is Ownable {
 
 	// TODO - add a isValidNoterizer function as a public view that returns true if the passed address is a valid
 	// noterizer.
+	// function...
 
 	function newDocument ( string memory name, bytes32 infoHash, string memory info ) public payable returns(bool) {
 		require(!infoSet[infoHash], &quot;already set, already has owner.&quot;);		// Validate that this is a new document
@@ -882,11 +887,12 @@ contract Doc0 is Ownable {
      */
     function withdraw(uint amount) public onlyOwner returns(bool success) {
         emit LogWithdrawal(msg.sender, amount);
-        msg.sender.transfer(amount);
+        payable(msg.sender).transfer(amount);
         return true;
     }
 
 }
+
 </code></pre>
 
 <p>Develop and write some tests for this code.</p>

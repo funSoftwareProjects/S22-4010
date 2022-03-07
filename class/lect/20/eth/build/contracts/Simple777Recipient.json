@@ -6741,14 +6741,58 @@
   },
   "networks": {
     "1646665824585": {
-      "events": {},
+      "events": {
+        "0xa0a5a35754b3519ae614f00422ac62a6bc4608ccb722963aab00cb48c588ad72": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes",
+              "name": "userData",
+              "type": "bytes"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes",
+              "name": "operatorData",
+              "type": "bytes"
+            }
+          ],
+          "name": "DoneStuff",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0xe840D255Ed79749E5Df6fa751963C4cc6fc1e09c",
-      "transactionHash": "0x300281f770a5cca70bc06f960b5d59fd8abf36d1d393029a5df37e4e05156b5c"
+      "address": "0xa465bBD27d67f101A8F43C39E882bc4095B4f513",
+      "transactionHash": "0x02dfc50c6238b18851cf792a8a433b8a4dca65a875594ef6fe563b5000cbe8ee"
     }
   },
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-03-07T15:35:00.077Z",
+  "updatedAt": "2022-03-07T17:00:09.556Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "Very simple ERC777 Recipient",

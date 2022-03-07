@@ -20737,12 +20737,12 @@
         }
       },
       "links": {},
-      "address": "0xf56fc85c02e1111f661716878A95376bb550d91C",
-      "transactionHash": "0x40f5b6852176457dd57a85e67b06a5a0549f0da1a938265fd37ce538ab1dbcea"
+      "address": "0x3f10c68668110DBec194F36A6f270CBF725d2413",
+      "transactionHash": "0x838471c73aae4407cda40afabe95d0f5e9e10a660140cf1010320f410e330663"
     }
   },
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-03-07T15:35:00.071Z",
+  "updatedAt": "2022-03-07T17:00:09.547Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "Very simple ERC777 Token example, where all tokens are pre-assigned to the creator. Note they can later distribute these tokens as they wish using `transfer` and other `ERC20` or `ERC777` functions.",

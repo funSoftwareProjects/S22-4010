@@ -45,12 +45,26 @@ To import into truffle:
 #### Get A Receipt
 
 ```
-curl  \
--H "Content-Type: application/json" \
--X POST \
---data '{"jsonrpc":"2.0", "method":"eth_getTransactionReceipt","params":\
-   ["0x3f3aa792dd4a76d6feea51d57fc6543e97031cb4fb53e76642243eab0dfdb343"],"id":1}' \
-http://192.168.0.199:8545/
+curl http://127.0.0.1:8545/ \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"method":"eth_getBalance",
+"params":["0xCEE8d07b52252B848A75e6448Ac5Cea967A17b8c", "latest"],"id":1,"jsonrpc":"2.0"}'
+
+m4_comment([[[
+#!/bin/bash
+
+#curl  \
+#	-H "Content-Type: application/json" \
+#	-X POST \
+#	--data '{"jsonrpc":"2.0", "method":"eth_getBalance", "params":["0x550B8c20D9679E5B0fcc1a32eeFeA87b021c37DA", "latest"], "id":1}' \
+#	http://127.0.0.1:8545
+
+curl http://127.0.0.1:8545/ \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"method":"eth_getBalance","params":["0xCEE8d07b52252B848A75e6448Ac5Cea967A17b8c", "latest"],"id":1,"jsonrpc":"2.0"}'
+]]])
 ```
 
 #### Get an Account Balance

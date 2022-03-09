@@ -766,12 +766,13 @@ At the console, `truffle(develop) &gt;` or attach to truffle with
 
 <h4>Get A Receipt</h4>
 
-<pre><code>curl  \
--H &quot;Content-Type: application/json&quot; \
--X POST \
---data '{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;eth_getTransactionReceipt&quot;,&quot;params&quot;:\
-   [&quot;0x3f3aa792dd4a76d6feea51d57fc6543e97031cb4fb53e76642243eab0dfdb343&quot;],&quot;id&quot;:1}' \
-http://192.168.0.199:8545/
+<pre><code>curl http://127.0.0.1:8545/ \
+  -X POST \
+  -H &quot;Content-Type: application/json&quot; \
+  --data '{&quot;method&quot;:&quot;eth_getBalance&quot;,
+&quot;params&quot;:[&quot;0xCEE8d07b52252B848A75e6448Ac5Cea967A17b8c&quot;, &quot;latest&quot;],&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;}'
+
+
 </code></pre>
 
 <h4>Get an Account Balance</h4>

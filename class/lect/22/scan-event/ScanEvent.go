@@ -2,6 +2,7 @@ package main
 
 // MIT Licensed -- Based on original code
 // https://goethereumbook.org/en/event-read/
+// the code has been fixed to work with 8.1 solc and Eth 1.10.x
 
 import (
 	"context"
@@ -30,6 +31,7 @@ var gCfg GlobalConfig
 var DbOn map[string]bool = make(map[string]bool)
 
 func main() {
+
 	// --------------------------------------------------------------------------------------
 	// Read global config
 	// --------------------------------------------------------------------------------------
@@ -108,12 +110,3 @@ func main() {
 	hash := crypto.Keccak256Hash(eventSignature)
 	fmt.Println(hash.Hex()) // 0xe79e73
 }
-
-/*
-# github.com/Univ-Wyo-Education/S22-4010/class/lect/22/scan-event
-./ScanEvent.go:40:56: undefined: gen_event.StoreABI
-./ScanEvent.go:54:7: assignment mismatch: 1 variable but contractAbi.Unpack returns 2 values
-./ScanEvent.go:54:28: too many arguments in call to contractAbi.Unpack
-	have (*struct { Key [32]byte; Value [32]byte }, string, []byte)
-	want (string, []byte)
-*/

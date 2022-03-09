@@ -1,5 +1,5 @@
-const SignData = artifacts.require("SignData");
+const GenEvent = artifacts.require("GenEvent");
 
 module.exports = function(deployer) {
-  deployer.deploy(SignData);
+  deployer.deploy(GenEvent);
 };

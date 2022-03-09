@@ -1,5 +1,8 @@
 package main
 
+// MIT Licensed -- Based on original code
+// https://goethereumbook.org/en/event-read/
+
 import (
 	"context"
 	"fmt"
@@ -16,13 +19,44 @@ import (
 	gen_event "github.com/Univ-Wyo-Education/S22-4010/class/lect/22/scan-event/eth/contracts"
 )
 
+// These are the values pulled in from ./cfg.json file.
+type GlobalConfig struct {
+	ContractAddress string   `json:"contract_address"`
+	ClientWSSUrl    string   `json:"client_wss_url"`
+	DbFlags         []string `json:"db_flags"`
+}
+
+var gCfg GlobalConfig
+var DbOn map[string]bool = make(map[string]bool)
+
 func main() {
-	client, err := ethclient.Dial("wss://rinkeby.infura.io/ws") // xyzzy
+	// --------------------------------------------------------------------------------------
+	// Read global config
+	// --------------------------------------------------------------------------------------
+	ReadJson("cfg.json", &gCfg)
+	if len(gCfg.DbFlags) > 0 {
+		for _, x := range gCfg.DbFlags {
+			DbOn[x] = true
+		}
+	}
+
+	for _, k := range gCfg.DbFlags {
+		DbOn[k] = true
+	}
+
+	if DbOn["dump-global-config"] {
+		fmt.Printf("Global Config:%s\n", SVarI(gCfg))
+	}
+
+	client, err := ethclient.Dial(gCfg.ClientWSSUrl)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	contractAddress := common.HexToAddress("0x147B8eb97fD247D06C4006D269c90C1908Fb5D54") // xyzzy - read in configb
+	// --------------------------------------------------------------------------------------
+	// Process contract
+	// --------------------------------------------------------------------------------------
+	contractAddress := common.HexToAddress(gCfg.ContractAddress)
 	query := ethereum.FilterQuery{
 		FromBlock: big.NewInt(2394201),
 		ToBlock:   big.NewInt(2394201),

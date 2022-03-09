@@ -2,7 +2,10 @@ module github.com/Univ-Wyo-Education/S22-4010/class/lect/22/scan-event
 
 go 1.17
 
-require github.com/ethereum/go-ethereum v1.10.16
+require (
+	github.com/ethereum/go-ethereum v1.10.16
+	github.com/pschlump/json v1.12.0
+)
 
 require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect

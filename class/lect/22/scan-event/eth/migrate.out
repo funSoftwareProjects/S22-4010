@@ -1,0 +1,64 @@
+(base) philip@victoria eth % truffle migrate
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      1646833002098
+> Block gas limit: 6721975 (0x6691b7)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x105720bd27433dd1fc122994b056762aca5a147caa07bb5cc0d56c530474da31
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x002F78A24f3663bdb6188FdA9f122321A4A8343B
+   > block number:        1
+   > block timestamp:     1646833016
+   > account:             0xdD09809B9185cAB6B8e9b1Eed7f871AA840BEd85
+   > balance:             99.99506192
+   > gas used:            246904 (0x3c478)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00493808 ETH
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00493808 ETH
+
+
+2_initial_migrations.js
+=======================
+
+   Deploying 'GenEvent'
+   --------------------
+   > transaction hash:    0xace7633231e3a3703f517c7b082b79a4b8052b95472cf713c678443c507fe683
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x79a2F028b5150eaDD6619fd7f7C3f92Fa41B7a2a
+   > block number:        3
+   > block timestamp:     1646833017
+   > account:             0xdD09809B9185cAB6B8e9b1Eed7f871AA840BEd85
+   > balance:             99.99054036
+   > gas used:            183565 (0x2cd0d)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0036713 ETH
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.0036713 ETH
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.00860938 ETH
+

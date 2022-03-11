@@ -82,9 +82,9 @@ func main() {
 	}
 
 	for _, vLog := range logs {
-		fmt.Println(vLog.BlockHash.Hex()) // 0x3404b8c050aa0aacd0223e91b5c32fee6400f357764771d0684fa7b3f448f1a8
-		fmt.Println(vLog.BlockNumber)     // 2394201
-		fmt.Println(vLog.TxHash.Hex())    // 0x280201eda63c9ff6f305fcee51d5eb86167fab40ca3108ec784e8652a0e2b1a6
+		fmt.Printf("0x%x\n", vLog.BlockHash.Hex()) // 0x3404b8c050aa0aacd0223e91b5c32fee6400f357764771d0684fa7b3f448f1a8
+		fmt.Printf("%v\n", vLog.BlockNumber)       // 2394201
+		fmt.Printf("0x%x\n", vLog.TxHash.Hex())    // 0x280201eda63c9ff6f305fcee51d5eb86167fab40ca3108ec784e8652a0e2b1a6
 
 		event := struct {
 			Key   [32]byte
@@ -95,18 +95,18 @@ func main() {
 			log.Fatal(err)
 		}
 
-		fmt.Println(string(event.Key[:]))   // foo
-		fmt.Println(string(event.Value[:])) // bar
+		fmt.Printf("0x%x\n", string(event.Key[:]))
+		fmt.Printf("0x%x\n", string(event.Value[:]))
 
 		var topics [4]string
 		for i := range vLog.Topics {
 			topics[i] = vLog.Topics[i].Hex()
 		}
 
-		fmt.Println(topics[0]) // 0xe79e73da417710ae99aa2088575580a60415d359acfad9cdd3382d59c80281d4
+		fmt.Printf(topics[0]) // 0xe79e73da417710ae99aa2088575580a60415d359acfad9cdd3382d59c80281d4
 	}
 
-	eventSignature := []byte("DataSet(bytes32,uint256)")
+	eventSignature := []byte("DataSet(bytes32,bytes32)")
 	hash := crypto.Keccak256Hash(eventSignature)
-	fmt.Println(hash.Hex()) // 0xe79e73
+	fmt.Printf("%s\n", hash.Hex()) // 0xe79e73
 }

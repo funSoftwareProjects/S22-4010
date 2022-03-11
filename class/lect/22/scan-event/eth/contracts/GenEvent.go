@@ -30,8 +30,8 @@ var (
 
 // GenEventMetaData contains all meta data concerning the GenEvent contract.
 var GenEventMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"DataChanged\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"savedData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"setData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
-	Bin: "0x608060405234801561001057600080fd5b50610269806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80633a9400881461003b578063ee58e2ec1461006b575b600080fd5b6100556004803603810190610050919061012e565b610087565b6040516100629190610174565b60405180910390f35b610085600480360381019061008091906101bb565b61009f565b005b60006020528060005260406000206000915090505481565b80600080848152602001908152602001600020819055507fb1f1b9fbb4aec05691a2a33a05992262ef544a112032a9a21408fe4cfa030e4382826040516100e792919061020a565b60405180910390a15050565b600080fd5b6000819050919050565b61010b816100f8565b811461011657600080fd5b50565b60008135905061012881610102565b92915050565b600060208284031215610144576101436100f3565b5b600061015284828501610119565b91505092915050565b6000819050919050565b61016e8161015b565b82525050565b60006020820190506101896000830184610165565b92915050565b6101988161015b565b81146101a357600080fd5b50565b6000813590506101b58161018f565b92915050565b600080604083850312156101d2576101d16100f3565b5b60006101e085828601610119565b92505060206101f1858286016101a6565b9150509250929050565b610204816100f8565b82525050565b600060408201905061021f60008301856101fb565b61022c6020830184610165565b939250505056fea2646970667358221220fca5f5c614931c2ed38246e5fb5278acd0a7b3251e87b2d60445f2002e3f8a4264736f6c634300080c0033",
+	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"value\",\"type\":\"bytes32\"}],\"name\":\"DataChanged\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"savedData\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"value\",\"type\":\"bytes32\"}],\"name\":\"setData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	Bin: "0x608060405234801561001057600080fd5b50610224806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80633a9400881461003b578063749ebfb81461006b575b600080fd5b6100556004803603810190610050919061012e565b610087565b604051610062919061016a565b60405180910390f35b61008560048036038101906100809190610185565b61009f565b005b60006020528060005260406000206000915090505481565b80600080848152602001908152602001600020819055507f35553580e4553c909abeb5764e842ce1f93c45f9f614bde2a2ca5f5b7b7dc0fb82826040516100e79291906101c5565b60405180910390a15050565b600080fd5b6000819050919050565b61010b816100f8565b811461011657600080fd5b50565b60008135905061012881610102565b92915050565b600060208284031215610144576101436100f3565b5b600061015284828501610119565b91505092915050565b610164816100f8565b82525050565b600060208201905061017f600083018461015b565b92915050565b6000806040838503121561019c5761019b6100f3565b5b60006101aa85828601610119565b92505060206101bb85828601610119565b9150509250929050565b60006040820190506101da600083018561015b565b6101e7602083018461015b565b939250505056fea264697066735822122090ad7bdd9c774243a88b26f779fa23b3afb54170d5f250d82eb60525e507f01664736f6c634300080c0033",
 }
 
 // GenEventABI is the input ABI used to generate the binding from.
@@ -203,16 +203,16 @@ func (_GenEvent *GenEventTransactorRaw) Transact(opts *bind.TransactOpts, method
 
 // SavedData is a free data retrieval call binding the contract method 0x3a940088.
 //
-// Solidity: function savedData(bytes32 ) view returns(uint256)
-func (_GenEvent *GenEventCaller) SavedData(opts *bind.CallOpts, arg0 [32]byte) (*big.Int, error) {
+// Solidity: function savedData(bytes32 ) view returns(bytes32)
+func (_GenEvent *GenEventCaller) SavedData(opts *bind.CallOpts, arg0 [32]byte) ([32]byte, error) {
 	var out []interface{}
 	err := _GenEvent.contract.Call(opts, &out, "savedData", arg0)
 
 	if err != nil {
-		return *new(*big.Int), err
+		return *new([32]byte), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -220,36 +220,36 @@ func (_GenEvent *GenEventCaller) SavedData(opts *bind.CallOpts, arg0 [32]byte) (
 
 // SavedData is a free data retrieval call binding the contract method 0x3a940088.
 //
-// Solidity: function savedData(bytes32 ) view returns(uint256)
-func (_GenEvent *GenEventSession) SavedData(arg0 [32]byte) (*big.Int, error) {
+// Solidity: function savedData(bytes32 ) view returns(bytes32)
+func (_GenEvent *GenEventSession) SavedData(arg0 [32]byte) ([32]byte, error) {
 	return _GenEvent.Contract.SavedData(&_GenEvent.CallOpts, arg0)
 }
 
 // SavedData is a free data retrieval call binding the contract method 0x3a940088.
 //
-// Solidity: function savedData(bytes32 ) view returns(uint256)
-func (_GenEvent *GenEventCallerSession) SavedData(arg0 [32]byte) (*big.Int, error) {
+// Solidity: function savedData(bytes32 ) view returns(bytes32)
+func (_GenEvent *GenEventCallerSession) SavedData(arg0 [32]byte) ([32]byte, error) {
 	return _GenEvent.Contract.SavedData(&_GenEvent.CallOpts, arg0)
 }
 
-// SetData is a paid mutator transaction binding the contract method 0xee58e2ec.
+// SetData is a paid mutator transaction binding the contract method 0x749ebfb8.
 //
-// Solidity: function setData(bytes32 key, uint256 value) returns()
-func (_GenEvent *GenEventTransactor) SetData(opts *bind.TransactOpts, key [32]byte, value *big.Int) (*types.Transaction, error) {
+// Solidity: function setData(bytes32 key, bytes32 value) returns()
+func (_GenEvent *GenEventTransactor) SetData(opts *bind.TransactOpts, key [32]byte, value [32]byte) (*types.Transaction, error) {
 	return _GenEvent.contract.Transact(opts, "setData", key, value)
 }
 
-// SetData is a paid mutator transaction binding the contract method 0xee58e2ec.
+// SetData is a paid mutator transaction binding the contract method 0x749ebfb8.
 //
-// Solidity: function setData(bytes32 key, uint256 value) returns()
-func (_GenEvent *GenEventSession) SetData(key [32]byte, value *big.Int) (*types.Transaction, error) {
+// Solidity: function setData(bytes32 key, bytes32 value) returns()
+func (_GenEvent *GenEventSession) SetData(key [32]byte, value [32]byte) (*types.Transaction, error) {
 	return _GenEvent.Contract.SetData(&_GenEvent.TransactOpts, key, value)
 }
 
-// SetData is a paid mutator transaction binding the contract method 0xee58e2ec.
+// SetData is a paid mutator transaction binding the contract method 0x749ebfb8.
 //
-// Solidity: function setData(bytes32 key, uint256 value) returns()
-func (_GenEvent *GenEventTransactorSession) SetData(key [32]byte, value *big.Int) (*types.Transaction, error) {
+// Solidity: function setData(bytes32 key, bytes32 value) returns()
+func (_GenEvent *GenEventTransactorSession) SetData(key [32]byte, value [32]byte) (*types.Transaction, error) {
 	return _GenEvent.Contract.SetData(&_GenEvent.TransactOpts, key, value)
 }
 
@@ -323,13 +323,13 @@ func (it *GenEventDataChangedIterator) Close() error {
 // GenEventDataChanged represents a DataChanged event raised by the GenEvent contract.
 type GenEventDataChanged struct {
 	Key   [32]byte
-	Value *big.Int
+	Value [32]byte
 	Raw   types.Log // Blockchain specific contextual infos
 }
 
-// FilterDataChanged is a free log retrieval operation binding the contract event 0xb1f1b9fbb4aec05691a2a33a05992262ef544a112032a9a21408fe4cfa030e43.
+// FilterDataChanged is a free log retrieval operation binding the contract event 0x35553580e4553c909abeb5764e842ce1f93c45f9f614bde2a2ca5f5b7b7dc0fb.
 //
-// Solidity: event DataChanged(bytes32 key, uint256 value)
+// Solidity: event DataChanged(bytes32 key, bytes32 value)
 func (_GenEvent *GenEventFilterer) FilterDataChanged(opts *bind.FilterOpts) (*GenEventDataChangedIterator, error) {
 
 	logs, sub, err := _GenEvent.contract.FilterLogs(opts, "DataChanged")
@@ -339,9 +339,9 @@ func (_GenEvent *GenEventFilterer) FilterDataChanged(opts *bind.FilterOpts) (*Ge
 	return &GenEventDataChangedIterator{contract: _GenEvent.contract, event: "DataChanged", logs: logs, sub: sub}, nil
 }
 
-// WatchDataChanged is a free log subscription operation binding the contract event 0xb1f1b9fbb4aec05691a2a33a05992262ef544a112032a9a21408fe4cfa030e43.
+// WatchDataChanged is a free log subscription operation binding the contract event 0x35553580e4553c909abeb5764e842ce1f93c45f9f614bde2a2ca5f5b7b7dc0fb.
 //
-// Solidity: event DataChanged(bytes32 key, uint256 value)
+// Solidity: event DataChanged(bytes32 key, bytes32 value)
 func (_GenEvent *GenEventFilterer) WatchDataChanged(opts *bind.WatchOpts, sink chan<- *GenEventDataChanged) (event.Subscription, error) {
 
 	logs, sub, err := _GenEvent.contract.WatchLogs(opts, "DataChanged")
@@ -376,9 +376,9 @@ func (_GenEvent *GenEventFilterer) WatchDataChanged(opts *bind.WatchOpts, sink c
 	}), nil
 }
 
-// ParseDataChanged is a log parse operation binding the contract event 0xb1f1b9fbb4aec05691a2a33a05992262ef544a112032a9a21408fe4cfa030e43.
+// ParseDataChanged is a log parse operation binding the contract event 0x35553580e4553c909abeb5764e842ce1f93c45f9f614bde2a2ca5f5b7b7dc0fb.
 //
-// Solidity: event DataChanged(bytes32 key, uint256 value)
+// Solidity: event DataChanged(bytes32 key, bytes32 value)
 func (_GenEvent *GenEventFilterer) ParseDataChanged(log types.Log) (*GenEventDataChanged, error) {
 	event := new(GenEventDataChanged)
 	if err := _GenEvent.contract.UnpackLog(event, "DataChanged", log); err != nil {

@@ -86,36 +86,42 @@
  86:   // Configure your compilers
  87:   compilers: {
  88:     solc: {
- 89:       // version: "0.5.1",    // Fetch exact version from solc-bin (default: truffle's version)
- 90:       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
- 91:       // settings: {          // See the solidity docs for advice about optimization and evmVersion
- 92:       //  optimizer: {
- 93:       //    enabled: false,
- 94:       //    runs: 200
- 95:       //  },
- 96:       //  evmVersion: "byzantium"
- 97:       // }
- 98:     }
- 99:   },
-100: 
-101:   // Truffle DB is currently disabled by default; to enable it, change enabled:
-102:   // false to enabled: true. The default storage location can also be
-103:   // overridden by specifying the adapter settings, as shown in the commented code below.
-104:   //
-105:   // NOTE: It is not possible to migrate your contracts to truffle DB and you should
-106:   // make a backup of your artifacts to a safe location before enabling this feature.
-107:   //
-108:   // After you backed up your artifacts you can utilize db by running migrate as follows: 
-109:   // $ truffle migrate --reset --compile-all
+ 89:       optimizer: {
+ 90:         enabled: true,
+ 91:         runs: 200
+ 92:       },
+ 93:       // version: "0.5.1",    // Fetch exact version from solc-bin (default: truffle's version)
+ 94:       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
+ 95:       // settings: {          // See the solidity docs for advice about optimization and evmVersion
+ 96:       //  optimizer: {
+ 97:       //    enabled: false,
+ 98:       //    runs: 200
+ 99:       //  },
+100:       //  evmVersion: "byzantium"
+101:       // }
+102:       version: "0.8.1",    // Fetch exact version from solc-bin (default: truffle's version)
+103:       evmVersion: "petersburg"
+104:     }
+105:   },
+106: 
+107:   // Truffle DB is currently disabled by default; to enable it, change enabled:
+108:   // false to enabled: true. The default storage location can also be
+109:   // overridden by specifying the adapter settings, as shown in the commented code below.
 110:   //
-111:   // db: {
-112:     // enabled: false,
-113:     // host: "127.0.0.1",
-114:     // adapter: {
-115:     //   name: "sqlite",
-116:     //   settings: {
-117:     //     directory: ".db"
-118:     //   }
-119:     // }
-120:   // }
-121: };
+111:   // NOTE: It is not possible to migrate your contracts to truffle DB and you should
+112:   // make a backup of your artifacts to a safe location before enabling this feature.
+113:   //
+114:   // After you backed up your artifacts you can utilize db by running migrate as follows: 
+115:   // $ truffle migrate --reset --compile-all
+116:   //
+117:   // db: {
+118:     // enabled: false,
+119:     // host: "127.0.0.1",
+120:     // adapter: {
+121:     //   name: "sqlite",
+122:     //   settings: {
+123:     //     directory: ".db"
+124:     //   }
+125:     // }
+126:   // }
+127: };

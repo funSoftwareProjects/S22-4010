@@ -1,0 +1,1045 @@
+<style>
+@font-face {
+	font-family: octicons-link;
+	src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.5;
+	color: #24292e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+	color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+	color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+	color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+	color: #24292e;
+}
+
+.markdown-body .pl-ent {
+	color: #22863a;
+}
+
+.markdown-body .pl-k {
+	color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+	color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+	color: #e36209;
+}
+
+.markdown-body .pl-bu {
+	color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+	color: #fafbfc;
+	background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+	color: #fafbfc;
+	background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+	content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+	font-weight: bold;
+	color: #22863a;
+}
+
+.markdown-body .pl-ml {
+	color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+	font-weight: bold;
+	color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+	font-style: italic;
+	color: #24292e;
+}
+
+.markdown-body .pl-mb {
+	font-weight: bold;
+	color: #24292e;
+}
+
+.markdown-body .pl-md {
+	color: #b31d28;
+	background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+	color: #22863a;
+	background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+	color: #e36209;
+	background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+	color: #f6f8fa;
+	background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+	font-weight: bold;
+	color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+	color: #586069;
+}
+
+.markdown-body .pl-sg {
+	color: #959da5;
+}
+
+.markdown-body .pl-corl {
+	text-decoration: underline;
+	color: #032f62;
+}
+
+.markdown-body .octicon {
+	display: inline-block;
+	vertical-align: text-top;
+	fill: currentColor;
+}
+
+.markdown-body a {
+	background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+	outline-width: 0;
+}
+
+.markdown-body strong {
+	font-weight: inherit;
+}
+
+.markdown-body strong {
+	font-weight: bolder;
+}
+
+.markdown-body h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+.markdown-body img {
+	border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+.markdown-body hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+.markdown-body input {
+	font: inherit;
+	margin: 0;
+}
+
+.markdown-body input {
+	overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.markdown-body * {
+	box-sizing: border-box;
+}
+
+.markdown-body input {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.markdown-body a {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.markdown-body a:hover {
+	text-decoration: underline;
+}
+
+.markdown-body strong {
+	font-weight: 600;
+}
+
+.markdown-body hr {
+	height: 0;
+	margin: 15px 0;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body hr::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+	padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body h1 {
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.markdown-body h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.markdown-body h3 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.markdown-body h4 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.markdown-body h5 {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.markdown-body h6 {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.markdown-body p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+	margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+	x-list-style-type: lower-roman;
+	  list-style-type: decimal;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+	list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+	margin-left: 0;
+}
+
+.markdown-body code {
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body .octicon {
+	vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+	padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+	padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+	padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+	padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+	padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+	padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+	padding-left: 40px !important;
+}
+
+.markdown-body::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+	color: inherit;
+	text-decoration: none;
+}
+
+.markdown-body .anchor {
+	float: left;
+	padding-right: 4px;
+	margin-left: -20px;
+	line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 0.25em;
+	padding: 0;
+	margin: 24px 0;
+	background-color: #e1e4e8;
+	border: 0;
+}
+
+.markdown-body blockquote {
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: 0.25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #c6cbd1;
+	border-bottom-color: #959da5;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	color: #1b1f23;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	visibility: visible;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+	font-size: 1.25em;
+}
+
+.markdown-body h4 {
+	font-size: 1em;
+}
+
+.markdown-body h5 {
+	font-size: 0.875em;
+}
+
+.markdown-body h6 {
+	font-size: 0.85em;
+	color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li {
+	word-wrap: break-all;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body li+li {
+	margin-top: 0.25em;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+}
+
+.markdown-body table th {
+	font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f6f8fa;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	box-sizing: content-box;
+	background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+	padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+	padding-right: 20px;
+}
+
+.markdown-body code {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(27,31,35,0.05);
+	border-radius: 3px;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f6f8fa;
+	border-radius: 3px;
+}
+
+.markdown-body pre code {
+	display: inline;
+	max-width: auto;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+	color: #005cc5;
+	border-color: #005cc5;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #d1d5da;
+	border-bottom-color: #c6cbd1;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+	position: relative;
+	z-index: 1;
+	border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+	list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+	margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+	margin: 0 0.2em 0.25em -1.6em;
+	vertical-align: middle;
+}
+
+.markdown-body hr {
+	border-bottom-color: #eee;
+}
+
+</style>
+<style>
+ol {
+    display: block;
+    list-style-type: decimal;
+}
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+
+<div class="markdown-body">
+
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+.markdown-body {
+    font-size: 12px;
+}
+.markdown-body td {
+    font-size: 12px;
+}
+</style>
+
+<h1>Lecture 22 - risk transfer contract</h1>
+
+<h2>What is a Credit Default Swap</h2>
+
+<p>Let&rsquo;s say you purchase a bond from Turkey (sovereign debt)
+that pays 6% per year interest.  You put in $1 million
+on a 5 year term.   So you are expecting to get $60,000.00
+payed to you each year.</p>
+
+<p>Only now it looks like Turkey may default on it&rsquo;s bonds.
+To cover this &ldquo;risk&rdquo; you want insurance that if they
+default that you get your million back.</p>
+
+<p>This is called a &ldquo;credit default swap&rdquo; and you have to
+pay for this &ldquo;insurance&rdquo; or &ldquo;risk transfer&rdquo;.  You pay
+somebody willing to take the risk that Turkey defaults
+and they give you your million (the swap) if there is
+a &ldquo;credit default&rdquo;.  Hence the name.</p>
+
+<p>Last month the going rate was 6.77% per year for a
+credit default swap on Turkey&rsquo;s sovereign debt.  So
+instead of you getting $60,000.00 a year in income
+you now pay $7,700.00 a year to grantee that you get
+your capital returned.</p>
+
+<p>This is a good indicator of a country&rsquo;s risk - if the credit
+default swaps cost more than the yield on the bond then you
+have a &ldquo;bad risk&rdquo;.</p>
+
+<p>Your other option is to sell the bond.  Current the price for
+Turkey $1 million bonds is around $782,000 - so you can loose
+almost <sup>1</sup>&frasl;<sub>4</sub> million - and sell now, or you can take out insurance.</p>
+
+<h2>Good money destroyers bad money</h2>
+
+<p>Turkey&rsquo;s internal velocity of the Lira has been drooping, while the
+velocity of Euro&rsquo;s and the Dollar in Turkey has been rising.   Currently
+around 40% of transactions are Dollar denominated in Turkey.  This is with
+an inflation rate of 7.83% last month - that is an annualized rate of
+over 100%.   What this probably means is that Turkey is going to loose
+control of the national currency and end up being a Dollar denominated
+country - there are a bunch of them around the world - like the Republic
+of Zimbabwe.</p>
+
+<p>The rule to remember is that &ldquo;good money will always destroy bad money&rdquo;.
+This is totally true with crypto also.  If you have good and bad crypto
+then all people will flee to a good crypto.</p>
+
+<h2>Let&rsquo;s talk about a &ldquo;Disintermediation&rdquo; coin.</h2>
+
+<p>How about &ldquo;beef&rdquo;.</p>
+
+<table>
+<thead>
+<tr>
+<th>Location of Cow</th>
+<th>% Charged</th>
+<th>profit</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>cow/calf ranch</td>
+<td>5.2%</td>
+<td>$1.47lb in 1974, $1.52 today.</td>
+</tr>
+
+<tr>
+<td>truck</td>
+<td>8%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>backgrounder</td>
+<td>6%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>truck</td>
+<td>8%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>auction lot</td>
+<td>7.5%</td>
+<td>(takes 2% to 3% of price of cow)</td>
+</tr>
+
+<tr>
+<td>truck</td>
+<td>8%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>feed lot</td>
+<td>5%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>truck</td>
+<td>3%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>meat packer</td>
+<td>4.8%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>cold storage</td>
+<td>4.1%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>truck</td>
+<td>7%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>warehouse</td>
+<td>5.1%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>truck</td>
+<td>6%</td>
+<td></td>
+</tr>
+
+<tr>
+<td>retailer (store)</td>
+<td>5%</td>
+<td>$2.91 in 1974, $6.52 today (ground beef).</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>$18.24 a LB for steak</td>
+</tr>
+</tbody>
+</table>
+
+<p>Total risk is about 3% of cow dying, getting sick etc.</p>
+
+<p>So add prime rate 1.2% + 3% = total risk/cost of beef should be 4.2%.</p>
+
+<p>Observations:</p>
+
+<ol>
+<li>The trucking companies make more than the rancher.</li>
+<li>The banks make <em>way</em> more than the rancher.</li>
+<li>Most costs in the supply chain have gone down.</li>
+<li>The &ldquo;meat packer/cold storage&rdquo; industry has consolidated (5 major packers)</li>
+<li>Retailers run a 1% profit margin on a guaranteed sale.</li>
+<li>Trucking has gotten &ldquo;less&rdquo; expensive.  Trucks are more fuel efficient - drivers are payed less.</li>
+</ol>
+
+<p>How about disintermediation using a pre-purchase token.  Instead of organizing the
+business around different layers - organize it around the product line.   The cow is
+payed for at conception - and the entire lifetime of the cow is financed once.</p>
+
+<p>Remove the &ldquo;auction lot&rdquo; completely.  A 2-3% saving and less shipping.</p>
+
+<p>My best guess is that the banks are making $308.00 per cow, the
+rancher is making $28.41 per cow.  The backgrounder making $22.08.
+The retail store $8.80.   Trucking makes (shipped 6 times) $76.91 or about
+$11 per shipment per cow.   The &ldquo;meat packer&rdquo; making around $224.00.</p>
+
+<h2>Searching Events on the Chain</h2>
+
+<p>Ethereum uses a bloom filter to index events to transactions.</p>
+
+<h3>What is a &ldquo;bloom&rdquo; filter.</h3>
+
+<p>A bloom filter uses an input,</p>
+
+<pre><code>	eventSignature := []byte(&quot;DataSet(bytes32,bytes32)&quot;)
+</code></pre>
+
+<p>and then takes multiple hashes of this into a bit set.  If all the bits are &lsquo;1&rsquo; for the
+hashes then it is likely that the item can be found at that location.</p>
+
+<h3>Code for Searching for Events.</h3>
+
+<p>The contract that generates an event:</p>
+
+<pre><code>
+</code></pre>
+
+<p>The search  code in .go</p>
+
+<pre><code>  1: package main
+  2: 
+  3: // MIT Licensed -- Based on original code
+  4: // https://goethereumbook.org/en/event-read/
+  5: // the code has been fixed to work with 8.1 solc and Eth 1.10.x
+  6: 
+  7: import (
+  8:     &quot;context&quot;
+  9:     &quot;fmt&quot;
+ 10:     &quot;log&quot;
+ 11:     &quot;math/big&quot;
+ 12:     &quot;strings&quot;
+ 13: 
+ 14:     &quot;github.com/ethereum/go-ethereum&quot;
+ 15:     &quot;github.com/ethereum/go-ethereum/accounts/abi&quot;
+ 16:     &quot;github.com/ethereum/go-ethereum/common&quot;
+ 17:     &quot;github.com/ethereum/go-ethereum/crypto&quot;
+ 18:     &quot;github.com/ethereum/go-ethereum/ethclient&quot;
+ 19: 
+ 20:     gen_event &quot;github.com/Univ-Wyo-Education/S22-4010/class/lect/22/scan-event/eth/contracts&quot;
+ 21: )
+ 22: 
+ 23: // These are the values pulled in from ./cfg.json file.
+ 24: type GlobalConfig struct {
+ 25:     ContractAddress string   `json:&quot;contract_address&quot;`
+ 26:     ClientWSSUrl    string   `json:&quot;client_wss_url&quot;`
+ 27:     DbFlags         []string `json:&quot;db_flags&quot;`
+ 28: }
+ 29: 
+ 30: var gCfg GlobalConfig
+ 31: var DbOn map[string]bool = make(map[string]bool)
+ 32: 
+ 33: func main() {
+ 34: 
+ 35:     // --------------------------------------------------------------------------------------
+ 36:     // Read global config
+ 37:     // --------------------------------------------------------------------------------------
+ 38:     ReadJson(&quot;cfg.json&quot;, &amp;gCfg)
+ 39:     if len(gCfg.DbFlags) &gt; 0 {
+ 40:         for _, x := range gCfg.DbFlags {
+ 41:             DbOn[x] = true
+ 42:         }
+ 43:     }
+ 44: 
+ 45:     for _, k := range gCfg.DbFlags {
+ 46:         DbOn[k] = true
+ 47:     }
+ 48: 
+ 49:     if DbOn[&quot;dump-global-config&quot;] {
+ 50:         fmt.Printf(&quot;Global Config:%s\n&quot;, SVarI(gCfg))
+ 51:     }
+ 52: 
+ 53:     client, err := ethclient.Dial(gCfg.ClientWSSUrl)
+ 54:     if err != nil {
+ 55:         log.Fatal(err)
+ 56:     }
+ 57: 
+ 58:     // --------------------------------------------------------------------------------------
+ 59:     // Process contract
+ 60:     // --------------------------------------------------------------------------------------
+ 61:     contractAddress := common.HexToAddress(gCfg.ContractAddress)
+ 62:     query := ethereum.FilterQuery{
+ 63:         FromBlock: big.NewInt(2394201),
+ 64:         ToBlock:   big.NewInt(2394201),
+ 65:         Addresses: []common.Address{
+ 66:             contractAddress,
+ 67:         },
+ 68:     }
+ 69: 
+ 70:     // --------------------------------------------------------------------------------------
+ 71:     // Search Chain / Logs
+ 72:     // --------------------------------------------------------------------------------------
+ 73:     logs, err := client.FilterLogs(context.Background(), query)
+ 74:     if err != nil {
+ 75:         log.Fatal(err)
+ 76:     }
+ 77: 
+ 78:     // Generated Code -- Pull in the ABI for the contract.  contractAbi, err := abi.JSON(strings.NewReader(string(gen_event.StoreABI)))
+ 79:     contractAbi, err := abi.JSON(strings.NewReader(string(gen_event.GenEventMetaData.ABI))) // xyzzy
+ 80:     if err != nil {
+ 81:         log.Fatal(err)
+ 82:     }
+ 83: 
+ 84:     for _, vLog := range logs {
+ 85:         fmt.Printf(&quot;0x%x\n&quot;, vLog.BlockHash.Hex()) // 0x3404b8c050aa0aacd0223e91b5c32fee6400f357764771d0684fa7b3f448f1a8
+ 86:         fmt.Printf(&quot;%v\n&quot;, vLog.BlockNumber)       // 2394201
+ 87:         fmt.Printf(&quot;0x%x\n&quot;, vLog.TxHash.Hex())    // 0x280201eda63c9ff6f305fcee51d5eb86167fab40ca3108ec784e8652a0e2b1a6
+ 88: 
+ 89:         event := struct {
+ 90:             Key   [32]byte
+ 91:             Value [32]byte
+ 92:         }{}
+ 93:         _, err := contractAbi.Unpack(&quot;DataSet&quot;, vLog.Data) // err := contractAbi.Unpack(&amp;event, &quot;DataSet&quot;, vLog.Data) // xyzzy
+ 94:         if err != nil {
+ 95:             log.Fatal(err)
+ 96:         }
+ 97: 
+ 98:         fmt.Printf(&quot;0x%x\n&quot;, string(event.Key[:]))
+ 99:         fmt.Printf(&quot;0x%x\n&quot;, string(event.Value[:]))
+100: 
+101:         var topics [4]string
+102:         for i := range vLog.Topics {
+103:             topics[i] = vLog.Topics[i].Hex()
+104:         }
+105: 
+106:         fmt.Printf(topics[0]) // 0xe79e73da417710ae99aa2088575580a60415d359acfad9cdd3382d59c80281d4
+107:     }
+108: 
+109:     eventSignature := []byte(&quot;DataSet(bytes32,bytes32)&quot;)
+110:     hash := crypto.Keccak256Hash(eventSignature)
+111:     fmt.Printf(&quot;%s\n&quot;, hash.Hex()) // 0xe79e73
+112: }
+
+</code></pre>
+
+</div>
+

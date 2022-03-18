@@ -771,6 +771,8 @@ of Zimbabwe.</p>
 This is totally true with crypto also.  If you have good and bad crypto
 then all people will flee to a good crypto.</p>
 
+<div class="pagebreak"></div>
+
 <h2>Let&rsquo;s talk about a &ldquo;Disintermediation&rdquo; coin.</h2>
 
 <p>How about &ldquo;beef&rdquo;.</p>
@@ -903,6 +905,8 @@ rancher is making $28.41 per cow.  The backgrounder making $22.08.
 The retail store $8.80.   Trucking makes (shipped 6 times) $76.91 or about
 $11 per shipment per cow.   The &ldquo;meat packer&rdquo; making around $224.00.</p>
 
+<div class="pagebreak"></div>
+
 <h2>Searching Events on the Chain</h2>
 
 <p>Ethereum uses a bloom filter to index events to transactions.</p>
@@ -921,8 +925,35 @@ hashes then it is likely that the item can be found at that location.</p>
 
 <p>The contract that generates an event:</p>
 
-<pre><code>
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: pragma solidity &gt;=0.4.22 &lt;0.9.0;
+  3: 
+  4: contract GenEvent {
+  5:     event DataChanged(bytes32 key, bytes32 value);
+  6: 
+  7:     mapping (bytes32 =&gt; bytes32) public savedData;
+  8: 
+  9:     constructor() {}
+ 10: 
+ 11:     function setData(bytes32 key, bytes32 value) external {
+ 12:         savedData[key] = value;
+ 13:         emit DataChanged(key, value);
+ 14:     }
+ 15: }
+
 </code></pre>
+
+<p>The Config</p>
+
+<pre><code>{
+	&quot;contract_address&quot;: &quot;0x79a2F028b5150eaDD6619fd7f7C3f92Fa41B7a2a&quot;,
+	&quot;_rinkeby_client_wss_url&quot;: &quot;wss://rinkeby.infura.io/ws&quot;,
+	&quot;client_wss_url&quot;: &quot;ws://127.0.0.1:8545&quot;
+}
+
+</code></pre>
+
+<div class="pagebreak"></div>
 
 <p>The search  code in .go</p>
 

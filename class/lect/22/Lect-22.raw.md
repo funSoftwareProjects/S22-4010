@@ -48,6 +48,8 @@ The rule to remember is that "good money will always destroy bad money".
 This is totally true with crypto also.  If you have good and bad crypto
 then all people will flee to a good crypto.
 
+<div class="pagebreak"></div>
+
 ## Let's talk about a "Disintermediation" coin.
 
 How about "beef".
@@ -94,6 +96,7 @@ rancher is making $28.41 per cow.  The backgrounder making $22.08.
 The retail store $8.80.   Trucking makes (shipped 6 times) $76.91 or about
 $11 per shipment per cow.   The "meat packer" making around $224.00.
 
+<div class="pagebreak"></div>
 
 ## Searching Events on the Chain
 
@@ -119,6 +122,14 @@ The contract that generates an event:
 ```
 m4_include(./scan-event/eth/contracts/GenEvent.sol.nu)
 ```
+
+The Config
+
+```
+m4_include(./scan-event/cfg.json)
+```
+
+<div class="pagebreak"></div>
 
 The search  code in .go
 

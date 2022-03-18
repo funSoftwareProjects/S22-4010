@@ -63,6 +63,8 @@ The rule to remember is that "good money will always destroy bad money".
 This is totally true with crypto also.  If you have good and bad crypto
 then all people will flee to a good crypto.
 
+<div class="pagebreak"></div>
+
 ## Let's talk about a "Disintermediation" coin.
 
 How about "beef".
@@ -109,6 +111,7 @@ rancher is making $28.41 per cow.  The backgrounder making $22.08.
 The retail store $8.80.   Trucking makes (shipped 6 times) $76.91 or about
 $11 per shipment per cow.   The "meat packer" making around $224.00.
 
+<div class="pagebreak"></div>
 
 ## Searching Events on the Chain
 
@@ -132,8 +135,36 @@ hashes then it is likely that the item can be found at that location.
 The contract that generates an event:
 
 ```
+  1: // SPDX-License-Identifier: MIT
+  2: pragma solidity >=0.4.22 <0.9.0;
+  3: 
+  4: contract GenEvent {
+  5:     event DataChanged(bytes32 key, bytes32 value);
+  6: 
+  7:     mapping (bytes32 => bytes32) public savedData;
+  8: 
+  9:     constructor() {}
+ 10: 
+ 11:     function setData(bytes32 key, bytes32 value) external {
+ 12:         savedData[key] = value;
+ 13:         emit DataChanged(key, value);
+ 14:     }
+ 15: }
 
 ```
+
+The Config
+
+```
+{
+	"contract_address": "0x79a2F028b5150eaDD6619fd7f7C3f92Fa41B7a2a",
+	"_rinkeby_client_wss_url": "wss://rinkeby.infura.io/ws",
+	"client_wss_url": "ws://127.0.0.1:8545"
+}
+
+```
+
+<div class="pagebreak"></div>
 
 The search  code in .go
 

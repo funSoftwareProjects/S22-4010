@@ -236,18 +236,29 @@ func (cc *CLI) SendFundsTransaction(
 	//    to in the index - from the 'from' account.  Delete this from the
 	//    index.
 
+	delete(cc.BlockIndex.FindValue.AddrIndex, string(from))
+
 	// 5. Create a new empty transaction.  Call `transctions.NewEmptyTx` to create.
 	//	  Pass in the 'memo' and the 'from' for this tranaction.
+	transactions.NewEmptyTx(memo, from)
 	// 6. Convert the 'oldOutputs' into a set of new inputs.  The type is
 	//    ../transctions/tx.go TxInputType.  Call `transactions.CreateTxInputsFromOldOutputs`
 	//	  to do this.
+	txIn, err := transactions.CreateTxInputsFromOldOutputs(oldOutputs)
+	if err != nil {
+		fmt.Printf("Error creating tx inputs from old outputs!")
+	}
 	// 7. Save the new inputs in the tx.Input.
+	tx.Input = txIn
 	// 8. Create the new output for the 'to' address.  Call `transactions.CreateTxOutputWithFunds`.
 	//    Call this `txOut`.    Take `txOut` and append it to the tranaction by calling
 	//    `transactions.AppendTxOutputToTx`.
+	txOut, _ := transactions.CreateTxOutputWithFunds(to, amount)
+	transactions.AppendTxOutputToTx(tx, txOut)
 	// 9. Calcualte the amount of "change" - if it is larger than 0 then we owe 'from'
 	//    change.  Create a 2nd tranaction with the change.  Append to the tranaction the
 	//    TxOutputType.
+
 	// 10. Return
 	//
 

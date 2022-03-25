@@ -740,19 +740,59 @@ ol {
 	}
 </code></pre>
 
-<p>xyzzy</p>
+<p>Or with values that it sets</p>
+
+<pre><code>	constructor(uint256 _pct) {
+        owner_address = payable(msg.sender);
+		pct  = _pct; // 1000000 times the yearly percentage rate
+		...
+</code></pre>
+
+<p>These values come from the &ldquo;migration&rdquo; JavaScript code.</p>
+
+<pre><code>const FixedTermDesposite = artifacts.require(&quot;FixedTermDesposite&quot;);
+
+module.exports = function (deployer) {
+	deployer.deploy(FixedTermDesposite, 20000); // 2% Per Year * 1000000 = 20000
+};
+</code></pre>
 
 <h2>Data Declaration</h2>
 
-<p>xyzzy</p>
+<pre><code>    address payable owner_address;
+    uint256 pct;				// Payment for Deposite
+    uint256 numberOfdays;		// Payment can be withdrawn after X days.
+
+	mapping(address =&gt; uint256) nOfDeposites; // Your Deposite ID
+</code></pre>
+
+<p>Data that is not a &ldquo;constant&rdquo; is saved from call to call over time.
+Data is expensive.</p>
 
 <h2>Dictionary</h2>
 
-<p>xyzzy</p>
+<p>Solidity dictionaries - are multi-level maps.</p>
 
-<h2>Loops</h2>
+<pre><code>	mapping(address =&gt; uint256) nOfDeposites; // Your Deposite ID
+</code></pre>
 
-<p>xyzzy</p>
+<p>It is important to note that it will return a &ldquo;default&rdquo; value for all
+possible inputs - so a non-existent address will return a 0 in this
+case.</p>
+
+<p>You can have a map to a map to a value.</p>
+
+<pre><code>	mapping(uint256 =&gt; mapping(address =&gt; uint256)) depositeAmount;
+</code></pre>
+
+<p>The access to these is the same as an array.</p>
+
+<pre><code>	...
+        id = nOfDeposites[msg.sender];
+	...
+        theOwner = depositeOwner[_id][msg.sender];
+	...
+</code></pre>
 
 <h2>Output</h2>
 
@@ -762,17 +802,201 @@ ol {
 
 <p>Use &ldquo;events&rdquo; instead.</p>
 
-<p>xyzzy</p>
+<p>Declare an event</p>
+
+<pre><code>	event ReceivedFunds(address sender, uint256 value);
+</code></pre>
+
+<p>and generate the event to the log</p>
+
+<pre><code>	emit ReceivedFunds(msg.sender, msg.value);
+</code></pre>
+
+<p>In the test code these can be dumped out with</p>
+
+<pre><code>var tx = await sd.depositCertificate ( amount, {&quot;value&quot;:amount} );
+console.log ( &quot;tx=&quot;, tx );
+console.log ( &quot;tx.logs = &quot;, tx.logs );
+for ( var i = 0, mx = tx.logs.length; i &lt; mx; i++ ) {
+	if ( tx.logs[i].event == 'DepositeMade' ) {
+		console.log ( &quot;For DepositeMoade event tx.logs[&quot;+i+&quot;].args = &quot;, tx.logs[i].args );
+		var r = tx.logs[i].args;
+		console.log ( &quot;    .who = &quot;, r.who );
+		console.log ( &quot;    .id = &quot;, r.id.toString() );
+		console.log ( &quot;    .amount = &quot;, r.amount.toString() );
+		assert.equal(r.id.toString(),&quot;1&quot;,&quot;Should have an ID of 1&quot;);
+		assert.equal(r.amount.toString(),&quot;1000000&quot;,&quot;Should have a depoiste of 1000000&quot;);
+	}
+}
+</code></pre>
 
 <h2>Functions/Methods</h2>
 
-<p>xyzzy</p>
+<p>Functions that &ldquo;change&rdquo; the data require &ldquo;gas&rdquo;:</p>
+
+<pre><code>	...
+    function depositCertificate(uint256 _amount) public payable returns ( uint256 ) {
+	...
+    function withdrawCertificate(uint256 _id) public {
+	...
+</code></pre>
+
+<p>If a function is a &ldquo;view&rdquo; then it is local and &ldquo;free&rdquo;:</p>
+
+<pre><code>	function amountOnDeposite(uint256 _id) public view returns ( uint256 ) {
+</code></pre>
+
+<h2>Remember to have functions to do standard things like &lsquo;withdraw&rsquo;</h2>
+
+<pre><code>	function withdraw( uint256 amount ) public onlyOwner returns(bool) {
+</code></pre>
 
 <h2>Example Fixed Term Deposit</h2>
 
 <p>This is like a Certificate of Deposit (CD) at a bank.</p>
 
-<pre><code>
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: pragma solidity &gt;=0.4.22 &lt;0.9.0;
+  3: 
+  4: import &quot;@openzeppelin/contracts/access/Ownable.sol&quot;;
+  5: 
+  6: contract FixedTermDesposite is Ownable {
+  7:     address payable owner_address;
+  8:     uint256 pct;                // Payment for Deposite
+  9:     uint256 numberOfdays;        // Payment can be withdrawn after X days.
+ 10: 
+ 11:     mapping(address =&gt; uint32) nOfDeposites; // Your Deposite ID
+ 12:     mapping(uint256 =&gt; mapping(address =&gt; uint256)) depositeAmount;
+ 13:     mapping(uint256 =&gt; mapping(address =&gt; address)) depositeOwner;
+ 14:     mapping(uint256 =&gt; mapping(address =&gt; uint256)) depositeDeadline;
+ 15: 
+ 16:     event DepositeMade(address indexed who, uint256 amount, uint32 id);
+ 17:     event FundsRemoved(address indexed who, uint256 amount, uint32 id);
+ 18:     event ReceivedFunds(address sender, uint256 value);
+ 19:     event Withdrawn(address to, uint256 amount);
+ 20: 
+ 21:     constructor(uint256 _pct) {
+ 22:         owner_address = payable(msg.sender);
+ 23:         pct  = _pct; // 1000000 times the yearly percentage rate
+ 24:         numberOfdays = 365;
+ 25:     }
+ 26: 
+ 27:     /**
+ 28:      * @dev Create a new deposite for 1 year.
+ 29:      */
+ 30:     function depositCertificate(uint256 _amount) public payable returns ( uint32 ) {
+ 31:         require(msg.value == _amount);
+ 32:         uint32 id = nOfDeposites[msg.sender];
+ 33:         id = id + 1;
+ 34:         nOfDeposites[msg.sender] = id;
+ 35:         depositeAmount[id][msg.sender] = _amount;
+ 36:          depositeOwner[id][msg.sender] = msg.sender;
+ 37:         depositeDeadline[id][msg.sender] = block.timestamp + ( numberOfdays * 1 days);
+ 38:         emit DepositeMade( msg.sender, _amount, id);
+ 39:         return id;
+ 40:     }
+ 41: 
+ 42:     /**
+ 43:      * @dev Allow funds to be withdrawn at end of term.
+ 44:      */
+ 45:     function withdrawCertificate(uint32 _id) public {
+ 46:         uint32 id;
+ 47:         id = nOfDeposites[msg.sender];
+ 48:         require(id &gt;= _id &amp;&amp; _id &gt; 0);    // check that _id is in range.
+ 49: 
+ 50:         address theOwner;
+ 51:         theOwner = depositeOwner[_id][msg.sender];
+ 52:         require(theOwner == msg.sender);                    // You are the owner.
+ 53:         require(block.timestamp &gt;= depositeDeadline[_id][msg.sender]);     // You'r deposite has reached term date.
+ 54: 
+ 55:         uint256 amount;
+ 56:         amount = depositeAmount[_id][msg.sender];
+ 57:         amount = amount + ( ( amount * pct ) / 1000000 );    // Pay the interest
+ 58:         depositeAmount[_id][msg.sender] = 0;                // 0 left after withdrawl
+ 59: 
+ 60:         address payable to;
+ 61:         to = payable(theOwner);                                // convert type to payable
+ 62: 
+ 63:         to.transfer(amount);                                // send them the $ plus interest
+ 64:         emit DepositeMade( msg.sender, amount, _id);
+ 65:     }
+ 66: 
+ 67:     /**
+ 68:      * @dev Allow funds to be withdrawn at end of term.
+ 69:      */
+ 70:     function amountOnDeposite(uint32 _id) public view returns ( uint256 ) {
+ 71:         uint32 id;
+ 72:         id = nOfDeposites[msg.sender];
+ 73:         if ( id &gt; _id || id &lt;= 0 ) {
+ 74:             return ( 0 );
+ 75:         }
+ 76: 
+ 77:         address theOwner;
+ 78:         theOwner = depositeOwner[_id][msg.sender];
+ 79:         if (theOwner != msg.sender) {
+ 80:             return ( 0 );
+ 81:         }
+ 82: 
+ 83:         uint256 amount;
+ 84:         amount = depositeAmount[_id][msg.sender];
+ 85: 
+ 86:         return ( amount );
+ 87:     }
+ 88: 
+ 89:     // -------------------------------------------------------------------------------------------------------
+ 90: 
+ 91:     /**
+ 92:      * @dev payable fallback.  The fallback function is called when no other function 
+ 93:      * matches (if the receive ether function does not exist then this includes calls 
+ 94:      * with empty call data). You can make this function payable or not.  If it is not 
+ 95:      * payable then transactions not matching any other function which send value will
+ 96:      * revert. 
+ 97:      */
+ 98:     fallback() external payable {
+ 99:         emit ReceivedFunds(msg.sender, msg.value);
+100:     }
+101: 
+102:     /**
+103:      * @dev payable receive.  The receive ether function is called whenever the call data
+104:      *      is empty (whether or not ether is received). This function is implicitly payable.
+105:      */
+106:     receive() external payable {
+107:         emit ReceivedFunds(msg.sender, msg.value);
+108:     }
+109: 
+110:     /**
+111:      * @dev genReceiveFunds - generate a receive funds event.
+112:      */
+113:     function genReceivedFunds () public payable {
+114:         emit ReceivedFunds(msg.sender, msg.value);
+115:     }
+116: 
+117:     /**
+118:      * @dev Withdraw contract value amount.
+119:      */
+120:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
+121:         payable(owner_address).transfer(amount);
+122:         // owner_address.send(amount);
+123:         emit Withdrawn(owner_address, amount);
+124:         return true;
+125:     }
+126: 
+127:     /**
+128:      * @dev How much do I got?
+129:      */
+130:     function getBalanceContract() public view onlyOwner returns(uint256){
+131:         return address(this).balance;
+132:     }
+133: 
+134:     /**
+135:      * @dev For futute to end the contract, take the value.
+136:      */
+137:     function kill() public onlyOwner {
+138:         emit Withdrawn(owner_address, address(this).balance);
+139:         selfdestruct(owner_address);
+140:     }
+141: }
+
 </code></pre>
 
 </div>

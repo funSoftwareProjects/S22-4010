@@ -8,13 +8,13 @@
   8:     uint256 pct;                // Payment for Deposite
   9:     uint256 numberOfdays;        // Payment can be withdrawn after X days.
  10: 
- 11:     mapping(address => uint256) nOfDeposites; // Your Deposite ID
+ 11:     mapping(address => uint32) nOfDeposites; // Your Deposite ID
  12:     mapping(uint256 => mapping(address => uint256)) depositeAmount;
  13:     mapping(uint256 => mapping(address => address)) depositeOwner;
  14:     mapping(uint256 => mapping(address => uint256)) depositeDeadline;
  15: 
- 16:     event DepositeMade(address indexed who, uint256 amount, uint256 id);
- 17:     event FundsRemoved(address indexed who, uint256 amount, uint256 id);
+ 16:     event DepositeMade(address indexed who, uint256 amount, uint32 id);
+ 17:     event FundsRemoved(address indexed who, uint256 amount, uint32 id);
  18:     event ReceivedFunds(address sender, uint256 value);
  19:     event Withdrawn(address to, uint256 amount);
  20: 
@@ -27,9 +27,9 @@
  27:     /**
  28:      * @dev Create a new deposite for 1 year.
  29:      */
- 30:     function depositCertificate(uint256 _amount) public payable returns ( uint256 ) {
+ 30:     function depositCertificate(uint256 _amount) public payable returns ( uint32 ) {
  31:         require(msg.value == _amount);
- 32:         uint256 id = nOfDeposites[msg.sender];
+ 32:         uint32 id = nOfDeposites[msg.sender];
  33:         id = id + 1;
  34:         nOfDeposites[msg.sender] = id;
  35:         depositeAmount[id][msg.sender] = _amount;
@@ -42,8 +42,8 @@
  42:     /**
  43:      * @dev Allow funds to be withdrawn at end of term.
  44:      */
- 45:     function withdrawCertificate(uint256 _id) public {
- 46:         uint256 id;
+ 45:     function withdrawCertificate(uint32 _id) public {
+ 46:         uint32 id;
  47:         id = nOfDeposites[msg.sender];
  48:         require(id >= _id && _id > 0);    // check that _id is in range.
  49: 
@@ -67,8 +67,8 @@
  67:     /**
  68:      * @dev Allow funds to be withdrawn at end of term.
  69:      */
- 70:     function amountOnDeposite(uint256 _id) public view returns ( uint256 ) {
- 71:         uint256 id;
+ 70:     function amountOnDeposite(uint32 _id) public view returns ( uint256 ) {
+ 71:         uint32 id;
  72:         id = nOfDeposites[msg.sender];
  73:         if ( id > _id || id <= 0 ) {
  74:             return ( 0 );
@@ -77,7 +77,7 @@
  77:         address theOwner;
  78:         theOwner = depositeOwner[_id][msg.sender];
  79:         if (theOwner != msg.sender) {
- 80:             return ( 0 )
+ 80:             return ( 0 );
  81:         }
  82: 
  83:         uint256 amount;

@@ -1,4 +1,6 @@
-# Lecture 23 - Zero Knowledge Proofs
+# Lecture 26 - Zero Knowledge Proofs
+
+m4_include(../../../setup.m4)
 
 # Videos
 

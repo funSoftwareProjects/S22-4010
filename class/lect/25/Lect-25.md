@@ -1,5 +1,20 @@
 
-m4_include(../../../setup.m4)
+
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+.markdown-body {
+	font-size: 12px;
+}
+.markdown-body td {
+	font-size: 12px;
+}
+</style>
+
 
 # Lecture 25 - Chain Interoperability - Patterns in languages
 
@@ -57,7 +72,7 @@ xyzzy
 This is like a Certificate of Deposit (CD) at a bank.
 
 ```
-m4_include(./eth/contracts/FixedTermDesposite.sol.nu)
+
 ```
 
 

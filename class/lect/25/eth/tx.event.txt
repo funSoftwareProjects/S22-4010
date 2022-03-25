@@ -1,0 +1,29 @@
+For DepositeMoade event tx.logs[0].args =  Result {
+  '0': '0xFEe04e21FA8651A1c0Df9B04AFC5adc7FCA23271',
+  '1': BN {
+    negative: 0,
+    words: [ 1000000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '2': BN {
+    negative: 0,
+    words: [ 1, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  __length__: 3,
+  who: '0xFEe04e21FA8651A1c0Df9B04AFC5adc7FCA23271',
+  amount: BN {
+    negative: 0,
+    words: [ 1000000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  id: BN {
+    negative: 0,
+    words: [ 1, <1 empty item> ],
+    length: 1,
+    red: null
+  }
+}

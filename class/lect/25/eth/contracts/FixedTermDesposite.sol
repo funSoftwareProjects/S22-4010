@@ -5,17 +5,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract FixedTermDesposite is Ownable {
     address payable owner_address;
-    uint256 deadline;
     uint256 pct;				// Payment for Deposite
     uint256 numberOfdays;		// Payment can be withdrawn after X days.
 
-	mapping(address => uint256) nOfDeposites; // Your Deposite ID
+	mapping(address => uint32) nOfDeposites; // Your Deposite ID
 	mapping(uint256 => mapping(address => uint256)) depositeAmount;
 	mapping(uint256 => mapping(address => address)) depositeOwner;
 	mapping(uint256 => mapping(address => uint256)) depositeDeadline;
 
-	event DepositeMade(address indexed who, uint256 amount, uint256 id);
-	event FundsRemoved(address indexed who, uint256 amount, uint256 id);
+	event DepositeMade(address indexed who, uint256 amount, uint32 id);
+	event FundsRemoved(address indexed who, uint256 amount, uint32 id);
 	event ReceivedFunds(address sender, uint256 value);
 	event Withdrawn(address to, uint256 amount);
 
@@ -28,9 +27,9 @@ contract FixedTermDesposite is Ownable {
 	/**
 	 * @dev Create a new deposite for 1 year.
 	 */
-    function depositCertificate(uint256 _amount) public payable returns ( uint256 ) {
+    function depositCertificate(uint256 _amount) public payable returns ( uint32 ) {
         require(msg.value == _amount);
-		uint256 id = nOfDeposites[msg.sender];
+		uint32 id = nOfDeposites[msg.sender];
 		id = id + 1;
 		nOfDeposites[msg.sender] = id;
 		depositeAmount[id][msg.sender] = _amount;
@@ -43,8 +42,8 @@ contract FixedTermDesposite is Ownable {
 	/**
 	 * @dev Allow funds to be withdrawn at end of term.
 	 */
-    function withdrawCertificate(uint256 _id) public {
-		uint256 id;
+    function withdrawCertificate(uint32 _id) public {
+		uint32 id;
         id = nOfDeposites[msg.sender];
         require(id >= _id && _id > 0);	// check that _id is in range.
 
@@ -64,6 +63,28 @@ contract FixedTermDesposite is Ownable {
         to.transfer(amount);								// send them the $ plus interest
 		emit DepositeMade( msg.sender, amount, _id);
     }
+
+	/**
+	 * @dev Allow funds to be withdrawn at end of term.
+	 */
+    function amountOnDeposite(uint32 _id) public view returns ( uint256 ) {
+		uint32 id;
+        id = nOfDeposites[msg.sender];
+		if ( id > _id || id <= 0 ) {
+			return ( 0 );
+		}
+
+		address theOwner;
+        theOwner = depositeOwner[_id][msg.sender];
+        if (theOwner != msg.sender) {
+			return ( 0 );
+		}
+
+		uint256 amount;
+		amount = depositeAmount[_id][msg.sender];
+
+		return ( amount );
+	}
 
 	// -------------------------------------------------------------------------------------------------------
 

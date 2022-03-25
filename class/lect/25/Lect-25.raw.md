@@ -53,6 +53,8 @@ module.exports = function (deployer) {
 Data that is not a "constant" is saved from call to call over time.
 Data is expensive.
 
+<div class="pagebreak"></div>
+
 ## Dictionary
 
 Solidity dictionaries - are multi-level maps.
@@ -100,6 +102,8 @@ and generate the event to the log
 ```
 	emit ReceivedFunds(msg.sender, msg.value);
 ```
+
+<div class="pagebreak"></div>
 
 In the test code these can be dumped out with
 

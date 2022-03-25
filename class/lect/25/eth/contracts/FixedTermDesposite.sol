@@ -8,6 +8,10 @@ contract FixedTermDesposite is Ownable {
     uint256 pct;				// Payment for Deposite
     uint256 numberOfdays;		// Payment can be withdrawn after X days.
 
+
+
+
+
 	mapping(address => uint32) nOfDeposites; // Your Deposite ID
 	mapping(uint256 => mapping(address => uint256)) depositeAmount;
 	mapping(uint256 => mapping(address => address)) depositeOwner;
@@ -63,6 +67,14 @@ contract FixedTermDesposite is Ownable {
         to.transfer(amount);								// send them the $ plus interest
 		emit DepositeMade( msg.sender, amount, _id);
     }
+
+
+
+
+
+
+
+
 
 	/**
 	 * @dev Allow funds to be withdrawn at end of term.
@@ -123,6 +135,13 @@ contract FixedTermDesposite is Ownable {
 		emit Withdrawn(owner_address, amount);
 		return true;
 	}
+
+
+
+
+
+
+
 
 	/**
 	 * @dev How much do I got?

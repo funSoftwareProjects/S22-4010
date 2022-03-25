@@ -3,7 +3,7 @@ PP=`pwd`
 FN=Lect-25
 DIR=../../../
 IMG=
-PY=
+PY= eth/contracts/FixedTermDesposite.sol
 
 all: setup all2
 

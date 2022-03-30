@@ -725,13 +725,60 @@ ol {
 
 <h1>Lecture 27 - Anti-Counterfeiting Blockchain Example</h1>
 
+<p>An Anti-Counterfeiting blockchain based solution is an excellent use-case for
+blockchain.</p>
+
+<ol>
+<li>Attestation of authenticity.</li>
+<li>Proof of ownership - so that you can have a legitimate secondary market.</li>
+<li>Transfer of ownership.</li>
+</ol>
+
 <h2>How big a problem is counterfeiting</h2>
 
-<h2>An Ideal Application</h2>
+<ol>
+<li>Counterfeit Drugs.  FDA - $16 billion a year.</li>
+<li>Counterfeit Car parts.  NTSB - $23 billion a year.</li>
+<li>Total size of counterfeit product market. - Harvard Business Review - $75 Trillion a year.</li>
+</ol>
 
-<h2>Near Field Communications &ldquo;Chips&rdquo; -</h2>
+<h2>Near Field Communications &ldquo;Chips&rdquo; - how they work</h2>
 
-<h2>Privacy and the Chips</h2>
+<h3>Passive NFC</h3>
+
+<p>Passive NFC is the ability to read a &ldquo;code&rdquo; from a NFC chip.  This is an ID or
+a URL containing an ID.</p>
+
+<h3>Active NFC</h3>
+
+<p>Active NFC involves a NFC chip that has a computer that generates a set of data
+that changes - this can be much more secure.</p>
+
+<p>Active means that the NFC chip either has to have a battery - that will run out
+or use the NFC power to do whatever it is going to do.</p>
+
+<h2>How a system could work.</h2>
+
+<h3>Only respond to &ldquo;write&rdquo; requests</h3>
+
+<p>When a read request with a constant value.</p>
+
+<h3>Only respond to &ldquo;signed&rdquo; write requests</h3>
+
+<p>When you get a write request validate that it is &ldquo;signed&rdquo; by the
+legitimate author of the original chip data.</p>
+
+<h3>Send back a encrypted response</h3>
+
+<p>Use a public/private key of the destination to encrypt the response.
+This prevents the middleman from being able to alter or interpret
+the response.</p>
+
+<h3>The server (Blockchain Network) can validate the response.</h3>
+
+<h3>Protect the Privacy on-chain of &ldquo;ownership&rdquo; data.</h3>
+
+<h3>Respond with what the &ldquo;product&rdquo; should be.</h3>
 
 </div>
 

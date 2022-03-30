@@ -102,7 +102,7 @@ that the owner has a secret.  Use a HMAC with a derived key to find the Products
 Send back the "product" with its unique characteristics (human visible ID, Pictures,
 description).
 
-![christian-dior-handbag.jpg](christian-dior-handbag.jpg)
+![christian-dior-handbag.png](christian-dior-handbag.png)
 
 For things like a vehicle: the VIN.
 

@@ -36,9 +36,17 @@ or use the NFC power to do whatever it is going to do.
 ## How a system could work.
 
 
-### Only respond to "write" requests
+### Use Blockchain to Initialize the IoT chip.
+
+When the manufacturer assigns the chip use a blockchain singed
+request to get the "seed" value for future cryptographic random
+values.
+ 
+
+### Only respond to "write" requests.
 
 When a read request with a constant value.
+
 
 
 
@@ -48,6 +56,7 @@ When you get a write request validate that it is "signed" by the
 legitimate author of the original chip data.
 
 
+
 ### Send back a encrypted response
 
 Use a public/private key of the destination to encrypt the response.
@@ -55,14 +64,30 @@ This prevents the middleman from being able to alter or interpret
 the response.
 
 
+
 ### The server (Blockchain Network) can validate the response.
+
+The server can now use it's private key to both validate and decrypt the message.
+The message can now be looked up to validate the owner and what the product is.
+
+This can be validated with the "private" key matched to the signature of the
+data and checked that this is a valid "owner" on the chain.
+
+This essentially attaches a NFT to a physical product.
+
 
 
 ### Protect the Privacy on-chain of "ownership" data.
 
+The map from the "owner" to the set of "products" has to keep the set of products
+that the owner has a secret.  Use a HMAC with a derived key to find the Products.
+
+
 
 ### Respond with what the "product" should be.
 
+Send back the "product" with its unique characteristics (human visible ID, Pictures,
+description).
 
 
 

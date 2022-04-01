@@ -18,7 +18,7 @@
 
 ## Assignment 6 - Develop an employee vesting contract
 
-200pts  <br>
+300pts  <br>
 Due Apr 11
 
 

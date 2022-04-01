@@ -3,7 +3,7 @@ m4_include(../.././setup.m4)
 
 ## Assignment 6 - Develop an employee vesting contract
 
-200pts  <br>
+300pts  <br>
 Due Apr 11
 
 m4_comment([[[

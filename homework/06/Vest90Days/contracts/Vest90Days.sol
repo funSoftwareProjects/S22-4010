@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.25 <0.9.0;
+pragma solidity >=0.8.0 <0.9.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Vest90Days is Ownable {
+
+	address VvvTokenContractAddrss ;
 
 	struct docData{
 		string name;
@@ -23,12 +25,9 @@ contract Vest90Days is Ownable {
 	event DocumentNoterized(string, bytes32, string, address indexed);
 	event LogWithdrawal(address,  uint256);
 
-	constructor() {
+	constructor( address _addr ) {
 		minPayment = 1;
-	}
-
-	function setPayment ( uint256 p ) public onlyOwner {
-		minPayment = p;
+		VvvTokenContractAddrss = _addr;
 	}
 
 	// TODO - add a getPayment function that is a public view.

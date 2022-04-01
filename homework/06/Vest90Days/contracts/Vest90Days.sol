@@ -7,122 +7,94 @@ contract Vest90Days is Ownable {
 
 	address VvvTokenContractAddrss ;
 
-	struct docData{
+	struct employeeData{
 		string name;
 		address owner;
-		bytes32 infoHash;
-		string userData;
+		uint256 startTime;
+		uint256 endTime;
+		uint256 tokensVested;
+		bool exists;
+		bool hasExited;
 	}
-	mapping(address => docData[]) perUserDocs;
-	mapping(bytes32 => address) docIndex; // docIndex[infoHash] = msg.sender;
-	mapping(bytes32 => bool) infoSet;
-	mapping(address => bool) isNotery;
-	mapping(bytes32 => address) noterized;
-	uint256 minPayment;
 
-	event DocumentSet(string, bytes32 indexed, string);
-	event DocumentOwner(address indexed, string, bytes32, string);
-	event DocumentNoterized(string, bytes32, string, address indexed);
-	event LogWithdrawal(address,  uint256);
+	mapping(address => employeeData) perEmployeeData;
+	address[] empList;
+
+	event NewEmployee(address indexed, uint256 startTime);
+	event VestedTokens(address indexed, uint256 nTokens);
+	event EmployeeExit(address indexed, uint256 endTime);
 
 	constructor( address _addr ) {
-		minPayment = 1;
 		VvvTokenContractAddrss = _addr;
 	}
 
-	// TODO - add a getPayment function that is a public view.
-	function getPayment() public view returns (uint256) {
-		return minPayment;
+	function startNewEmployee( address _employeeAddress, string memory _name ) public onlyOwner {
+		employeeData memory newEmployee;
+		newEmployee.name = _name;
+		newEmployee.owner = _employeeAddress;
+		newEmployee.startTime = block.timestamp;
+		newEmployee.exists = true;
+		perEmployeeData[_employeeAddress] = newEmployee;
+		empList.push(_employeeAddress);
+		emit NewEmployee(_employeeAddress, block.timestamp);
 	}
 
-	function setNoterizer ( address aNotery ) public onlyOwner {
-		isNotery[aNotery] = true;
+	function employeeExit( address _employeeAddress ) public onlyOwner {
+		employeeData memory emp;
+		emp = perEmployeeData[_employeeAddress];
+		if ( emp.exists ) {
+			emp.hasExited = true;
+			emp.endTime = block.timestamp;
+		}
+		perEmployeeData[_employeeAddress] = emp;
+		emit EmployeeExit(_employeeAddress, block.timestamp);
 	}
 
-	function rmNoterizer ( address aNotery ) public onlyOwner {
-		isNotery[aNotery] = false;
+	function calculateVesting (address _anEmployee ) public onlyOwner {
+		uint256 nTokens;
+		// TODO calculate.
+		// TODO use address of ERC777 to transfer tokens to _anEmployee
+		emit VestedTokens(_anEmployee, nTokens);
 	}
 
-	// TODO - add a isValidNoterizer function as a public view that returns true if the passed address is a valid
-	// noterizer.
-	function isValidNoterizer(address aNotery) public view returns (bool) {
-		return isNotery[aNotery];
-	}
-
-	function newDocument ( string memory name, bytes32 infoHash, string memory info ) public payable returns(bool) {
-		require(!infoSet[infoHash], "already set, already has owner.");		// Validate that this is a new document
-		require(msg.value >= minPayment, "insufficient payment to set data.");	// Validate that they are paying enougn
-
-		infoSet[infoHash] = true;	// This will be used in noterizeDocument 
-
-		// TODO: declare an in-memory docData structure.
-		docData memory newDocData;
-		// TODO: set the values in the structure
-		newDocData.name = name;
-		newDocData.owner = msg.sender;
-		newDocData.infoHash = infoHash;
-		newDocData.userData = info;
-		// TODO: append the structure to perUserDocs for this msg.sender
-		perUserDocs[msg.sender].push(newDocData);
-		// TODO: create in docIndex a way to get to this msg.sender so that the document can be found by docHash
-		docIndex[infoHash] = msg.sender;
-		// TODO: emit DocumentSet and DocumentOwner events
-		emit DocumentSet(name, infoHash, info);
-		emit DocumentOwner(msg.sender, name, infoHash, info);
-		
-		return true;
-	}
-
-	function noterizeDocument ( string memory name, bytes32 infoHash, string memory info ) public returns (bool) {
-		require(infoSet[infoHash], "document not created set.");
-		require(!isNotery[msg.sender], "not a registered notery.");
-		noterized[infoHash] = msg.sender;		// Mark that this document has been noterized by a valid notery.
-		emit DocumentNoterized(name, infoHash, info, msg.sender);
-		return true;
+	function vestedTokens ( address _anEmployee ) public view returns ( uint256 ) {
+		employeeData memory emp;
+		emp = perEmployeeData[_anEmployee];
+		if ( emp.exists ) {
+			return emp.tokensVested;
+		}
+		return 0;
 	}
 
 
-	// List Documents by Owner of Document
-	function nDocuments() public view returns ( uint256 ) {
-		return( perUserDocs[msg.sender].length );
+
+	// List Employees by address
+	function nEmployees() public view returns ( uint256 ) {
+		return( empList.length );
 	}
-	function ownerOfDocument( bytes32 infoHash) public view returns ( address ) {
-		return( docIndex[infoHash] );
+	function getName ( uint256 nth ) public view returns ( string memory ) {
+		require(nth >= 0  && nth < empList.length, "nth out of range.");
+		address a;
+		a = empList[nth];
+		employeeData memory emp;
+		emp = perEmployeeData[a];
+		if ( emp.exists ) {
+			return emp.name;
+		}
+		return ( "" );
 	}
-	function getDocName ( uint256 nth ) public view returns ( string memory ) {
-		require(nth >= 0  && nth < perUserDocs[msg.sender].length, "nth out of range.");
-		docData memory v;
-		v = perUserDocs[msg.sender][nth];
-		return ( v.name );
-	}
-	function getDocInfoHash ( uint256 nth ) public view returns ( bytes32 ) {
-		require(nth >= 0  && nth < perUserDocs[msg.sender].length, "nth out of range.");
-		docData memory v;
-		v = perUserDocs[msg.sender][nth];
-		return ( v.infoHash );
-	}
-	function getDocInfo ( uint256 nth ) public view returns ( string memory ) {
-		require(nth >= 0  && nth < perUserDocs[msg.sender].length, "nth out of range.");
-		docData memory v;
-		v = perUserDocs[msg.sender][nth];
-		return ( v.userData );
+	function getStartTime ( uint256 nth ) public view returns ( uint256 ) {
+		require(nth >= 0  && nth < empList.length, "nth out of range.");
+		address a;
+		a = empList[nth];
+		employeeData memory emp;
+		emp = perEmployeeData[a];
+		if ( emp.exists ) {
+			return emp.startTime;
+		}
+		return ( 0 );
 	}
 
-
-	/**
-	 * Find out how much Eth the contract has accumulated.
-     */
-    function getBalance() public view onlyOwner returns(uint balance) {
-        return address(this).balance;
-    }
-
-	/**
-	 * Transfer out the Eth to the owners account.
-     */
-    function withdraw(uint amount) public onlyOwner returns(bool success) {
-        emit LogWithdrawal(msg.sender, amount);
-        payable(msg.sender).transfer(amount);
-        return true;
-    }
+	// TODO - add other accessor functions for data.
 
 }

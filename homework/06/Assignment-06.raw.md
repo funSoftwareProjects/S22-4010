@@ -38,9 +38,10 @@ in the ERC-20/777/1155 contract.
 File: Vest90Days.sol
 
 ```
-m4_include(Vest90Days.sol)
+m4_include(Vest90Days/contracts/Vest90Days.sol.nu)
 ```
 
-Develop and write tests for this smart contract.
+Develop the test of this contract (the TODO's) and a set of
+test for it.
 
 

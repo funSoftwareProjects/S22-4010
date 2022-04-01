@@ -7,7 +7,8 @@ PP=`pwd`
 FN=Assignment-06
 DIR=.././../
 IMG=
-PY=
+PY= \
+Vest90Days/contracts/Vest90Days.sol
 
 all: setup all2
 

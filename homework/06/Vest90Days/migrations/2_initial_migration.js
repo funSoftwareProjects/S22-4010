@@ -1,9 +1,15 @@
-const VvvToken = artifacts.require("./VvvToken.sol");
+const VvvToken = artifacts.require("./VvvToken");
 const Vest90Days = artifacts.require("Vest90Days");
 
-module.exports = (deployer) => {
-	deployer.then(async () => {
-		await deployer.deploy(VvvToken);
-		await deployer.deploy(Vest90Days, VvvToken.address);
-	});
+require('@openzeppelin/test-helpers/configure')({ provider: web3.currentProvider, environment: 'truffle' });
+
+const { singletons } = require('@openzeppelin/test-helpers');
+
+module.exports = async function (deployer, network, accounts) {
+	if (network === 'development') {
+		// In a test environment an ERC777 token requires deploying an ERC1820 registry
+		await singletons.ERC1820Registry(accounts[0]);
+	}
+	await deployer.deploy(VvvToken);
+	await deployer.deploy(Vest90Days, VvvToken.address);
 };

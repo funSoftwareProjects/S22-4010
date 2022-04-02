@@ -230,7 +230,7 @@ func (cc *CLI) SendFundsTransaction(
 
 	oldOutputs := cc.GetNonZeroForAccount(from)
 	if db3 {
-		fmt.Printf("%s Old Outputs (Step 1): %s, AT:%s%s\n", MiscLibColor.Yellow, lib.SVarI(oldOutputs), godebug.LF(), MiscLib.ColorReset)
+		fmt.Printf("%s Old Outputs (Step 1): %s, AT:%s%s\n", MiscLib.ColorYellow, lib.SVarI(oldOutputs), godebug.LF(), MiscLib.ColorReset)
 	}
 	// 4. Find the set of (may be empty - check for that) values that are pointed
 	//    to in the index - from the 'from' account.  Delete this from the
@@ -249,6 +249,7 @@ func (cc *CLI) SendFundsTransaction(
 		fmt.Printf("Error creating tx inputs from old outputs!")
 	}
 	// 7. Save the new inputs in the tx.Input.
+	tx = transactions.NewEmptyTx(memo, from)
 	tx.Input = txIn
 	// 8. Create the new output for the 'to' address.  Call `transactions.CreateTxOutputWithFunds`.
 	//    Call this `txOut`.    Take `txOut` and append it to the tranaction by calling
@@ -258,6 +259,10 @@ func (cc *CLI) SendFundsTransaction(
 	// 9. Calcualte the amount of "change" - if it is larger than 0 then we owe 'from'
 	//    change.  Create a 2nd tranaction with the change.  Append to the tranaction the
 	//    TxOutputType.
+	if tot > amount {
+		change, _ := transactions.CreateTxOutputWithFunds(from, tot-amount)
+		transactions.AppendTxOutputToTx(tx, change)
+	}
 
 	// 10. Return
 	//

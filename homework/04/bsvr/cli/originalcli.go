@@ -1,20 +1,19 @@
 package cli
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
 	"strconv"
 
-	"github.com/Univ-Wyo-Education/S22-4010/homework/03/bsvr/addr"
-	"github.com/Univ-Wyo-Education/S22-4010/homework/03/bsvr/block"
-	"github.com/Univ-Wyo-Education/S22-4010/homework/03/bsvr/config"
-	"github.com/Univ-Wyo-Education/S22-4010/homework/03/bsvr/hash"
-	"github.com/Univ-Wyo-Education/S22-4010/homework/03/bsvr/index"
-	"github.com/Univ-Wyo-Education/S22-4010/homework/03/bsvr/lib"
-	"github.com/Univ-Wyo-Education/S22-4010/homework/03/bsvr/mine"
-	"github.com/Univ-Wyo-Education/S22-4010/homework/03/bsvr/transactions"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/04/bsvr/addr"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/04/bsvr/block"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/04/bsvr/config"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/04/bsvr/hash"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/04/bsvr/index"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/04/bsvr/lib"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/04/bsvr/mine"
+	"github.com/Univ-Wyo-Education/S22-4010/homework/04/bsvr/transactions"
 
 	"github.com/pschlump/MiscLib"
 	"github.com/pschlump/godebug"
@@ -197,15 +196,19 @@ func (cc *CLI) SendFundsTransaction(
 	err error,
 ) {
 
-	fmt.Printf("ATAT: %s\n", godebug.LF())
+	if db3 {
+		fmt.Printf("ATAT: %s\n", godebug.LF())
+	}
 
-	//	if isValid, err := cc.InstructorValidateSignature(from, sig, message); !isValid { // addr, sig, msg string) (isValid bool, err error) {
-	/*
-			if !lib.ValidSignature(sig, message, from) { // Assignment 5 implements, just true for now.
-			// return nil, fmt.Errorf("Signature not valid")
-			return nil, err
+	// if isValid, err := cc.InstructorValidateSignature(from, sig, message); !isValid { // addr, sig, msg string) (isValid bool, err error) {
+	if !lib.ValidSignature(sig, message, from) { // Assignment 4 implements, just true for now.
+
+		// return nil, fmt.Errorf("Signature not valid")
+		if db8 {
+			fmt.Printf("%sSignature is not valid - early return NIL pointer: %s, AT:%s%s\n", MiscLib.ColorYellow, godebug.LF(), MiscLib.ColorReset)
 		}
-	*/
+		return nil, err
+	}
 
 	// fmt.Printf("ATAT: %s\n", godebug.LF())
 
@@ -218,55 +221,68 @@ func (cc *CLI) SendFundsTransaction(
 	// Pseudo Code:
 	// 1. Calcualte the total value of the account 'from'.  Call this 'tot'.
 	//    You can do this by calling `cc.GetTotalValueForAccount(from)`.
-	tot := cc.GetTotalValueForAccount(from)
 	// 2. If the total, `tot` is less than the amount that is to be transfered,
 	//	  `amount` then fail.  Return an error "Insufficient funds".  The person
 	//    is trying to bounce a check.
-	if tot < amount {
-		return nil, errors.New("Insufficient funds")
-	}
 	// 3. Get the list of output tranactions ( ../transactions/tx.go TxOutputType ).
 	//    Call this 'oldOutputs'.
-
-	oldOutputs := cc.GetNonZeroForAccount(from)
-	if db3 {
-		fmt.Printf("%s Old Outputs (Step 1): %s, AT:%s%s\n", MiscLib.ColorYellow, lib.SVarI(oldOutputs), godebug.LF(), MiscLib.ColorReset)
-	}
 	// 4. Find the set of (may be empty - check for that) values that are pointed
 	//    to in the index - from the 'from' account.  Delete this from the
 	//    index.
-
-	delete(cc.BlockIndex.FindValue.AddrIndex, string(from))
-
 	// 5. Create a new empty transaction.  Call `transctions.NewEmptyTx` to create.
 	//	  Pass in the 'memo' and the 'from' for this tranaction.
-	transactions.NewEmptyTx(memo, from)
 	// 6. Convert the 'oldOutputs' into a set of new inputs.  The type is
 	//    ../transctions/tx.go TxInputType.  Call `transactions.CreateTxInputsFromOldOutputs`
 	//	  to do this.
-	txIn, err := transactions.CreateTxInputsFromOldOutputs(oldOutputs)
-	if err != nil {
-		fmt.Printf("Error creating tx inputs from old outputs!")
-	}
 	// 7. Save the new inputs in the tx.Input.
-	tx = transactions.NewEmptyTx(memo, from)
-	tx.Input = txIn
 	// 8. Create the new output for the 'to' address.  Call `transactions.CreateTxOutputWithFunds`.
 	//    Call this `txOut`.    Take `txOut` and append it to the tranaction by calling
 	//    `transactions.AppendTxOutputToTx`.
-	txOut, _ := transactions.CreateTxOutputWithFunds(to, amount)
-	transactions.AppendTxOutputToTx(tx, txOut)
 	// 9. Calcualte the amount of "change" - if it is larger than 0 then we owe 'from'
 	//    change.  Create a 2nd tranaction with the change.  Append to the tranaction the
 	//    TxOutputType.
-	if tot > amount {
-		change, _ := transactions.CreateTxOutputWithFunds(from, tot-amount)
-		transactions.AppendTxOutputToTx(tx, change)
-	}
-
 	// 10. Return
 	//
-
+	tot := cc.GetTotalValueForAccount(from)
+	if tot < amount {
+		return nil, fmt.Errorf("Insufficient funds")
+	}
+	oldOutputs := cc.GetNonZeroForAccount(from)
+	if db3 {
+		fmt.Printf("%sOld Outputs (Step 1): %s, AT:%s%s\n", MiscLib.ColorYellow, lib.SVarI(oldOutputs), godebug.LF(), MiscLib.ColorReset)
+	}
+	// remvoe inputs from index.
+	fromHashKey := fmt.Sprintf("%s", from)
+	tmp1, ok := cc.BlockIndex.FindValue.AddrIndex[fromHashKey]
+	if ok {
+		delete(cc.BlockIndex.FindValue.AddrIndex, fromHashKey)
+	}
+	tx = transactions.NewEmptyTx(memo, from)
+	// create inputs into tranaction from "oldOutputs"
+	txIn, err := transactions.CreateTxInputsFromOldOutputs(oldOutputs)
+	if err != nil {
+		cc.BlockIndex.FindValue.AddrIndex[fromHashKey] = tmp1
+		return nil, err
+	}
+	if db3 {
+		fmt.Printf("%sNew Inputs (Step 2): %s, AT:%s%s\n", MiscLib.ColorYellow, lib.SVarI(txIn), godebug.LF(), MiscLib.ColorReset)
+	}
+	tx.Input = txIn
+	txOut, err := transactions.CreateTxOutputWithFunds(to, amount)
+	if err != nil {
+		cc.BlockIndex.FindValue.AddrIndex[fromHashKey] = tmp1
+		return nil, err
+	}
+	transactions.AppendTxOutputToTx(tx, txOut)
+	change := tot - amount
+	if change > 0 {
+		txOut, err := transactions.CreateTxOutputWithFunds(from, change)
+		if err != nil {
+			cc.BlockIndex.FindValue.AddrIndex[fromHashKey] = tmp1
+			return nil, err
+		}
+		transactions.AppendTxOutputToTx(tx, txOut)
+	}
 	return
 }
 
@@ -555,7 +571,8 @@ func (cc *CLI) AppendBlock(bk *block.BlockType) {
 // Debug flags to turn on output in sections of the code.
 const db1 = false
 const db2 = false
-const db3 = false
+const db3 = true // may also want db8 to be true - prints on invalid signature
 const db4 = false
 const db5 = false
 const db6 = false
+const db8 = true

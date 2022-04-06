@@ -74,13 +74,124 @@ then to get back the file you need the hash
 	ipfs object get QmQac2chFyJ24yfG2Dfuqg1P5gipLcgUDuiuYkQ5ExwGap
 ```
 
+
+
+
 ## How Amazon S3 works / Amazon Glacier
 
-ZFS bsased file store.
+ZFS based file store.
+
+Backblaze - offers S3 compatible storage for 1/10th the cost.
+
+
+
 
 ## Distributed file store
 
-Example: [https://storej.io](https://storej.io)
+Example: [https://storej.io](https://storej.io) reliable cloud storage.
+
+Example: [https://www.arweave.org/](https://www.arweave.org/) - Claims permanent storage.
+
+Perception is as important as reality.
 
 
 
+
+## Virtual Economics
+
+What is "real".
+
+Games and "virtual" items - just as real - as economically important as a desk.
+
+Eve Online.
+
+D&D / GURPS etc.  Virtual worlds.
+
+
+
+
+
+## Axie Infinity 
+
+[A hacker stole $625 million from the blockchain behind NFT game Axie Infinity](https://www.theverge.com/2022/3/29/23001620/sky-mavis-axie-infinity-ronin-blockchain-validation-defi-hack-nft)
+
+You have to have $625 million for somebody to steal $625 million.
+
+173,600 Ethereum.
+
+Loosely based on Pokémon, the Axie Infinity game has grown immensely. It uses a play-to-earn model.
+It is worth billions.
+
+The largest (and in my onion the best) of all the blockchain based games is Axie Infinity.
+It has taken the concept of NFTs (ERC-721) farther than any other game.
+The world is populated by Axies (virtual digital creatures) each matched with a NFT.
+You have to buy 3 of them to play -they- are not that cheep.  Players can buy, exchange, bread and use them in play.
+There are tournaments with them.   A plot of virtual land in the game sold for over $1.5 million dollars.
+The tokens in the game are Smooth Love Potion (SLP) and Axie Infinity Shard (AXS).
+The game encourages exchange between tokens and outside dollars and is traded
+on the exchanges.
+
+
+AXS is a NFT.
+
+SLP is a ERC-20 based token used in the game.
+
+![axie-infinity.png](axie-infinity.png)
+
+
+
+## Other Games
+
+1. Blankos Block Party
+2. Upland
+
+
+
+
+## Yield Curve Inverted
+
+An inverted yield curve happens when short-term interest rates become higher than long-term rates.
+
+Let's compare 10-year T-Bills and 30-day T-Bills.  This is the stuff that finances our government debt.
+
+The yield curve recently inverted.  
+This is important because of the financially unnatural state that it indicates.  Normally the longer you
+wait the more risk there is.   This is saying that there is more risk in the short term than in the long
+term.
+
+Why would an investor buy a 10-yr bond when she could get a higher interest rate with a 30-day T-Bill?
+It makes no sense from a practical standpoint. Is the short-term rate too high, or is the long-term rate too low? 
+
+Curve inversions may be unnatural, but they happen, and it's happening right now, as in 2 days ago.
+
+![history-yield-curve.png](history-yield-curve.png)
+
+
+Some Examples
+
+The Global Financial crash of 2008:
+
+![2008.png](2008.png)
+
+The .com crash of 2000:
+
+![2000.png](2000.png)
+
+The "Black Tuesday Crash" of 1987.  This is my favorite.  I made money with my first stocks during
+this crash.
+
+![1987.png](1987.png)
+
+The "stagflation" economy, 1980:
+
+![1980.png](1980.png)
+
+The OPEC oil crisis:
+
+![1974.png](1974.png)
+
+The 1969-1970 recession - mild recession that lasted and lasted.
+
+![1970.png](1970.png) 
+
+![1969.png](1969.png)

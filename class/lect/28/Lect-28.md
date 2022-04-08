@@ -131,6 +131,25 @@ it to be deflationary at 2% above inflation you are making a TON of money.
 Adding you in this is the fact that coffee is a scarce commodity and getting
 more scarce over time.  This is due to the leaf blight problem.  
 
+Now with the tokens in the system you can value add at each level.  The shipping
+can be payed out immediately in tokens.   Each bag can be tracked to the exact
+tokens that were used to pay for this step.    The middlemen now need to buy
+tokens to purchase the coffee at middle steps.   This converts more cash to 
+tokens.   Each of these can be tracked.  The NFC-per bag can now be matched to
+the tokens used to pay for it.     When a roosting operation converts form NFC
+tags to QR-Code-Signed tags - it issues new NFTs for each QR code, signers it
+and maintains the track of custody.
+
+The end consumer can now scan a bag of coffee and get the entire history on that
+bag.  In terms of marketing every bag can now contain the "story" of the farmer
+that raised the beans.  That "story" is the marketing end - and how you can
+charge more for the end product.
+
+At every step the buy/sell of the VvvTokens drives demand for the tokens.
+This eliminates all of the dollar/exchange costs and the risk of different
+currencies in the supply chain.  That is another benefit.
+
+
 
 
 

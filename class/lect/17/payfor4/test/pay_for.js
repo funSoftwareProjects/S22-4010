@@ -43,9 +43,17 @@ contract("PayFor", function (accounts) {
 		// function getNPayments() public onlyOwner view returns(uint256) {
 		assert.equal(await payfor.getNPayments(), 1, "Expected to have 1 paymnet.");
 
-	// function getPaymentInfo(uint256 n) public onlyOwner view returns(address, uint256, uint256) {
+		// function getPaymentInfo(uint256 n) public onlyOwner view returns(address, uint256, uint256) {
+		let x = await payfor.getPaymentInfo(0);
+		console.log ( x );
+		console.log ( 'account: 0x'+x[0]+' price: '+x[1].toString()+" product: "+x[2].toString() )
+
+		assert.equal(x[1].toString(), "4", "Expected to have paymnet of 4.");
+		return assert.isTrue(true);
+		assert.equal(x[2].toString(), "10", "Expected to have product of 10.");
 
 		return assert.isTrue(true);
+
 	});
 	//it("should be have 2 products setup", async function() {
 		// assert.equal((await payfor.getNSKU()).toNumber(), 2, "Expected to have 2 products setup.");

@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import "./Ownable.sol";
+// import "./Ownable.sol";
+import "zeppelin-solidity/contracts/ownership/Ownable.sol";
+
 
 contract PayFor is Ownable {
 
@@ -91,9 +93,11 @@ contract PayFor is Ownable {
 	function withdraw( uint256 amount ) public onlyOwner returns(bool) {
 		// require(address(this).balance >= amount, "Insufficient Balance for withdrawl");
 		require(balance >= amount, "Insufficient Balance for withdrawl");
-		address to0 = address ( Ownable.owner() );
+		// address to0 = address ( Ownable.owner() );
+		address to0 = address ( Ownable.owner );
 		address payable to = address ( uint160(to0) );
 		address(to).transfer(amount);
+		balance -= amount;
 		emit Withdrawn(to, amount);
 		return true;
 	}

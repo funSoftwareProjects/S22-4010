@@ -1,0 +1,2108 @@
+<style>
+@font-face {
+	font-family: octicons-link;
+	src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+
+.markdown-body {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.5;
+	color: #24292e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+	color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+	color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+	color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+	color: #24292e;
+}
+
+.markdown-body .pl-ent {
+	color: #22863a;
+}
+
+.markdown-body .pl-k {
+	color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+	color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+	color: #e36209;
+}
+
+.markdown-body .pl-bu {
+	color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+	color: #fafbfc;
+	background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+	color: #fafbfc;
+	background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+	content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+	font-weight: bold;
+	color: #22863a;
+}
+
+.markdown-body .pl-ml {
+	color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+	font-weight: bold;
+	color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+	font-style: italic;
+	color: #24292e;
+}
+
+.markdown-body .pl-mb {
+	font-weight: bold;
+	color: #24292e;
+}
+
+.markdown-body .pl-md {
+	color: #b31d28;
+	background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+	color: #22863a;
+	background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+	color: #e36209;
+	background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+	color: #f6f8fa;
+	background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+	font-weight: bold;
+	color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+	color: #586069;
+}
+
+.markdown-body .pl-sg {
+	color: #959da5;
+}
+
+.markdown-body .pl-corl {
+	text-decoration: underline;
+	color: #032f62;
+}
+
+.markdown-body .octicon {
+	display: inline-block;
+	vertical-align: text-top;
+	fill: currentColor;
+}
+
+.markdown-body a {
+	background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+	outline-width: 0;
+}
+
+.markdown-body strong {
+	font-weight: inherit;
+}
+
+.markdown-body strong {
+	font-weight: bolder;
+}
+
+.markdown-body h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+.markdown-body img {
+	border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+.markdown-body hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+.markdown-body input {
+	font: inherit;
+	margin: 0;
+}
+
+.markdown-body input {
+	overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.markdown-body * {
+	box-sizing: border-box;
+}
+
+.markdown-body input {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.markdown-body a {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.markdown-body a:hover {
+	text-decoration: underline;
+}
+
+.markdown-body strong {
+	font-weight: 600;
+}
+
+.markdown-body hr {
+	height: 0;
+	margin: 15px 0;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body hr::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+	padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body h1 {
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.markdown-body h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.markdown-body h3 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.markdown-body h4 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.markdown-body h5 {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.markdown-body h6 {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.markdown-body p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+	margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+	x-list-style-type: lower-roman;
+	  list-style-type: decimal;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+	list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+	margin-left: 0;
+}
+
+.markdown-body code {
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body .octicon {
+	vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+	padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+	padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+	padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+	padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+	padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+	padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+	padding-left: 40px !important;
+}
+
+.markdown-body::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+	color: inherit;
+	text-decoration: none;
+}
+
+.markdown-body .anchor {
+	float: left;
+	padding-right: 4px;
+	margin-left: -20px;
+	line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 0.25em;
+	padding: 0;
+	margin: 24px 0;
+	background-color: #e1e4e8;
+	border: 0;
+}
+
+.markdown-body blockquote {
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: 0.25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #c6cbd1;
+	border-bottom-color: #959da5;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	color: #1b1f23;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	visibility: visible;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+	font-size: 1.25em;
+}
+
+.markdown-body h4 {
+	font-size: 1em;
+}
+
+.markdown-body h5 {
+	font-size: 0.875em;
+}
+
+.markdown-body h6 {
+	font-size: 0.85em;
+	color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li {
+	word-wrap: break-all;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body li+li {
+	margin-top: 0.25em;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+}
+
+.markdown-body table th {
+	font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f6f8fa;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	box-sizing: content-box;
+	background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+	padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+	padding-right: 20px;
+}
+
+.markdown-body code {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(27,31,35,0.05);
+	border-radius: 3px;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f6f8fa;
+	border-radius: 3px;
+}
+
+.markdown-body pre code {
+	display: inline;
+	max-width: auto;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+	color: #005cc5;
+	border-color: #005cc5;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #d1d5da;
+	border-bottom-color: #c6cbd1;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+	position: relative;
+	z-index: 1;
+	border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+	list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+	margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+	margin: 0 0.2em 0.25em -1.6em;
+	vertical-align: middle;
+}
+
+.markdown-body hr {
+	border-bottom-color: #eee;
+}
+
+</style>
+<style>
+ol {
+    display: block;
+    list-style-type: decimal;
+}
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+
+<div class="markdown-body">
+
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+.markdown-body {
+    font-size: 12px;
+}
+.markdown-body td {
+    font-size: 12px;
+}
+</style>
+
+<style>
+.markdown-body {
+    font-size: 11px;
+}
+.markdown-body td {
+    font-size: 11px;
+}
+</style>
+
+<h1>Lecture 20 - Smart Contracts - Standard Contracts (ERC-20)</h1>
+
+<h2>Standard ERC-20 Contract Interface</h2>
+
+<h3>SimpleToken ERC20 Interface</h3>
+
+<table>
+<thead>
+<tr>
+<th>Method Name</th>
+<th>Const</th>
+<th>$</th>
+<th>Params</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Approval</td>
+<td>event</td>
+<td></td>
+<td><code>( address owner, address spender, uint256 value )</code></td>
+</tr>
+
+<tr>
+<td>INITIAL_SUPPLY</td>
+<td>const</td>
+<td></td>
+<td><code>() returns ( uint256 )</code></td>
+</tr>
+
+<tr>
+<td>Transfer</td>
+<td>event</td>
+<td></td>
+<td><code>( address from, address to, uint256 value )</code></td>
+</tr>
+
+<tr>
+<td>allowance</td>
+<td>const</td>
+<td></td>
+<td><code>( address _owner, address _spender ) returns ( uint256 )</code></td>
+</tr>
+
+<tr>
+<td>approve</td>
+<td>Tx</td>
+<td></td>
+<td><code>( address _spender, uint256 _value ) returns ( bool )</code></td>
+</tr>
+
+<tr>
+<td>balanceOf</td>
+<td>const</td>
+<td></td>
+<td><code>( address _owner ) returns ( uint256 )</code></td>
+</tr>
+
+<tr>
+<td>decimals</td>
+<td>const</td>
+<td></td>
+<td><code>() returns ( uint8 )</code></td>
+</tr>
+
+<tr>
+<td>decreaseApproval</td>
+<td>Tx</td>
+<td></td>
+<td><code>( address _spender, uint256 _subtractedValue ) returns ( bool )</code></td>
+</tr>
+
+<tr>
+<td>increaseApproval</td>
+<td>Tx</td>
+<td></td>
+<td><code>( address _spender, uint256 _addedValue ) returns ( bool )</code></td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>const</td>
+<td></td>
+<td><code>() returns ( string )</code></td>
+</tr>
+
+<tr>
+<td>symbol</td>
+<td>const</td>
+<td></td>
+<td><code>() returns ( string )</code></td>
+</tr>
+
+<tr>
+<td>totalSupply</td>
+<td>const</td>
+<td></td>
+<td><code>() returns ( uint256 )</code></td>
+</tr>
+
+<tr>
+<td>transfer</td>
+<td>Tx</td>
+<td></td>
+<td><code>( address _to, uint256 _value ) returns ( bool )</code></td>
+</tr>
+
+<tr>
+<td>transferFrom</td>
+<td>Tx</td>
+<td></td>
+<td><code>( address _from, address _to, uint256 _value ) returns ( bool )</code></td>
+</tr>
+
+<tr>
+<td>constructor</td>
+<td>()</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<h3>Simple777Token Ours derived from ERC777</h3>
+
+<p>The ERC777 is a modern upgrade (and backward compatible) version of the ERC20 fungible token contract.
+It improves on ERC20 with a pair of hooks, tokensToSend and tokensReceived that address a number of
+concurrency problems in token transfer.  It maintains compatibility with the above set of interfaces
+for the ERC20 contract.</p>
+
+<p>Let&rsquo;s take a look at the derived contract.</p>
+
+<p>File: ./eth/contracts/Simple777Token.sol</p>
+
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: pragma solidity &gt;=0.4.22 &lt;0.9.0;
+  3: 
+  4: import &quot;@openzeppelin/contracts/token/ERC777/ERC777.sol&quot;;
+  5: 
+  6: /**
+  7:  * @title Simple777Token
+  8:  * @dev Very simple ERC777 Token example, where all tokens are pre-assigned to the creator.
+  9:  * Note they can later distribute these tokens as they wish using `transfer` and other
+ 10:  * `ERC20` or `ERC777` functions.
+ 11:  * Based on https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/examples/SimpleToken.sol
+ 12:  */
+ 13: contract Simple777Token is ERC777 {
+ 14: 
+ 15:     /**
+ 16:      * @dev Constructor that gives msg.sender all of existing tokens.
+ 17:      */
+ 18:     constructor () ERC777(&quot;Simple777Token&quot;, &quot;S7&quot;, new address[](0)) {
+ 19:         _mint(msg.sender, 10000 * 10 ** 18, &quot;&quot;, &quot;&quot;, true);
+ 20:     }
+ 21: }
+
+
+</code></pre>
+
+<p>We are going to use the solc 8.1 compiler.  To do this we need</p>
+
+<ol>
+<li><p>A current install of openzeppelin</p>
+
+<pre><code>$ npm install @openzeppelin/contracts 
+</code></pre></li>
+
+<li><p>Force truffle to use the 8.1 version of the solc compiler.</p>
+
+<pre><code>// Configure your compilers
+compilers: {
+solc: {
+  optimizer: {
+    enabled: true,
+    runs: 200
+  },
+  version: &quot;0.8.1&quot;,    // Fetch exact version from solc-bin (default: truffle's version)
+  evmVersion: &quot;petersburg&quot;
+}
+},
+</code></pre>
+
+<p>In truffle-config.js</p></li>
+</ol>
+
+<div class="pagebreak"></div>
+
+<h2>The Interface ERC777Token</h2>
+
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: // OpenZeppelin Contracts v4.4.1 (token/ERC777/IERC777.sol)
+  3: 
+  4: pragma solidity ^0.8.0;
+  5: 
+  6: /**
+  7:  * @dev Interface of the ERC777Token standard as defined in the EIP.
+  8:  *
+  9:  * This contract uses the
+ 10:  * https://eips.ethereum.org/EIPS/eip-1820[ERC1820 registry standard] to let
+ 11:  * token holders and recipients react to token movements by using setting implementers
+ 12:  * for the associated interfaces in said registry. See {IERC1820Registry} and
+ 13:  * {ERC1820Implementer}.
+ 14:  */
+ 15: interface IERC777 {
+ 16:     /**
+ 17:      * @dev Returns the name of the token.
+ 18:      */
+ 19:     function name() external view returns (string memory);
+ 20: 
+ 21:     /**
+ 22:      * @dev Returns the symbol of the token, usually a shorter version of the
+ 23:      * name.
+ 24:      */
+ 25:     function symbol() external view returns (string memory);
+ 26: 
+ 27:     /**
+ 28:      * @dev Returns the smallest part of the token that is not divisible. This
+ 29:      * means all token operations (creation, movement and destruction) must have
+ 30:      * amounts that are a multiple of this number.
+ 31:      *
+ 32:      * For most token contracts, this value will equal 1.
+ 33:      */
+ 34:     function granularity() external view returns (uint256);
+ 35: 
+ 36:     /**
+ 37:      * @dev Returns the amount of tokens in existence.
+ 38:      */
+ 39:     function totalSupply() external view returns (uint256);
+ 40: 
+ 41:     /**
+ 42:      * @dev Returns the amount of tokens owned by an account (`owner`).
+ 43:      */
+ 44:     function balanceOf(address owner) external view returns (uint256);
+ 45: 
+ 46:     /**
+ 47:      * @dev Moves `amount` tokens from the caller's account to `recipient`.
+ 48:      *
+ 49:      * If send or receive hooks are registered for the caller and `recipient`,
+ 50:      * the corresponding functions will be called with `data` and empty
+ 51:      * `operatorData`. See {IERC777Sender} and {IERC777Recipient}.
+ 52:      *
+ 53:      * Emits a {Sent} event.
+ 54:      *
+ 55:      * Requirements
+ 56:      *
+ 57:      * - the caller must have at least `amount` tokens.
+ 58:      * - `recipient` cannot be the zero address.
+ 59:      * - if `recipient` is a contract, it must implement the {IERC777Recipient}
+ 60:      * interface.
+ 61:      */
+ 62:     function send(
+ 63:         address recipient,
+ 64:         uint256 amount,
+ 65:         bytes calldata data
+ 66:     ) external;
+ 67: 
+ 68:     /**
+ 69:      * @dev Destroys `amount` tokens from the caller's account, reducing the
+ 70:      * total supply.
+ 71:      *
+ 72:      * If a send hook is registered for the caller, the corresponding function
+ 73:      * will be called with `data` and empty `operatorData`. See {IERC777Sender}.
+ 74:      *
+ 75:      * Emits a {Burned} event.
+ 76:      *
+ 77:      * Requirements
+ 78:      *
+ 79:      * - the caller must have at least `amount` tokens.
+ 80:      */
+ 81:     function burn(uint256 amount, bytes calldata data) external;
+ 82: 
+ 83:     /**
+ 84:      * @dev Returns true if an account is an operator of `tokenHolder`.
+ 85:      * Operators can send and burn tokens on behalf of their owners. All
+ 86:      * accounts are their own operator.
+ 87:      *
+ 88:      * See {operatorSend} and {operatorBurn}.
+ 89:      */
+ 90:     function isOperatorFor(address operator, address tokenHolder) external view returns (bool);
+ 91: 
+ 92:     /**
+ 93:      * @dev Make an account an operator of the caller.
+ 94:      *
+ 95:      * See {isOperatorFor}.
+ 96:      *
+ 97:      * Emits an {AuthorizedOperator} event.
+ 98:      *
+ 99:      * Requirements
+100:      *
+101:      * - `operator` cannot be calling address.
+102:      */
+103:     function authorizeOperator(address operator) external;
+104: 
+105:     /**
+106:      * @dev Revoke an account's operator status for the caller.
+107:      *
+108:      * See {isOperatorFor} and {defaultOperators}.
+109:      *
+110:      * Emits a {RevokedOperator} event.
+111:      *
+112:      * Requirements
+113:      *
+114:      * - `operator` cannot be calling address.
+115:      */
+116:     function revokeOperator(address operator) external;
+117: 
+118:     /**
+119:      * @dev Returns the list of default operators. These accounts are operators
+120:      * for all token holders, even if {authorizeOperator} was never called on
+121:      * them.
+122:      *
+123:      * This list is immutable, but individual holders may revoke these via
+124:      * {revokeOperator}, in which case {isOperatorFor} will return false.
+125:      */
+126:     function defaultOperators() external view returns (address[] memory);
+127: 
+128:     /**
+129:      * @dev Moves `amount` tokens from `sender` to `recipient`. The caller must
+130:      * be an operator of `sender`.
+131:      *
+132:      * If send or receive hooks are registered for `sender` and `recipient`,
+133:      * the corresponding functions will be called with `data` and
+134:      * `operatorData`. See {IERC777Sender} and {IERC777Recipient}.
+135:      *
+136:      * Emits a {Sent} event.
+137:      *
+138:      * Requirements
+139:      *
+140:      * - `sender` cannot be the zero address.
+141:      * - `sender` must have at least `amount` tokens.
+142:      * - the caller must be an operator for `sender`.
+143:      * - `recipient` cannot be the zero address.
+144:      * - if `recipient` is a contract, it must implement the {IERC777Recipient}
+145:      * interface.
+146:      */
+147:     function operatorSend(
+148:         address sender,
+149:         address recipient,
+150:         uint256 amount,
+151:         bytes calldata data,
+152:         bytes calldata operatorData
+153:     ) external;
+154: 
+155:     /**
+156:      * @dev Destroys `amount` tokens from `account`, reducing the total supply.
+157:      * The caller must be an operator of `account`.
+158:      *
+159:      * If a send hook is registered for `account`, the corresponding function
+160:      * will be called with `data` and `operatorData`. See {IERC777Sender}.
+161:      *
+162:      * Emits a {Burned} event.
+163:      *
+164:      * Requirements
+165:      *
+166:      * - `account` cannot be the zero address.
+167:      * - `account` must have at least `amount` tokens.
+168:      * - the caller must be an operator for `account`.
+169:      */
+170:     function operatorBurn(
+171:         address account,
+172:         uint256 amount,
+173:         bytes calldata data,
+174:         bytes calldata operatorData
+175:     ) external;
+176: 
+177:     event Sent(
+178:         address indexed operator,
+179:         address indexed from,
+180:         address indexed to,
+181:         uint256 amount,
+182:         bytes data,
+183:         bytes operatorData
+184:     );
+185: 
+186:     event Minted(address indexed operator, address indexed to, uint256 amount, bytes data, bytes operatorData);
+187: 
+188:     event Burned(address indexed operator, address indexed from, uint256 amount, bytes data, bytes operatorData);
+189: 
+190:     event AuthorizedOperator(address indexed operator, address indexed tokenHolder);
+191: 
+192:     event RevokedOperator(address indexed operator, address indexed tokenHolder);
+193: }
+
+
+</code></pre>
+
+<p>The biggest (and most important) difference between ERC20 and ERC777 is the addition of <em>operators</em>.
+The contract owner (operator) can authorize and revoke trusted entities - with the power to act on the
+owners behalf.   The authorized entity can move tokens for all addresses.</p>
+
+<p><code>send</code> replaces <code>transfer</code> and <code>transferFrom</code>.</p>
+
+<div class="pagebreak"></div>
+
+<h2>The contract&hellip;</h2>
+
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC777/ERC777.sol)
+  3: 
+  4: pragma solidity ^0.8.0;
+  5: 
+  6: import &quot;./IERC777.sol&quot;;
+  7: import &quot;./IERC777Recipient.sol&quot;;
+  8: import &quot;./IERC777Sender.sol&quot;;
+  9: import &quot;../ERC20/IERC20.sol&quot;;
+ 10: import &quot;../../utils/Address.sol&quot;;
+ 11: import &quot;../../utils/Context.sol&quot;;
+ 12: import &quot;../../utils/introspection/IERC1820Registry.sol&quot;;
+ 13: 
+ 14: /**
+ 15:  * @dev Implementation of the {IERC777} interface.
+ 16:  *
+ 17:  * This implementation is agnostic to the way tokens are created. This means
+ 18:  * that a supply mechanism has to be added in a derived contract using {_mint}.
+ 19:  *
+ 20:  * Support for ERC20 is included in this contract, as specified by the EIP: both
+ 21:  * the ERC777 and ERC20 interfaces can be safely used when interacting with it.
+ 22:  * Both {IERC777-Sent} and {IERC20-Transfer} events are emitted on token
+ 23:  * movements.
+ 24:  *
+ 25:  * Additionally, the {IERC777-granularity} value is hard-coded to `1`, meaning that there
+ 26:  * are no special restrictions in the amount of tokens that created, moved, or
+ 27:  * destroyed. This makes integration with ERC20 applications seamless.
+ 28:  */
+ 29: contract ERC777 is Context, IERC777, IERC20 {
+ 30:     using Address for address;
+ 31: 
+ 32:     IERC1820Registry internal constant _ERC1820_REGISTRY = IERC1820Registry(0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24);
+ 33: 
+ 34:     mapping(address =&gt; uint256) private _balances;
+ 35: 
+ 36:     uint256 private _totalSupply;
+ 37: 
+ 38:     string private _name;
+ 39:     string private _symbol;
+ 40: 
+ 41:     bytes32 private constant _TOKENS_SENDER_INTERFACE_HASH = keccak256(&quot;ERC777TokensSender&quot;);
+ 42:     bytes32 private constant _TOKENS_RECIPIENT_INTERFACE_HASH = keccak256(&quot;ERC777TokensRecipient&quot;);
+ 43: 
+ 44:     // This isn't ever read from - it's only used to respond to the defaultOperators query.
+ 45:     address[] private _defaultOperatorsArray;
+ 46: 
+ 47:     // Immutable, but accounts may revoke them (tracked in __revokedDefaultOperators).
+ 48:     mapping(address =&gt; bool) private _defaultOperators;
+ 49: 
+ 50:     // For each account, a mapping of its operators and revoked default operators.
+ 51:     mapping(address =&gt; mapping(address =&gt; bool)) private _operators;
+ 52:     mapping(address =&gt; mapping(address =&gt; bool)) private _revokedDefaultOperators;
+ 53: 
+ 54:     // ERC20-allowances
+ 55:     mapping(address =&gt; mapping(address =&gt; uint256)) private _allowances;
+ 56: 
+ 57:     /**
+ 58:      * @dev `defaultOperators` may be an empty array.
+ 59:      */
+ 60:     constructor(
+ 61:         string memory name_,
+ 62:         string memory symbol_,
+ 63:         address[] memory defaultOperators_
+ 64:     ) {
+ 65:         _name = name_;
+ 66:         _symbol = symbol_;
+ 67: 
+ 68:         _defaultOperatorsArray = defaultOperators_;
+ 69:         for (uint256 i = 0; i &lt; defaultOperators_.length; i++) {
+ 70:             _defaultOperators[defaultOperators_[i]] = true;
+ 71:         }
+ 72: 
+ 73:         // register interfaces
+ 74:         _ERC1820_REGISTRY.setInterfaceImplementer(address(this), keccak256(&quot;ERC777Token&quot;), address(this));
+ 75:         _ERC1820_REGISTRY.setInterfaceImplementer(address(this), keccak256(&quot;ERC20Token&quot;), address(this));
+ 76:     }
+ 77: 
+ 78:     /**
+ 79:      * @dev See {IERC777-name}.
+ 80:      */
+ 81:     function name() public view virtual override returns (string memory) {
+ 82:         return _name;
+ 83:     }
+ 84: 
+ 85:     /**
+ 86:      * @dev See {IERC777-symbol}.
+ 87:      */
+ 88:     function symbol() public view virtual override returns (string memory) {
+ 89:         return _symbol;
+ 90:     }
+ 91: 
+ 92:     /**
+ 93:      * @dev See {ERC20-decimals}.
+ 94:      *
+ 95:      * Always returns 18, as per the
+ 96:      * [ERC777 EIP](https://eips.ethereum.org/EIPS/eip-777#backward-compatibility).
+ 97:      */
+ 98:     function decimals() public pure virtual returns (uint8) {
+ 99:         return 18;
+100:     }
+101: 
+102:     /**
+103:      * @dev See {IERC777-granularity}.
+104:      *
+105:      * This implementation always returns `1`.
+106:      */
+107:     function granularity() public view virtual override returns (uint256) {
+108:         return 1;
+109:     }
+110: 
+111:     /**
+112:      * @dev See {IERC777-totalSupply}.
+113:      */
+114:     function totalSupply() public view virtual override(IERC20, IERC777) returns (uint256) {
+115:         return _totalSupply;
+116:     }
+117: 
+118:     /**
+119:      * @dev Returns the amount of tokens owned by an account (`tokenHolder`).
+120:      */
+121:     function balanceOf(address tokenHolder) public view virtual override(IERC20, IERC777) returns (uint256) {
+122:         return _balances[tokenHolder];
+123:     }
+124: 
+125:     /**
+126:      * @dev See {IERC777-send}.
+127:      *
+128:      * Also emits a {IERC20-Transfer} event for ERC20 compatibility.
+129:      */
+130:     function send(
+131:         address recipient,
+132:         uint256 amount,
+133:         bytes memory data
+134:     ) public virtual override {
+135:         _send(_msgSender(), recipient, amount, data, &quot;&quot;, true);
+136:     }
+137: 
+138:     /**
+139:      * @dev See {IERC20-transfer}.
+140:      *
+141:      * Unlike `send`, `recipient` is _not_ required to implement the {IERC777Recipient}
+142:      * interface if it is a contract.
+143:      *
+144:      * Also emits a {Sent} event.
+145:      */
+146:     function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
+147:         require(recipient != address(0), &quot;ERC777: transfer to the zero address&quot;);
+148: 
+149:         address from = _msgSender();
+150: 
+151:         _callTokensToSend(from, from, recipient, amount, &quot;&quot;, &quot;&quot;);
+152: 
+153:         _move(from, from, recipient, amount, &quot;&quot;, &quot;&quot;);
+154: 
+155:         _callTokensReceived(from, from, recipient, amount, &quot;&quot;, &quot;&quot;, false);
+156: 
+157:         return true;
+158:     }
+159: 
+160:     /**
+161:      * @dev See {IERC777-burn}.
+162:      *
+163:      * Also emits a {IERC20-Transfer} event for ERC20 compatibility.
+164:      */
+165:     function burn(uint256 amount, bytes memory data) public virtual override {
+166:         _burn(_msgSender(), amount, data, &quot;&quot;);
+167:     }
+168: 
+169:     /**
+170:      * @dev See {IERC777-isOperatorFor}.
+171:      */
+172:     function isOperatorFor(address operator, address tokenHolder) public view virtual override returns (bool) {
+173:         return
+174:             operator == tokenHolder ||
+175:             (_defaultOperators[operator] &amp;&amp; !_revokedDefaultOperators[tokenHolder][operator]) ||
+176:             _operators[tokenHolder][operator];
+177:     }
+178: 
+179:     /**
+180:      * @dev See {IERC777-authorizeOperator}.
+181:      */
+182:     function authorizeOperator(address operator) public virtual override {
+183:         require(_msgSender() != operator, &quot;ERC777: authorizing self as operator&quot;);
+184: 
+185:         if (_defaultOperators[operator]) {
+186:             delete _revokedDefaultOperators[_msgSender()][operator];
+187:         } else {
+188:             _operators[_msgSender()][operator] = true;
+189:         }
+190: 
+191:         emit AuthorizedOperator(operator, _msgSender());
+192:     }
+193: 
+194:     /**
+195:      * @dev See {IERC777-revokeOperator}.
+196:      */
+197:     function revokeOperator(address operator) public virtual override {
+198:         require(operator != _msgSender(), &quot;ERC777: revoking self as operator&quot;);
+199: 
+200:         if (_defaultOperators[operator]) {
+201:             _revokedDefaultOperators[_msgSender()][operator] = true;
+202:         } else {
+203:             delete _operators[_msgSender()][operator];
+204:         }
+205: 
+206:         emit RevokedOperator(operator, _msgSender());
+207:     }
+208: 
+209:     /**
+210:      * @dev See {IERC777-defaultOperators}.
+211:      */
+212:     function defaultOperators() public view virtual override returns (address[] memory) {
+213:         return _defaultOperatorsArray;
+214:     }
+215: 
+216:     /**
+217:      * @dev See {IERC777-operatorSend}.
+218:      *
+219:      * Emits {Sent} and {IERC20-Transfer} events.
+220:      */
+221:     function operatorSend(
+222:         address sender,
+223:         address recipient,
+224:         uint256 amount,
+225:         bytes memory data,
+226:         bytes memory operatorData
+227:     ) public virtual override {
+228:         require(isOperatorFor(_msgSender(), sender), &quot;ERC777: caller is not an operator for holder&quot;);
+229:         _send(sender, recipient, amount, data, operatorData, true);
+230:     }
+231: 
+232:     /**
+233:      * @dev See {IERC777-operatorBurn}.
+234:      *
+235:      * Emits {Burned} and {IERC20-Transfer} events.
+236:      */
+237:     function operatorBurn(
+238:         address account,
+239:         uint256 amount,
+240:         bytes memory data,
+241:         bytes memory operatorData
+242:     ) public virtual override {
+243:         require(isOperatorFor(_msgSender(), account), &quot;ERC777: caller is not an operator for holder&quot;);
+244:         _burn(account, amount, data, operatorData);
+245:     }
+246: 
+247:     /**
+248:      * @dev See {IERC20-allowance}.
+249:      *
+250:      * Note that operator and allowance concepts are orthogonal: operators may
+251:      * not have allowance, and accounts with allowance may not be operators
+252:      * themselves.
+253:      */
+254:     function allowance(address holder, address spender) public view virtual override returns (uint256) {
+255:         return _allowances[holder][spender];
+256:     }
+257: 
+258:     /**
+259:      * @dev See {IERC20-approve}.
+260:      *
+261:      * NOTE: If `value` is the maximum `uint256`, the allowance is not updated on
+262:      * `transferFrom`. This is semantically equivalent to an infinite approval.
+263:      *
+264:      * Note that accounts cannot have allowance issued by their operators.
+265:      */
+266:     function approve(address spender, uint256 value) public virtual override returns (bool) {
+267:         address holder = _msgSender();
+268:         _approve(holder, spender, value);
+269:         return true;
+270:     }
+271: 
+272:     /**
+273:      * @dev See {IERC20-transferFrom}.
+274:      *
+275:      * NOTE: Does not update the allowance if the current allowance
+276:      * is the maximum `uint256`.
+277:      *
+278:      * Note that operator and allowance concepts are orthogonal: operators cannot
+279:      * call `transferFrom` (unless they have allowance), and accounts with
+280:      * allowance cannot call `operatorSend` (unless they are operators).
+281:      *
+282:      * Emits {Sent}, {IERC20-Transfer} and {IERC20-Approval} events.
+283:      */
+284:     function transferFrom(
+285:         address holder,
+286:         address recipient,
+287:         uint256 amount
+288:     ) public virtual override returns (bool) {
+289:         require(recipient != address(0), &quot;ERC777: transfer to the zero address&quot;);
+290:         require(holder != address(0), &quot;ERC777: transfer from the zero address&quot;);
+291: 
+292:         address spender = _msgSender();
+293: 
+294:         _callTokensToSend(spender, holder, recipient, amount, &quot;&quot;, &quot;&quot;);
+295: 
+296:         _spendAllowance(holder, spender, amount);
+297: 
+298:         _move(spender, holder, recipient, amount, &quot;&quot;, &quot;&quot;);
+299: 
+300:         _callTokensReceived(spender, holder, recipient, amount, &quot;&quot;, &quot;&quot;, false);
+301: 
+302:         return true;
+303:     }
+304: 
+305:     /**
+306:      * @dev Creates `amount` tokens and assigns them to `account`, increasing
+307:      * the total supply.
+308:      *
+309:      * If a send hook is registered for `account`, the corresponding function
+310:      * will be called with `operator`, `data` and `operatorData`.
+311:      *
+312:      * See {IERC777Sender} and {IERC777Recipient}.
+313:      *
+314:      * Emits {Minted} and {IERC20-Transfer} events.
+315:      *
+316:      * Requirements
+317:      *
+318:      * - `account` cannot be the zero address.
+319:      * - if `account` is a contract, it must implement the {IERC777Recipient}
+320:      * interface.
+321:      */
+322:     function _mint(
+323:         address account,
+324:         uint256 amount,
+325:         bytes memory userData,
+326:         bytes memory operatorData
+327:     ) internal virtual {
+328:         _mint(account, amount, userData, operatorData, true);
+329:     }
+330: 
+331:     /**
+332:      * @dev Creates `amount` tokens and assigns them to `account`, increasing
+333:      * the total supply.
+334:      *
+335:      * If `requireReceptionAck` is set to true, and if a send hook is
+336:      * registered for `account`, the corresponding function will be called with
+337:      * `operator`, `data` and `operatorData`.
+338:      *
+339:      * See {IERC777Sender} and {IERC777Recipient}.
+340:      *
+341:      * Emits {Minted} and {IERC20-Transfer} events.
+342:      *
+343:      * Requirements
+344:      *
+345:      * - `account` cannot be the zero address.
+346:      * - if `account` is a contract, it must implement the {IERC777Recipient}
+347:      * interface.
+348:      */
+349:     function _mint(
+350:         address account,
+351:         uint256 amount,
+352:         bytes memory userData,
+353:         bytes memory operatorData,
+354:         bool requireReceptionAck
+355:     ) internal virtual {
+356:         require(account != address(0), &quot;ERC777: mint to the zero address&quot;);
+357: 
+358:         address operator = _msgSender();
+359: 
+360:         _beforeTokenTransfer(operator, address(0), account, amount);
+361: 
+362:         // Update state variables
+363:         _totalSupply += amount;
+364:         _balances[account] += amount;
+365: 
+366:         _callTokensReceived(operator, address(0), account, amount, userData, operatorData, requireReceptionAck);
+367: 
+368:         emit Minted(operator, account, amount, userData, operatorData);
+369:         emit Transfer(address(0), account, amount);
+370:     }
+371: 
+372:     /**
+373:      * @dev Send tokens
+374:      * @param from address token holder address
+375:      * @param to address recipient address
+376:      * @param amount uint256 amount of tokens to transfer
+377:      * @param userData bytes extra information provided by the token holder (if any)
+378:      * @param operatorData bytes extra information provided by the operator (if any)
+379:      * @param requireReceptionAck if true, contract recipients are required to implement ERC777TokensRecipient
+380:      */
+381:     function _send(
+382:         address from,
+383:         address to,
+384:         uint256 amount,
+385:         bytes memory userData,
+386:         bytes memory operatorData,
+387:         bool requireReceptionAck
+388:     ) internal virtual {
+389:         require(from != address(0), &quot;ERC777: send from the zero address&quot;);
+390:         require(to != address(0), &quot;ERC777: send to the zero address&quot;);
+391: 
+392:         address operator = _msgSender();
+393: 
+394:         _callTokensToSend(operator, from, to, amount, userData, operatorData);
+395: 
+396:         _move(operator, from, to, amount, userData, operatorData);
+397: 
+398:         _callTokensReceived(operator, from, to, amount, userData, operatorData, requireReceptionAck);
+399:     }
+400: 
+401:     /**
+402:      * @dev Burn tokens
+403:      * @param from address token holder address
+404:      * @param amount uint256 amount of tokens to burn
+405:      * @param data bytes extra information provided by the token holder
+406:      * @param operatorData bytes extra information provided by the operator (if any)
+407:      */
+408:     function _burn(
+409:         address from,
+410:         uint256 amount,
+411:         bytes memory data,
+412:         bytes memory operatorData
+413:     ) internal virtual {
+414:         require(from != address(0), &quot;ERC777: burn from the zero address&quot;);
+415: 
+416:         address operator = _msgSender();
+417: 
+418:         _callTokensToSend(operator, from, address(0), amount, data, operatorData);
+419: 
+420:         _beforeTokenTransfer(operator, from, address(0), amount);
+421: 
+422:         // Update state variables
+423:         uint256 fromBalance = _balances[from];
+424:         require(fromBalance &gt;= amount, &quot;ERC777: burn amount exceeds balance&quot;);
+425:         unchecked {
+426:             _balances[from] = fromBalance - amount;
+427:         }
+428:         _totalSupply -= amount;
+429: 
+430:         emit Burned(operator, from, amount, data, operatorData);
+431:         emit Transfer(from, address(0), amount);
+432:     }
+433: 
+434:     function _move(
+435:         address operator,
+436:         address from,
+437:         address to,
+438:         uint256 amount,
+439:         bytes memory userData,
+440:         bytes memory operatorData
+441:     ) private {
+442:         _beforeTokenTransfer(operator, from, to, amount);
+443: 
+444:         uint256 fromBalance = _balances[from];
+445:         require(fromBalance &gt;= amount, &quot;ERC777: transfer amount exceeds balance&quot;);
+446:         unchecked {
+447:             _balances[from] = fromBalance - amount;
+448:         }
+449:         _balances[to] += amount;
+450: 
+451:         emit Sent(operator, from, to, amount, userData, operatorData);
+452:         emit Transfer(from, to, amount);
+453:     }
+454: 
+455:     /**
+456:      * @dev See {ERC20-_approve}.
+457:      *
+458:      * Note that accounts cannot have allowance issued by their operators.
+459:      */
+460:     function _approve(
+461:         address holder,
+462:         address spender,
+463:         uint256 value
+464:     ) internal virtual {
+465:         require(holder != address(0), &quot;ERC777: approve from the zero address&quot;);
+466:         require(spender != address(0), &quot;ERC777: approve to the zero address&quot;);
+467: 
+468:         _allowances[holder][spender] = value;
+469:         emit Approval(holder, spender, value);
+470:     }
+471: 
+472:     /**
+473:      * @dev Call from.tokensToSend() if the interface is registered
+474:      * @param operator address operator requesting the transfer
+475:      * @param from address token holder address
+476:      * @param to address recipient address
+477:      * @param amount uint256 amount of tokens to transfer
+478:      * @param userData bytes extra information provided by the token holder (if any)
+479:      * @param operatorData bytes extra information provided by the operator (if any)
+480:      */
+481:     function _callTokensToSend(
+482:         address operator,
+483:         address from,
+484:         address to,
+485:         uint256 amount,
+486:         bytes memory userData,
+487:         bytes memory operatorData
+488:     ) private {
+489:         address implementer = _ERC1820_REGISTRY.getInterfaceImplementer(from, _TOKENS_SENDER_INTERFACE_HASH);
+490:         if (implementer != address(0)) {
+491:             IERC777Sender(implementer).tokensToSend(operator, from, to, amount, userData, operatorData);
+492:         }
+493:     }
+494: 
+495:     /**
+496:      * @dev Call to.tokensReceived() if the interface is registered. Reverts if the recipient is a contract but
+497:      * tokensReceived() was not registered for the recipient
+498:      * @param operator address operator requesting the transfer
+499:      * @param from address token holder address
+500:      * @param to address recipient address
+501:      * @param amount uint256 amount of tokens to transfer
+502:      * @param userData bytes extra information provided by the token holder (if any)
+503:      * @param operatorData bytes extra information provided by the operator (if any)
+504:      * @param requireReceptionAck if true, contract recipients are required to implement ERC777TokensRecipient
+505:      */
+506:     function _callTokensReceived(
+507:         address operator,
+508:         address from,
+509:         address to,
+510:         uint256 amount,
+511:         bytes memory userData,
+512:         bytes memory operatorData,
+513:         bool requireReceptionAck
+514:     ) private {
+515:         address implementer = _ERC1820_REGISTRY.getInterfaceImplementer(to, _TOKENS_RECIPIENT_INTERFACE_HASH);
+516:         if (implementer != address(0)) {
+517:             IERC777Recipient(implementer).tokensReceived(operator, from, to, amount, userData, operatorData);
+518:         } else if (requireReceptionAck) {
+519:             require(!to.isContract(), &quot;ERC777: token recipient contract has no implementer for ERC777TokensRecipient&quot;);
+520:         }
+521:     }
+522: 
+523:     /**
+524:      * @dev Spend `amount` form the allowance of `owner` toward `spender`.
+525:      *
+526:      * Does not update the allowance amount in case of infinite allowance.
+527:      * Revert if not enough allowance is available.
+528:      *
+529:      * Might emit an {Approval} event.
+530:      */
+531:     function _spendAllowance(
+532:         address owner,
+533:         address spender,
+534:         uint256 amount
+535:     ) internal virtual {
+536:         uint256 currentAllowance = allowance(owner, spender);
+537:         if (currentAllowance != type(uint256).max) {
+538:             require(currentAllowance &gt;= amount, &quot;ERC777: insufficient allowance&quot;);
+539:             unchecked {
+540:                 _approve(owner, spender, currentAllowance - amount);
+541:             }
+542:         }
+543:     }
+544: 
+545:     /**
+546:      * @dev Hook that is called before any token transfer. This includes
+547:      * calls to {send}, {transfer}, {operatorSend}, minting and burning.
+548:      *
+549:      * Calling conditions:
+550:      *
+551:      * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens
+552:      * will be to transferred to `to`.
+553:      * - when `from` is zero, `amount` tokens will be minted for `to`.
+554:      * - when `to` is zero, `amount` of ``from``'s tokens will be burned.
+555:      * - `from` and `to` are never both zero.
+556:      *
+557:      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
+558:      */
+559:     function _beforeTokenTransfer(
+560:         address operator,
+561:         address from,
+562:         address to,
+563:         uint256 amount
+564:     ) internal virtual {}
+565: }
+
+
+</code></pre>
+
+<p>start with:</p>
+
+<pre><code>contract ERC777 is Context, IERC777, IERC20 {
+</code></pre>
+
+<p>The contract inherits from the IERC777 interface and the IERC20 interface.  This means that it will have to support both interfaces specifications.</p>
+
+<p>Interfaces are defined in ERC1820 and require that contracts publish a standard interface specification to the interface registery.</p>
+
+<p>The constructor</p>
+
+<pre><code>    constructor(
+        string memory name_,
+        string memory symbol_,
+        address[] memory defaultOperators_
+    ) {
+        _name = name_;
+        _symbol = symbol_;
+
+        _defaultOperatorsArray = defaultOperators_;
+        for (uint256 i = 0; i &lt; defaultOperators_.length; i++) {
+            _defaultOperators[defaultOperators_[i]] = true;
+        }
+
+        // register interfaces
+        _ERC1820_REGISTRY.setInterfaceImplementer(address(this), keccak256(&quot;ERC777Token&quot;), address(this));
+        _ERC1820_REGISTRY.setInterfaceImplementer(address(this), keccak256(&quot;ERC20Token&quot;), address(this));
+    }
+</code></pre>
+
+<p>Takes a list of defaultOperators that may be empty.</p>
+
+<p>At the  bottom of the contract the gurantees of matching with the registry are setup.
+The constructor will not succede if it fails to match the standard.</p>
+
+<p>The symbol is a short name, <code>S7</code>, and the name is <code>Simple777Token</code>.</p>
+
+<div class="pagebreak"></div>
+
+<h2>Send</h2>
+
+<pre><code>    /**
+     * @dev Send tokens
+     * @param from address token holder address
+     * @param to address recipient address
+     * @param amount uint256 amount of tokens to transfer
+     * @param userData bytes extra information provided by the token holder (if any)
+     * @param operatorData bytes extra information provided by the operator (if any)
+     * @param requireReceptionAck if true, contract recipients are required to implement ERC777TokensRecipient
+     */
+    function _send(
+        address from,
+        address to,
+        uint256 amount,
+        bytes memory userData,
+        bytes memory operatorData,
+        bool requireReceptionAck
+    ) internal virtual {
+        require(from != address(0), &quot;ERC777: send from the zero address&quot;);
+        require(to != address(0), &quot;ERC777: send to the zero address&quot;);
+
+        address operator = _msgSender();
+
+        _callTokensToSend(operator, from, to, amount, userData, operatorData);
+
+        _move(operator, from, to, amount, userData, operatorData);
+
+        _callTokensReceived(operator, from, to, amount, userData, operatorData, requireReceptionAck);
+    }
+</code></pre>
+
+<p>Send has basic checks that you are not sending to or receiving from a 0 address.</p>
+
+<p>It calls the before hook, moves the tokens, then calls the after hook.
+The work is in the <code>_move</code> call.</p>
+
+<pre><code>    function _move(
+        address operator,
+        address from,
+        address to,
+        uint256 amount,
+        bytes memory userData,
+        bytes memory operatorData
+    ) private {
+        _beforeTokenTransfer(operator, from, to, amount);
+
+        uint256 fromBalance = _balances[from];
+        require(fromBalance &gt;= amount, &quot;ERC777: transfer amount exceeds balance&quot;);
+        unchecked {
+            _balances[from] = fromBalance - amount;
+        }
+        _balances[to] += amount;
+
+        emit Sent(operator, from, to, amount, userData, operatorData);
+        emit Transfer(from, to, amount);
+    }
+</code></pre>
+
+<p>An overidable function <code>_beforeTokenTransfer</code> is called.  You can replace this in the derived
+contract.</p>
+
+<p>It then checks the balance of the sender - that they have enough to send.</p>
+
+<p><code>unchecked</code> is a substraction without overflow chekcing.   We have already done the check.
+The funds are moved.</p>
+
+<p>Then it emits 2 events.  Transfer matches with the ERC20 transfer event.    Sent is a new
+event with ERC777.</p>
+
+<div class="pagebreak"></div>
+
+<h2>Send Hook</h2>
+
+<pre><code>    /**
+     * @dev Call from.tokensToSend() if the interface is registered
+     * @param operator address operator requesting the transfer
+     * @param from address token holder address
+     * @param to address recipient address
+     * @param amount uint256 amount of tokens to transfer
+     * @param userData bytes extra information provided by the token holder (if any)
+     * @param operatorData bytes extra information provided by the operator (if any)
+     */
+    function _callTokensToSend(
+        address operator,
+        address from,
+        address to,
+        uint256 amount,
+        bytes memory userData,
+        bytes memory operatorData
+    ) private {
+        address implementer = _ERC1820_REGISTRY.getInterfaceImplementer(from, _TOKENS_SENDER_INTERFACE_HASH);
+        if (implementer != address(0)) {
+            IERC777Sender(implementer).tokensToSend(operator, from, to, amount, userData, operatorData);
+        }
+    }
+</code></pre>
+
+<p>From the IERC777Sender interface specification:</p>
+
+<pre><code>interface IERC777Sender {
+    /**
+     * @dev Called by an {IERC777} token contract whenever a registered holder's
+     * (`from`) tokens are about to be moved or destroyed. The type of operation
+     * is conveyed by `to` being the zero address or not.
+     *
+     * This call occurs _before_ the token contract's state is updated, so
+     * {IERC777-balanceOf}, etc., can be used to query the pre-operation state.
+     *
+     * This function may revert to prevent the operation from being executed.
+     */
+    function tokensToSend(
+        address operator,
+        address from,
+        address to,
+        uint256 amount,
+        bytes calldata userData,
+        bytes calldata operatorData
+    ) external;
+}
+</code></pre>
+
+<p>This looks in the sender to see if they have implemented this interface.  If they have then
+the function is called.  If the function fails it will revert the transaction.</p>
+
+<p>The sender can perform tasks like lookup to see if this is a valid operation.</p>
+
+<div class="pagebreak"></div>
+
+<h2>Receive Hook</h2>
+
+<pre><code>    /**
+     * @dev Call to.tokensReceived() if the interface is registered. Reverts if the recipient is a contract but
+     * tokensReceived() was not registered for the recipient
+     * @param operator address operator requesting the transfer
+     * @param from address token holder address
+     * @param to address recipient address
+     * @param amount uint256 amount of tokens to transfer
+     * @param userData bytes extra information provided by the token holder (if any)
+     * @param operatorData bytes extra information provided by the operator (if any)
+     * @param requireReceptionAck if true, contract recipients are required to implement ERC777TokensRecipient
+     */
+    function _callTokensReceived(
+        address operator,
+        address from,
+        address to,
+        uint256 amount,
+        bytes memory userData,
+        bytes memory operatorData,
+        bool requireReceptionAck
+    ) private {
+        address implementer = _ERC1820_REGISTRY.getInterfaceImplementer(to, _TOKENS_RECIPIENT_INTERFACE_HASH);
+        if (implementer != address(0)) {
+            IERC777Recipient(implementer).tokensReceived(operator, from, to, amount, userData, operatorData);
+        } else if (requireReceptionAck) {
+            require(!to.isContract(), &quot;ERC777: token recipient contract has no implementer for ERC777TokensRecipient&quot;);
+        }
+    }
+</code></pre>
+
+<p>And the interface that can be implemented to receive tokens:</p>
+
+<pre><code>interface IERC777Recipient {
+    /**
+     * @dev Called by an {IERC777} token contract whenever tokens are being
+     * moved or created into a registered account (`to`). The type of operation
+     * is conveyed by `from` being the zero address or not.
+     *
+     * This call occurs _after_ the token contract's state is updated, so
+     * {IERC777-balanceOf}, etc., can be used to query the post-operation state.
+     *
+     * This function may revert to prevent the operation from being executed.
+     */
+    function tokensReceived(
+        address operator,
+        address from,
+        address to,
+        uint256 amount,
+        bytes calldata userData,
+        bytes calldata operatorData
+    ) external;
+}
+</code></pre>
+
+<p>This allows for things like notification of a receiver and for blocking receipt of tokens.</p>
+
+<div class="pagebreak"></div>
+
+<h2>Mint</h2>
+
+<pre><code>    function _mint(
+        address account,
+        uint256 amount,
+        bytes memory userData,
+        bytes memory operatorData,
+        bool requireReceptionAck
+    ) internal virtual {
+        require(account != address(0), &quot;ERC777: mint to the zero address&quot;);
+
+        address operator = _msgSender();
+
+        _beforeTokenTransfer(operator, address(0), account, amount);
+
+        // Update state variables
+        _totalSupply += amount;
+        _balances[account] += amount;
+
+        _callTokensReceived(operator, address(0), account, amount, userData, operatorData, requireReceptionAck);
+
+        emit Minted(operator, account, amount, userData, operatorData);
+        emit Transfer(address(0), account, amount);
+    }
+
+</code></pre>
+
+<p>This is the heart of the process.</p>
+
+<p>Note that this is an <code>interal virtual</code> - this means that you can override the mint process with your own function
+if you need to.</p>
+
+<p>The receiver of the minted tokens gets notified that they have recived them.  This is called from the
+constructor but can also be called from a &lsquo;mint&rsquo; function if that is to be a part of your allowed
+behavior.</p>
+
+<p>You can create:</p>
+
+<pre><code>    function mint(
+        address account,
+        uint256 amount,
+        bytes memory userData,
+        bytes memory operatorData
+    ) public onlyOwner {
+</code></pre>
+
+<p>for example and only allow the owner to mint or use corresponding security to allow all authorized
+users to mint - or only a set of &ldquo;minters&rdquo;.</p>
+
+<div class="pagebreak"></div>
+
+<h2>Burn</h2>
+
+<pre><code>    /**
+     * @dev Burn tokens
+     * @param from address token holder address
+     * @param amount uint256 amount of tokens to burn
+     * @param data bytes extra information provided by the token holder
+     * @param operatorData bytes extra information provided by the operator (if any)
+     */
+    function _burn(
+        address from,
+        uint256 amount,
+        bytes memory data,
+        bytes memory operatorData
+    ) internal virtual {
+        require(from != address(0), &quot;ERC777: burn from the zero address&quot;);
+
+        address operator = _msgSender();
+
+        _callTokensToSend(operator, from, address(0), amount, data, operatorData);
+
+        _beforeTokenTransfer(operator, from, address(0), amount);
+
+        // Update state variables
+        uint256 fromBalance = _balances[from];
+        require(fromBalance &gt;= amount, &quot;ERC777: burn amount exceeds balance&quot;);
+        unchecked {
+            _balances[from] = fromBalance - amount;
+        }
+        _totalSupply -= amount;
+
+        emit Burned(operator, from, amount, data, operatorData);
+        emit Transfer(from, address(0), amount);
+    }
+
+</code></pre>
+
+<p>This should look familiar.  This is the inverse operation of mint.</p>
+
+<p>There are already  operatorSend and operatorBurn functions.</p>
+
+<h2>ERC20 backward compatibility functions</h2>
+
+<pre><code>    /**
+     * @dev See {IERC20-transfer}.
+     *
+     * Unlike `send`, `recipient` is _not_ required to implement the {IERC777Recipient}
+     * interface if it is a contract.
+     *
+     * Also emits a {Sent} event.
+     */
+    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
+        require(recipient != address(0), &quot;ERC777: transfer to the zero address&quot;);
+
+        address from = _msgSender();
+
+        _callTokensToSend(from, from, recipient, amount, &quot;&quot;, &quot;&quot;);
+
+        _move(from, from, recipient, amount, &quot;&quot;, &quot;&quot;);
+
+        _callTokensReceived(from, from, recipient, amount, &quot;&quot;, &quot;&quot;, false);
+
+        return true;
+    }
+
+// ...
+
+    /**
+     * @dev See {IERC20-allowance}.
+     *
+     * Note that operator and allowance concepts are orthogonal: operators may
+     * not have allowance, and accounts with allowance may not be operators
+     * themselves.
+     */
+    function allowance(address holder, address spender) public view virtual override returns (uint256) {
+        return _allowances[holder][spender];
+    }
+
+    /**
+     * @dev See {IERC20-approve}.
+     *
+     * NOTE: If `value` is the maximum `uint256`, the allowance is not updated on
+     * `transferFrom`. This is semantically equivalent to an infinite approval.
+     *
+     * Note that accounts cannot have allowance issued by their operators.
+     */
+    function approve(address spender, uint256 value) public virtual override returns (bool) {
+        address holder = _msgSender();
+        _approve(holder, spender, value);
+        return true;
+    }
+
+    /**
+     * @dev See {IERC20-transferFrom}.
+     *
+     * NOTE: Does not update the allowance if the current allowance
+     * is the maximum `uint256`.
+     *
+     * Note that operator and allowance concepts are orthogonal: operators cannot
+     * call `transferFrom` (unless they have allowance), and accounts with
+     * allowance cannot call `operatorSend` (unless they are operators).
+     *
+     * Emits {Sent}, {IERC20-Transfer} and {IERC20-Approval} events.
+     */
+    function transferFrom(
+        address holder,
+        address recipient,
+        uint256 amount
+    ) public virtual override returns (bool) {
+        require(recipient != address(0), &quot;ERC777: transfer to the zero address&quot;);
+        require(holder != address(0), &quot;ERC777: transfer from the zero address&quot;);
+
+        address spender = _msgSender();
+
+        _callTokensToSend(spender, holder, recipient, amount, &quot;&quot;, &quot;&quot;);
+
+        _spendAllowance(holder, spender, amount);
+
+        _move(spender, holder, recipient, amount, &quot;&quot;, &quot;&quot;);
+
+        _callTokensReceived(spender, holder, recipient, amount, &quot;&quot;, &quot;&quot;, false);
+
+        return true;
+    }
+</code></pre>
+
+</div>
+

@@ -1,0 +1,1026 @@
+<style>
+@font-face {
+	font-family: octicons-link;
+	src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.5;
+	color: #24292e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+	color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+	color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+	color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+	color: #24292e;
+}
+
+.markdown-body .pl-ent {
+	color: #22863a;
+}
+
+.markdown-body .pl-k {
+	color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+	color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+	color: #e36209;
+}
+
+.markdown-body .pl-bu {
+	color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+	color: #fafbfc;
+	background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+	color: #fafbfc;
+	background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+	content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+	font-weight: bold;
+	color: #22863a;
+}
+
+.markdown-body .pl-ml {
+	color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+	font-weight: bold;
+	color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+	font-style: italic;
+	color: #24292e;
+}
+
+.markdown-body .pl-mb {
+	font-weight: bold;
+	color: #24292e;
+}
+
+.markdown-body .pl-md {
+	color: #b31d28;
+	background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+	color: #22863a;
+	background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+	color: #e36209;
+	background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+	color: #f6f8fa;
+	background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+	font-weight: bold;
+	color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+	color: #586069;
+}
+
+.markdown-body .pl-sg {
+	color: #959da5;
+}
+
+.markdown-body .pl-corl {
+	text-decoration: underline;
+	color: #032f62;
+}
+
+.markdown-body .octicon {
+	display: inline-block;
+	vertical-align: text-top;
+	fill: currentColor;
+}
+
+.markdown-body a {
+	background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+	outline-width: 0;
+}
+
+.markdown-body strong {
+	font-weight: inherit;
+}
+
+.markdown-body strong {
+	font-weight: bolder;
+}
+
+.markdown-body h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+.markdown-body img {
+	border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+.markdown-body hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+.markdown-body input {
+	font: inherit;
+	margin: 0;
+}
+
+.markdown-body input {
+	overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.markdown-body * {
+	box-sizing: border-box;
+}
+
+.markdown-body input {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.markdown-body a {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.markdown-body a:hover {
+	text-decoration: underline;
+}
+
+.markdown-body strong {
+	font-weight: 600;
+}
+
+.markdown-body hr {
+	height: 0;
+	margin: 15px 0;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body hr::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+	padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body h1 {
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.markdown-body h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.markdown-body h3 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.markdown-body h4 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.markdown-body h5 {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.markdown-body h6 {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.markdown-body p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+	margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+	x-list-style-type: lower-roman;
+	  list-style-type: decimal;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+	list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+	margin-left: 0;
+}
+
+.markdown-body code {
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body .octicon {
+	vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+	padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+	padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+	padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+	padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+	padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+	padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+	padding-left: 40px !important;
+}
+
+.markdown-body::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+	color: inherit;
+	text-decoration: none;
+}
+
+.markdown-body .anchor {
+	float: left;
+	padding-right: 4px;
+	margin-left: -20px;
+	line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 0.25em;
+	padding: 0;
+	margin: 24px 0;
+	background-color: #e1e4e8;
+	border: 0;
+}
+
+.markdown-body blockquote {
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: 0.25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #c6cbd1;
+	border-bottom-color: #959da5;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	color: #1b1f23;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	visibility: visible;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+	font-size: 1.25em;
+}
+
+.markdown-body h4 {
+	font-size: 1em;
+}
+
+.markdown-body h5 {
+	font-size: 0.875em;
+}
+
+.markdown-body h6 {
+	font-size: 0.85em;
+	color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li {
+	word-wrap: break-all;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body li+li {
+	margin-top: 0.25em;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+}
+
+.markdown-body table th {
+	font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f6f8fa;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	box-sizing: content-box;
+	background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+	padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+	padding-right: 20px;
+}
+
+.markdown-body code {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(27,31,35,0.05);
+	border-radius: 3px;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f6f8fa;
+	border-radius: 3px;
+}
+
+.markdown-body pre code {
+	display: inline;
+	max-width: auto;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+	color: #005cc5;
+	border-color: #005cc5;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #d1d5da;
+	border-bottom-color: #c6cbd1;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+	position: relative;
+	z-index: 1;
+	border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+	list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+	margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+	margin: 0 0.2em 0.25em -1.6em;
+	vertical-align: middle;
+}
+
+.markdown-body hr {
+	border-bottom-color: #eee;
+}
+
+</style>
+<style>
+ol {
+    display: block;
+    list-style-type: decimal;
+}
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+
+<div class="markdown-body">
+
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+.markdown-body {
+    font-size: 12px;
+}
+.markdown-body td {
+    font-size: 12px;
+}
+</style>
+
+<h1>Lecture 25 - Chain Interoperability - Patterns in languages</h1>
+
+<h2>Object oriented</h2>
+
+<p>Yes!  Multiple inheritance.</p>
+
+<pre><code>contract SignData is Ownable {
+</code></pre>
+
+<p>Go is not object oriented.</p>
+
+<p>This means constructors.</p>
+
+<pre><code>	constructor() {
+	}
+</code></pre>
+
+<p>Or with values that it sets</p>
+
+<pre><code>	constructor(uint256 _pct) {
+        owner_address = payable(msg.sender);
+		pct  = _pct; // 1000000 times the yearly percentage rate
+		...
+</code></pre>
+
+<p>These values come from the &ldquo;migration&rdquo; JavaScript code.</p>
+
+<pre><code>const FixedTermDesposite = artifacts.require(&quot;FixedTermDesposite&quot;);
+
+module.exports = function (deployer) {
+	deployer.deploy(FixedTermDesposite, 20000); // 2% Per Year * 1000000 = 20000
+};
+</code></pre>
+
+<h2>Data Declaration</h2>
+
+<pre><code>    address payable owner_address;
+    uint256 pct;				// Payment for Deposite
+    uint256 numberOfdays;		// Payment can be withdrawn after X days.
+
+	mapping(address =&gt; uint256) nOfDeposites; // Your Deposite ID
+</code></pre>
+
+<p>Data that is not a &ldquo;constant&rdquo; is saved from call to call over time.
+Data is expensive.</p>
+
+<div class="pagebreak"></div>
+
+<h2>Dictionary</h2>
+
+<p>Solidity dictionaries - are multi-level maps.</p>
+
+<pre><code>	mapping(address =&gt; uint256) nOfDeposites; // Your Deposite ID
+</code></pre>
+
+<p>It is important to note that it will return a &ldquo;default&rdquo; value for all
+possible inputs - so a non-existent address will return a 0 in this
+case.</p>
+
+<p>You can have a map to a map to a value.</p>
+
+<pre><code>	mapping(uint256 =&gt; mapping(address =&gt; uint256)) depositeAmount;
+</code></pre>
+
+<p>The access to these is the same as an array.</p>
+
+<pre><code>	...
+        id = nOfDeposites[msg.sender];
+	...
+        theOwner = depositeOwner[_id][msg.sender];
+	...
+</code></pre>
+
+<h2>Output</h2>
+
+<p>Nope.</p>
+
+<p>No output.</p>
+
+<p>Use &ldquo;events&rdquo; instead.</p>
+
+<p>Declare an event</p>
+
+<pre><code>	event ReceivedFunds(address sender, uint256 value);
+</code></pre>
+
+<p>and generate the event to the log</p>
+
+<pre><code>	emit ReceivedFunds(msg.sender, msg.value);
+</code></pre>
+
+<div class="pagebreak"></div>
+
+<p>In the test code these can be dumped out with</p>
+
+<pre><code>var tx = await sd.depositCertificate ( amount, {&quot;value&quot;:amount} );
+console.log ( &quot;tx=&quot;, tx );
+console.log ( &quot;tx.logs = &quot;, tx.logs );
+for ( var i = 0, mx = tx.logs.length; i &lt; mx; i++ ) {
+	if ( tx.logs[i].event == 'DepositeMade' ) {
+		console.log ( &quot;For DepositeMoade event tx.logs[&quot;+i+&quot;].args = &quot;, tx.logs[i].args );
+		var r = tx.logs[i].args;
+		console.log ( &quot;    .who = &quot;, r.who );
+		console.log ( &quot;    .id = &quot;, r.id.toString() );
+		console.log ( &quot;    .amount = &quot;, r.amount.toString() );
+		assert.equal(r.id.toString(),&quot;1&quot;,&quot;Should have an ID of 1&quot;);
+		assert.equal(r.amount.toString(),&quot;1000000&quot;,&quot;Should have a depoiste of 1000000&quot;);
+	}
+}
+</code></pre>
+
+<h2>Functions/Methods</h2>
+
+<p>Functions that &ldquo;change&rdquo; the data require &ldquo;gas&rdquo;:</p>
+
+<pre><code>	...
+    function depositCertificate(uint256 _amount) public payable returns ( uint256 ) {
+	...
+    function withdrawCertificate(uint256 _id) public {
+	...
+</code></pre>
+
+<p>If a function is a &ldquo;view&rdquo; then it is local and &ldquo;free&rdquo;:</p>
+
+<pre><code>	function amountOnDeposite(uint256 _id) public view returns ( uint256 ) {
+</code></pre>
+
+<h2>Remember to have functions to do standard things like &lsquo;withdraw&rsquo;</h2>
+
+<pre><code>	function withdraw( uint256 amount ) public onlyOwner returns(bool) {
+</code></pre>
+
+<h2>Example Fixed Term Deposit</h2>
+
+<p>This is like a Certificate of Deposit (CD) at a bank.</p>
+
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: pragma solidity &gt;=0.4.22 &lt;0.9.0;
+  3: 
+  4: import &quot;@openzeppelin/contracts/access/Ownable.sol&quot;;
+  5: 
+  6: contract FixedTermDesposite is Ownable {
+  7:     address payable owner_address;
+  8:     uint256 pct;                // Payment for Deposite
+  9:     uint256 numberOfdays;        // Payment can be withdrawn after X days.
+ 10: 
+ 11: 
+ 12: 
+ 13: 
+ 14: 
+ 15:     mapping(address =&gt; uint32) nOfDeposites; // Your Deposite ID
+ 16:     mapping(uint256 =&gt; mapping(address =&gt; uint256)) depositeAmount;
+ 17:     mapping(uint256 =&gt; mapping(address =&gt; address)) depositeOwner;
+ 18:     mapping(uint256 =&gt; mapping(address =&gt; uint256)) depositeDeadline;
+ 19: 
+ 20:     event DepositeMade(address indexed who, uint256 amount, uint32 id);
+ 21:     event FundsRemoved(address indexed who, uint256 amount, uint32 id);
+ 22:     event ReceivedFunds(address sender, uint256 value);
+ 23:     event Withdrawn(address to, uint256 amount);
+ 24: 
+ 25:     constructor(uint256 _pct) {
+ 26:         owner_address = payable(msg.sender);
+ 27:         pct  = _pct; // 1000000 times the yearly percentage rate
+ 28:         numberOfdays = 365;
+ 29:     }
+ 30: 
+ 31:     /**
+ 32:      * @dev Create a new deposite for 1 year.
+ 33:      */
+ 34:     function depositCertificate(uint256 _amount) public payable returns ( uint32 ) {
+ 35:         require(msg.value == _amount);
+ 36:         uint32 id = nOfDeposites[msg.sender];
+ 37:         id = id + 1;
+ 38:         nOfDeposites[msg.sender] = id;
+ 39:         depositeAmount[id][msg.sender] = _amount;
+ 40:          depositeOwner[id][msg.sender] = msg.sender;
+ 41:         depositeDeadline[id][msg.sender] = block.timestamp + ( numberOfdays * 1 days);
+ 42:         emit DepositeMade( msg.sender, _amount, id);
+ 43:         return id;
+ 44:     }
+ 45: 
+ 46:     /**
+ 47:      * @dev Allow funds to be withdrawn at end of term.
+ 48:      */
+ 49:     function withdrawCertificate(uint32 _id) public {
+ 50:         uint32 id;
+ 51:         id = nOfDeposites[msg.sender];
+ 52:         require(id &gt;= _id &amp;&amp; _id &gt; 0);    // check that _id is in range.
+ 53: 
+ 54:         address theOwner;
+ 55:         theOwner = depositeOwner[_id][msg.sender];
+ 56:         require(theOwner == msg.sender);                    // You are the owner.
+ 57:         require(block.timestamp &gt;= depositeDeadline[_id][msg.sender]);     // You'r deposite has reached term date.
+ 58: 
+ 59:         uint256 amount;
+ 60:         amount = depositeAmount[_id][msg.sender];
+ 61:         amount = amount + ( ( amount * pct ) / 1000000 );    // Pay the interest
+ 62:         depositeAmount[_id][msg.sender] = 0;                // 0 left after withdrawl
+ 63: 
+ 64:         address payable to;
+ 65:         to = payable(theOwner);                                // convert type to payable
+ 66: 
+ 67:         to.transfer(amount);                                // send them the $ plus interest
+ 68:         emit DepositeMade( msg.sender, amount, _id);
+ 69:     }
+ 70: 
+ 71: 
+ 72: 
+ 73: 
+ 74: 
+ 75: 
+ 76: 
+ 77: 
+ 78: 
+ 79:     /**
+ 80:      * @dev Allow funds to be withdrawn at end of term.
+ 81:      */
+ 82:     function amountOnDeposite(uint32 _id) public view returns ( uint256 ) {
+ 83:         uint32 id;
+ 84:         id = nOfDeposites[msg.sender];
+ 85:         if ( id &gt; _id || id &lt;= 0 ) {
+ 86:             return ( 0 );
+ 87:         }
+ 88: 
+ 89:         address theOwner;
+ 90:         theOwner = depositeOwner[_id][msg.sender];
+ 91:         if (theOwner != msg.sender) {
+ 92:             return ( 0 );
+ 93:         }
+ 94: 
+ 95:         uint256 amount;
+ 96:         amount = depositeAmount[_id][msg.sender];
+ 97: 
+ 98:         return ( amount );
+ 99:     }
+100: 
+101:     // -------------------------------------------------------------------------------------------------------
+102: 
+103:     /**
+104:      * @dev payable fallback.  The fallback function is called when no other function 
+105:      * matches (if the receive ether function does not exist then this includes calls 
+106:      * with empty call data). You can make this function payable or not.  If it is not 
+107:      * payable then transactions not matching any other function which send value will
+108:      * revert. 
+109:      */
+110:     fallback() external payable {
+111:         emit ReceivedFunds(msg.sender, msg.value);
+112:     }
+113: 
+114:     /**
+115:      * @dev payable receive.  The receive ether function is called whenever the call data
+116:      *      is empty (whether or not ether is received). This function is implicitly payable.
+117:      */
+118:     receive() external payable {
+119:         emit ReceivedFunds(msg.sender, msg.value);
+120:     }
+121: 
+122:     /**
+123:      * @dev genReceiveFunds - generate a receive funds event.
+124:      */
+125:     function genReceivedFunds () public payable {
+126:         emit ReceivedFunds(msg.sender, msg.value);
+127:     }
+128: 
+129:     /**
+130:      * @dev Withdraw contract value amount.
+131:      */
+132:     function withdraw( uint256 amount ) public onlyOwner returns(bool) {
+133:         payable(owner_address).transfer(amount);
+134:         // owner_address.send(amount);
+135:         emit Withdrawn(owner_address, amount);
+136:         return true;
+137:     }
+138: 
+139: 
+140: 
+141: 
+142: 
+143: 
+144: 
+145: 
+146:     /**
+147:      * @dev How much do I got?
+148:      */
+149:     function getBalanceContract() public view onlyOwner returns(uint256){
+150:         return address(this).balance;
+151:     }
+152: 
+153:     /**
+154:      * @dev For futute to end the contract, take the value.
+155:      */
+156:     function kill() public onlyOwner {
+157:         emit Withdrawn(owner_address, address(this).balance);
+158:         selfdestruct(owner_address);
+159:     }
+160: }
+
+</code></pre>
+
+</div>
+

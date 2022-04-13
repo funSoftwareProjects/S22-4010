@@ -1,0 +1,1216 @@
+<style>
+@font-face {
+	font-family: octicons-link;
+	src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.5;
+	color: #24292e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+	color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+	color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+	color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+	color: #24292e;
+}
+
+.markdown-body .pl-ent {
+	color: #22863a;
+}
+
+.markdown-body .pl-k {
+	color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+	color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+	color: #e36209;
+}
+
+.markdown-body .pl-bu {
+	color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+	color: #fafbfc;
+	background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+	color: #fafbfc;
+	background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+	content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+	font-weight: bold;
+	color: #22863a;
+}
+
+.markdown-body .pl-ml {
+	color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+	font-weight: bold;
+	color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+	font-style: italic;
+	color: #24292e;
+}
+
+.markdown-body .pl-mb {
+	font-weight: bold;
+	color: #24292e;
+}
+
+.markdown-body .pl-md {
+	color: #b31d28;
+	background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+	color: #22863a;
+	background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+	color: #e36209;
+	background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+	color: #f6f8fa;
+	background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+	font-weight: bold;
+	color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+	color: #586069;
+}
+
+.markdown-body .pl-sg {
+	color: #959da5;
+}
+
+.markdown-body .pl-corl {
+	text-decoration: underline;
+	color: #032f62;
+}
+
+.markdown-body .octicon {
+	display: inline-block;
+	vertical-align: text-top;
+	fill: currentColor;
+}
+
+.markdown-body a {
+	background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+	outline-width: 0;
+}
+
+.markdown-body strong {
+	font-weight: inherit;
+}
+
+.markdown-body strong {
+	font-weight: bolder;
+}
+
+.markdown-body h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+.markdown-body img {
+	border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+.markdown-body hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+.markdown-body input {
+	font: inherit;
+	margin: 0;
+}
+
+.markdown-body input {
+	overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.markdown-body * {
+	box-sizing: border-box;
+}
+
+.markdown-body input {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.markdown-body a {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.markdown-body a:hover {
+	text-decoration: underline;
+}
+
+.markdown-body strong {
+	font-weight: 600;
+}
+
+.markdown-body hr {
+	height: 0;
+	margin: 15px 0;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body hr::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+	padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body h1 {
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.markdown-body h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.markdown-body h3 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.markdown-body h4 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.markdown-body h5 {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.markdown-body h6 {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.markdown-body p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+	margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+	x-list-style-type: lower-roman;
+	  list-style-type: decimal;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+	list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+	margin-left: 0;
+}
+
+.markdown-body code {
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body .octicon {
+	vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+	padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+	padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+	padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+	padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+	padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+	padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+	padding-left: 40px !important;
+}
+
+.markdown-body::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+	color: inherit;
+	text-decoration: none;
+}
+
+.markdown-body .anchor {
+	float: left;
+	padding-right: 4px;
+	margin-left: -20px;
+	line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 0.25em;
+	padding: 0;
+	margin: 24px 0;
+	background-color: #e1e4e8;
+	border: 0;
+}
+
+.markdown-body blockquote {
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: 0.25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #c6cbd1;
+	border-bottom-color: #959da5;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	color: #1b1f23;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	visibility: visible;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+	font-size: 1.25em;
+}
+
+.markdown-body h4 {
+	font-size: 1em;
+}
+
+.markdown-body h5 {
+	font-size: 0.875em;
+}
+
+.markdown-body h6 {
+	font-size: 0.85em;
+	color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li {
+	word-wrap: break-all;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body li+li {
+	margin-top: 0.25em;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+}
+
+.markdown-body table th {
+	font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f6f8fa;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	box-sizing: content-box;
+	background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+	padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+	padding-right: 20px;
+}
+
+.markdown-body code {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(27,31,35,0.05);
+	border-radius: 3px;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f6f8fa;
+	border-radius: 3px;
+}
+
+.markdown-body pre code {
+	display: inline;
+	max-width: auto;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+	color: #005cc5;
+	border-color: #005cc5;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #d1d5da;
+	border-bottom-color: #c6cbd1;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+	position: relative;
+	z-index: 1;
+	border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+	list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+	margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+	margin: 0 0.2em 0.25em -1.6em;
+	vertical-align: middle;
+}
+
+.markdown-body hr {
+	border-bottom-color: #eee;
+}
+
+</style>
+<style>
+ol {
+    display: block;
+    list-style-type: decimal;
+}
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+
+<div class="markdown-body">
+
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+.markdown-body {
+    font-size: 12px;
+}
+.markdown-body td {
+    font-size: 12px;
+}
+</style>
+
+<h1>Snowflake</h1>
+
+<h2>Current Families</h2>
+
+<ol>
+<li>&ldquo;Classical consensus&rdquo; - Leslie Lamport and Barbra Liscoff</li>
+<li>Quick finality.<br /></li>
+<li>Quadratic communication.</li>
+<li>Security Judicious Overlap between quorums of people.</li>
+<li>Paxos is based on this.</li>
+</ol>
+
+<p>Good basis for Permissions Chained.</p>
+
+<ol>
+<li>Nakamoto 2009 - Robust</li>
+<li>Slow (Bitcoin is 3-10 TPS, Power = 2 times Denmark, Ethereum runs 15+ TPS etc.)</li>
+<li>High communication - Order n squared.</li>
+<li>Limited Throughput - bandwidth / communication limited.</li>
+<li>Expensive - When we are using these systems - we are paying for all that electricity.  Either via minting new tokens or via transaction fees.</li>
+</ol>
+
+<p>Snowflake (Avalance)
+1. Finality in 2 seconds -
+2. Thousands of TPS
+3. Scales from 10,000 to millions of nodes
+4. No special ecosystem of mining</p>
+
+<p>It is a Gosip or Epidemic Protocol.  This is basically a sub-sample voting system.
+In each round you are getting a sub-sample of the voting for a result and with
+each round you increase the probability of &ldquo;A&rdquo; result.</p>
+
+<p>New Idea has &ldquo;meta stability&rdquo;</p>
+
+<p>No stability in the middle.  You want it to tip in some direction.</p>
+
+<p>A Vote Process - but not by &ldquo;counting&rdquo; the votes.</p>
+
+<p>The process - when you look at the proofs - relies on chaotic instability.</p>
+
+<p>You as a listener can see the votes of the nodes that you talk to.  You pick
+a solution (based on your data) and reveal your solution.  Let&rsquo;s call this solution
+&ldquo;left&rdquo;.  You see the solutions of your neighbors (&ldquo;left&rdquo; or &ldquo;right&rdquo;) and you can choose
+witch direction to go in.    If you see a preponderance of, let&rsquo;s say, &ldquo;right&rdquo; you can
+choose to switch your solution to &ldquo;right&rdquo;.  In each round you get this choice.</p>
+
+<p>With a larger and larger set of nodes the rate at which you can &ldquo;see&rdquo; the &ldquo;left&rdquo; or &ldquo;right&rdquo;
+in a solution rises.  More nodes leads to a faster spread of the instability and a faster
+rate of going from one solution to a common agreed upon solution.</p>
+
+<p>A lying node - one attempting to produce a solution that is incorrect - has to persuade
+other nodes that it&rsquo;s lie is more valid than all the other nodes promoting commonly accepted
+solutions.   This makes the protocol robust.</p>
+
+<p>The economy of the protocol means that it is egalitarian - It is runnable from virtually
+any computing device.  A Phone is at a disadvantage because of network latency - not because
+of lack of compute power.   However it is at no more of a disadvantage than a person on a
+slow network connection.</p>
+
+<h3>Evolution and Extra Legality</h3>
+
+<p>Bitcoin (Nakomoto) protocol is extra legal and brittle.</p>
+
+<p>Snowflake can be persuaded to fix results via consensus.  This makes it manageable by an
+avalanche of consensus.    Centralized authority can then drive corrective actions to
+the &ldquo;state&rdquo; of the chain.</p>
+
+<h3>Implications</h3>
+
+<ol>
+<li>Participant (nodes) need not &ldquo;participate&rdquo; - this means that nodes may not affect safety
+of the system.  Nodes are only visible if the &ldquo;vote&rdquo;.</li>
+<li>&ldquo;Green&rdquo; System - low costs and low overhead.</li>
+<li>No liveness grantee - A double spend scenario - you send to A, and B at the same time.   There
+is no grantee to resolve this.   The tokens can be stuck in the middle.  There is no grantee that
+the chain will ever &ldquo;choose&rdquo; one over the other.   In practical terms this is improbable - but -
+it puts the burden of responsibility on the &ldquo;sender&rdquo; who tried to defraud the receivers.<br /></li>
+</ol>
+
+<h3>Avalanche (AVA) tokens based on this.</h3>
+
+<ol>
+<li>This uses a &ldquo;staking&rdquo; mechanism with traditional Solidity/Viper contracts (Ethereum) or
+via a off-chain based contract with Bitcoin.</li>
+<li>The &ldquo;stake&rdquo; is a non-paying stake that prevents the creation of accounts for free.
+This stops the ability to have Sybil (51%) attacks on the system.</li>
+<li>No &ldquo;risk&rdquo; - the stake is not a grantee of accuracy.  There is no risk of loosing your
+stake - but you can not participate if you withdraw your stake.  &ldquo;Free&rdquo; creates a commons
+that can be abused - &ldquo;free&rdquo; email created spam - this removes &ldquo;free&rdquo; - you have to have
+some &ldquo;skin&rdquo; in the game - to participate.  The real &ldquo;risk&rdquo; or &ldquo;cost&rdquo; is opportunity cost risk.</li>
+<li>Large enough staking allows the &ldquo;minting&rdquo; of new AVA tokens.  This is a builtin interest
+rate that is payed on the &ldquo;stake&rdquo; in AVA tokens.   It is low but it can change.</li>
+</ol>
+
+<h2>Governance</h2>
+
+<ol>
+<li>Corrections to the chain can take place.  Via &ldquo;consensus&rdquo; you can change the minting
+rate - inflation - or the rate of return can be increased to &ldquo;grow&rdquo; the network.
+This is &ldquo;dental banking&rdquo; via chain consensus.</li>
+</ol>
+
+<h2>Stock v.s. Bonds</h2>
+
+<p>An example business with an ICO or Stock raise.</p>
+
+<p>You want to start a business but you don&rsquo;t have the capital to do it.
+SO you create a company -
+Then sell some stock to some investors.</p>
+
+<p>You need to invest in hardware / fixed asset.  This asset depreciates.</p>
+
+<p>You need to pay for labor / this is a liability - the value can&rsquo;t be counted.</p>
+
+<p>Now you need more money - but you don&rsquo;t want to sell more of the business.</p>
+
+<p>The alternative is to get a &ldquo;loan&rdquo;.</p>
+
+<p>There are 2 forms of loans - bank loans and bonds.</p>
+
+<p>An example bond contract:</p>
+
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: pragma solidity &gt;=0.4.22 &lt;0.9.0;
+  3: 
+  4: import &quot;@openzeppelin/contracts/access/Ownable.sol&quot;;
+  5: import &quot;@openzeppelin/contracts/utils/math/SafeMath.sol&quot;;
+  6: import &quot;@openzeppelin/contracts/token/ERC20/ERC20.sol&quot;;
+  7: 
+  8: contract ZeroCouponBond is Ownable {
+  9: 
+ 10:     using SafeMath for uint256;
+ 11: 
+ 12:     string name;
+ 13:     address tokenToRedeem;
+ 14:     uint256 totalDebt;
+ 15:     uint256 parDecimals;
+ 16:     uint256 bondsNumber;    // How many bonds to issue
+ 17:     uint256 cap;
+ 18:     uint256 parValue;        // value of bond at maturity - face value.
+ 19:     uint256 couponRate;        // discount rate that will be payed (interest)
+ 20:     uint256 term;            // how long the bond last for
+ 21:     uint256 timesToRedeem;
+ 22:     uint256 loopLimit;        // stay under &quot;gas&quot; limit for actions in pay out.
+ 23:     uint256 nonce = 0;
+ 24: 
+ 25:     uint256 couponThreshold = 0;
+ 26: 
+ 27:     ERC20 token;        // Use an ERC-20 as the &quot;holder&quot; of the tokens.
+ 28: 
+ 29:     event MintedBond(address buyer, uint256 bondAmount);
+ 30:         // emit MintedBond(buyer, _bondsAmount);
+ 31:     event RedeemedCoupons(address sender, uint256[] bonds);
+ 32:         // emit RedeemedCoupons(msg.sender, _bonds);
+ 33:     event Transferred(address sender, address receiver, uint256[] bonds);
+ 34:         // emit Transferred(msg.sender, receiver, _bonds);
+ 35: 
+ 36:     mapping(uint256 =&gt; address) bonds;
+ 37:     mapping(uint256 =&gt; uint256) maturities;
+ 38:     mapping(uint256 =&gt; uint256) couponsRedeemed;
+ 39:     mapping(address =&gt; uint256) bondsAmount;
+ 40: 
+ 41:     constructor(string memory _name, uint256 _par, uint256 _parDecimals, uint256 _coupon,
+ 42:             uint256 _term, uint256 _cap, uint256 _timesToRedeem, address _tokenToRedeem,
+ 43:             uint256 _loopLimit) {
+ 44: 
+ 45:         require(bytes(_name).length &gt; 0);
+ 46:         require(_coupon &gt; 0);
+ 47:         require(_par &gt; 0);
+ 48:         require(_term &gt; 0);
+ 49:         require(_loopLimit &gt; 0);
+ 50:         require(_timesToRedeem &gt;= 1);
+ 51: 
+ 52:         name = _name;
+ 53:         parValue = _par;
+ 54:         cap = _cap;
+ 55:         loopLimit = _loopLimit;
+ 56:         parDecimals = _parDecimals;
+ 57:         timesToRedeem = _timesToRedeem;
+ 58:         couponRate = _coupon;
+ 59:         term = _term;
+ 60:         couponThreshold = term.div(timesToRedeem);
+ 61: 
+ 62:         if (_tokenToRedeem == address(0)) {
+ 63:             tokenToRedeem = _tokenToRedeem;
+ 64:         }
+ 65:         else {
+ 66:             token = ERC20(_tokenToRedeem);
+ 67:         }
+ 68:     }
+ 69: 
+ 70:     /**
+ 71:     * @notice Change the number of elements you can loop through in this contract
+ 72:     * @param _loopLimit The new loop limit
+ 73:     */
+ 74:     function changeLoopLimit(uint256 _loopLimit) public onlyOwner {
+ 75:         require(_loopLimit &gt; 0);
+ 76:         loopLimit = _loopLimit;
+ 77:     }
+ 78: 
+ 79:     /**
+ 80:     * @notice Mint bonds to a new buyer - this is the bond &quot;issue&quot;
+ 81:     * @param buyer The buyer of the bonds
+ 82:     * @param _bondsAmount How many bonds to mint
+ 83:     */
+ 84:     function mintBond(address buyer, uint256 _bondsAmount) public onlyOwner {
+ 85:         require(buyer != address(0));
+ 86:         require(_bondsAmount &gt;= 1);
+ 87:         require(_bondsAmount &lt;= loopLimit);
+ 88: 
+ 89:         if (cap &gt; 0) {
+ 90:             require(bondsNumber.add(_bondsAmount) &lt;= cap);
+ 91:         }
+ 92:         bondsNumber = bondsNumber.add(_bondsAmount);
+ 93:         nonce = nonce.add(_bondsAmount);
+ 94:         for (uint256 i = 0; i &lt; _bondsAmount; i++) {
+ 95:             maturities[nonce.sub(i)] = block.timestamp.add(term);
+ 96:             bonds[nonce.sub(i)] = buyer;
+ 97:             couponsRedeemed[nonce.sub(i)] = 0;
+ 98:             bondsAmount[buyer] = bondsAmount[buyer].add(_bondsAmount);
+ 99:         }
+100:         totalDebt = totalDebt.add(parValue.mul(_bondsAmount))
+101:                                 .add((parValue.mul(couponRate)
+102:                                 .div(100)).mul(timesToRedeem.mul(_bondsAmount)));
+103: 
+104:         emit MintedBond(buyer, _bondsAmount);
+105:     }
+106: 
+107:     /**
+108:     * @notice Redeem coupons on your bonds
+109:     * @param _bonds An array of bond ids corresponding to the bonds you want to redeem apon
+110:     */
+111:     function redeemCoupons(uint256[] memory _bonds) public {
+112: 
+113:         require(_bonds.length &gt; 0);
+114:         require(_bonds.length &lt;= loopLimit);
+115:         require(_bonds.length &lt;= getBalance(msg.sender));
+116: 
+117:         uint256 issueDate = 0;
+118:         uint256 lastThresholdRedeemed = 0;
+119:         uint256 toRedeem = 0;
+120: 
+121:         for (uint256 i = 0; i &lt; _bonds.length; i++) {
+122: 
+123:             if (bonds[_bonds[i]] != msg.sender || couponsRedeemed[_bonds[i]] == timesToRedeem) {
+124:                 continue;
+125:             }
+126:             issueDate = maturities[_bonds[i]].sub(term);
+127:             lastThresholdRedeemed = issueDate.add(couponsRedeemed[_bonds[i]].mul(couponThreshold));
+128:             if (lastThresholdRedeemed.add(couponThreshold) &gt;= maturities[_bonds[i]] ||
+129:                 block.timestamp &lt; lastThresholdRedeemed.add(couponThreshold)) {
+130:                 continue;
+131:             }
+132: 
+133:             toRedeem = (block.timestamp.sub(lastThresholdRedeemed)).div(couponThreshold);
+134: 
+135:             if (toRedeem == 0) {
+136:                 continue;
+137:             }
+138: 
+139:             couponsRedeemed[_bonds[i]] = couponsRedeemed[_bonds[i]].add(toRedeem);
+140:             getMoney( toRedeem.mul(parValue.mul(couponRate).div( 10 ** (parDecimals.add(2)) ) ), msg.sender );
+141:             if (couponsRedeemed[_bonds[i]] == timesToRedeem) {
+142:                 bonds[_bonds[i]] = address(0);
+143:                 maturities[_bonds[i]] = 0;
+144:                 bondsAmount[msg.sender]--;
+145:                 getMoney(parValue.div( (10 ** parDecimals) ), msg.sender );
+146:             }
+147: 
+148:         }
+149: 
+150:         emit RedeemedCoupons(msg.sender, _bonds);
+151:     }
+152: 
+153:     /**
+154:     * @notice Transfer bonds to another address
+155:     * @param receiver The receiver of the bonds
+156:     * @param _bonds The ids of the bonds that you want to transfer
+157:     */
+158:     function transfer(address receiver, uint256[] memory _bonds) public {
+159:         require(_bonds.length &gt; 0);
+160:         require(receiver != address(0));
+161:         require(_bonds.length &lt;= getBalance(msg.sender));
+162: 
+163:         for (uint256 i = 0; i &lt; _bonds.length; i++) {
+164:             if (bonds[_bonds[i]] != msg.sender || couponsRedeemed[_bonds[i]] == timesToRedeem) {
+165:             continue;
+166:         }
+167:             bonds[_bonds[i]] = receiver;
+168:             bondsAmount[msg.sender] = bondsAmount[msg.sender].sub(1);
+169:             bondsAmount[receiver] = bondsAmount[receiver].add(1);
+170:         }
+171: 
+172:         emit Transferred(msg.sender, receiver, _bonds);
+173:     }
+174: 
+175:     /**
+176:     * @notice Donate money to this contract
+177:     */
+178:     function donate() public payable {
+179:         require(address(token) == address(0));
+180:     }
+181: 
+182:     receive() external payable {
+183:         revert();
+184:     }
+185: 
+186:     // ============================================================================================
+187:     // Private Functions
+188:     // ============================================================================================
+189: 
+190:     /**
+191:     * @notice Transfer coupon money to an address
+192:     * @param amount The amount of money to be transferred
+193:     * @param receiver The address which will receive the money
+194:     */
+195:     function getMoney(uint256 amount, address receiver) private {
+196:         if (address(token) == address(0)) {
+197:             payable(receiver).transfer(amount);
+198:         }
+199:         else {
+200:             token.transfer(msg.sender, amount);
+201:         }
+202:         totalDebt = totalDebt.sub(amount);
+203:     }
+204: 
+205:     // ============================================================================================
+206:     // Getters
+207:     // ============================================================================================
+208: 
+209:     /**
+210:     * @dev Get the last time coupons for a particular bond were redeemed
+211:     * @param bond The bond id to analyze
+212:     */
+213:     function getLastTimeRedeemed(uint256 bond) public view returns (uint256) {
+214:         uint256 issueDate = maturities[bond].sub(term);
+215:         uint256 lastThresholdRedeemed = issueDate.add(couponsRedeemed[bond].mul(couponThreshold));
+216:         return lastThresholdRedeemed;
+217:     }
+218: 
+219:     /**
+220:     * @dev Get the owner of a specific bond
+221:     * @param bond The bond id to analyze
+222:     */
+223:     function getBondOwner(uint256 bond) public view returns (address) {
+224:         return bonds[bond];
+225:     }
+226: 
+227:     /**
+228:     * @dev Get how many coupons remain to be redeemed for a specific bond
+229:     * @param bond The bond id to analyze
+230:     */
+231:     function getRemainingCoupons(uint256 bond) public view returns (int256) {
+232:         address owner = getBondOwner(bond);
+233:         if (owner == address(0)) {
+234:         return -1;
+235:     }
+236:         uint256 redeemed = getCouponsRedeemed(bond);
+237:         return int256(timesToRedeem - redeemed);
+238:     }
+239: 
+240:     /**
+241:     * @dev Get how many coupons were redeemed for a specific bond
+242:     * @param bond The bond id to analyze
+243:     */
+244:     function getCouponsRedeemed(uint256 bond) public view returns (uint256) {
+245:         return couponsRedeemed[bond];
+246:     }
+247: 
+248:     /**
+249:     * @dev Get the address of the token that is redeemed for coupons
+250:     */
+251:     function getTokenAddress() public view returns (address) {
+252:         return (address(token));
+253:     }
+254: 
+255:     /**
+256:     * @dev Get how many times coupons can be redeemed for bonds
+257:     */
+258:     function getTimesToRedeem() public view returns (uint256) {
+259:         return timesToRedeem;
+260:     }
+261: 
+262:     /**
+263:     * @dev Get how much time it takes for a bond to mature
+264:     */
+265:     function getTerm() public view returns (uint256) {
+266:         return term;
+267:     }
+268: 
+269:     /**
+270:     * @dev Get the maturity date for a specific bond
+271:     * @param bond The bond id to analyze
+272:     */
+273:     function getMaturity(uint256 bond) public view returns (uint256) {
+274:         return maturities[bond];
+275:     }
+276: 
+277:     /**
+278:     * @dev Get how much money is redeemed on a coupon
+279:     */
+280:     function getSimpleInterest() public view returns (uint256) {
+281:         uint256 rate = getCouponRate();
+282:         uint256 par = getParValue();
+283:         return par.mul(rate).div(100);
+284:     }
+285: 
+286:     /**
+287:     * @dev Get the yield of a bond
+288:     */
+289:     function getCouponRate() public view returns (uint256) {
+290:         return couponRate;
+291:     }
+292: 
+293:     /**
+294:     * @dev Get the par value for these bonds
+295:     */
+296:     function getParValue() public view returns (uint256) {
+297:         return parValue;
+298:     }
+299: 
+300:     /**
+301:     * @dev Get the cap amount for these bonds
+302:     */
+303:     function getCap() public view returns (uint256) {
+304:         return cap;
+305:     }
+306: 
+307:     /**
+308:     * @dev Get amount of bonds that an address has
+309:     * @param who The address to analyze
+310:     */
+311:     function getBalance(address who) public view returns (uint256) {
+312:         return bondsAmount[who];
+313:     }
+314: 
+315:     /**
+316:     * @dev If the par value is a real number, it might have decimals. Get the amount of decimals the par value has
+317:     */
+318:     function getParDecimals() public view returns (uint256) {
+319:         return parDecimals;
+320:     }
+321: 
+322:     /**
+323:     * @dev Get the address of the token redeemed for coupons
+324:     */
+325:     function getTokenToRedeem() public view returns (address) {
+326:         return tokenToRedeem;
+327:     }
+328: 
+329:     /**
+330:     * @dev Get the name of this smart bond contract
+331:     */
+332:     function getName() public view returns (string memory) {
+333:         return name;
+334:     }
+335: 
+336:     /**
+337:     * @dev Get the current unpaid debt
+338:     */
+339:     function getTotalDebt() public view returns (uint256) {
+340:         return totalDebt;
+341:     }
+342: 
+343:     /**
+344:     * @dev Get the total amount of bonds issued
+345:     */
+346:     function getTotalBonds() public view returns (uint256) {
+347:         return bondsNumber;
+348:     }
+349: 
+350:     /**
+351:     * @dev Get the latest nonce
+352:     */
+353:     function getNonce() public view returns (uint256) {
+354:         return nonce;
+355:     }
+356: 
+357:     /**
+358:     * @dev Get the amount of time that needs to pass between the dates when you can redeem coupons
+359:     */
+360:     function getCouponThreshold() public view returns (uint256) {
+361:         return couponThreshold;
+362:     }
+363: 
+364: }
+
+</code></pre>
+
+</div>
+

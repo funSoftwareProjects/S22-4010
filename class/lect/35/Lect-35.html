@@ -727,6 +727,14 @@ ol {
 
 <h2>in the news</h2>
 
+<ol>
+<li>Axie Infinite, $625 million (150,000 ETH) theft was done by the Lazarus criminal group.
+This is the same folks that did the WanaCry Raonsomware - and it is a state sponsored
+North Korea entity.</li>
+<li>Ethereum-based Stablecoin protocol Beanstalk looses $182 million - goes from stable
+to 0.</li>
+</ol>
+
 <h2>Vyper</h2>
 
 <p>There is &ldquo;vyper&rdquo; a python like contract language that is the most popular alternative to
@@ -791,6 +799,67 @@ ganache.  So will need to have:</p>
 
 <pre><code>
 </code></pre>
+
+<h2>Really Simple Contract</h2>
+
+<pre><code>  1: # Minimual contract that stores a value
+  2: 
+  3: stored_data: uint256
+  4: 
+  5: @external
+  6: def set(new_value : uint256):
+  7:     self.stored_data = new_value
+  8: 
+  9: @external
+ 10: @view
+ 11: def get() -&gt; uint256:
+ 12:     return self.stored_data
+
+
+</code></pre>
+
+<ol>
+<li>Comments start with a &lsquo;#&rsquo;</li>
+<li>No special stuff for declaring the licenses for the contract</li>
+<li>No special pragma to define the version of the language</li>
+<li>No name for the contract - it is the file name.</li>
+<li>Contract-global data is defined in the outer scope (lines 2..4)</li>
+<li>External functions are declared &ldquo;external&rdquo; with a &ldquo;decorator&rdquo;, <code>@external</code>.  (Line 5)</li>
+<li>Functions use <code>def name</code> (line 6)</li>
+<li>Declarations are <code>name : type</code> (line 6)</li>
+<li>Data is referred to with <code>self.</code> (line 7)</li>
+<li>non-transactional functions (views) are declared with a decorator, <code>@view</code>.   (Line 10)</li>
+<li>The return type for a function is specified with <code>-&gt; type</code> (line 11)</li>
+
+<li><p>Way fewer reserved words - just &ldquo;return&rdquo; (line 12)</p>
+
+<pre><code>1: const VyperStorage = artifacts.require(&quot;VyperStorage&quot;);
+2: 
+3: contract(&quot;VyperStorage&quot;, () =&gt; {
+4:   it(&quot;...should store the value 89.&quot;, async () =&gt; {
+5:     const storage = await VyperStorage.deployed();
+6: 
+7:     // Set value of 89
+8:     await storage.set(89);
+9: 
+10:     // Get stored value
+11:     const storedData = await storage.get();
+12: 
+13:     assert.equal(storedData, 89, &quot;The value 89 was not stored.&quot;);
+14:   });
+15: });
+
+
+</code></pre></li>
+</ol>
+
+<p>testing&hellip;
+1. Still using JS and Mocha.
+2. Very little difference between the test.
+3. Line 1 - load the contract
+4. Line 7 - call to method - transaction
+4. Line 11 - call to view
+4. Line 13 - check data is correct</p>
 
 </div>
 

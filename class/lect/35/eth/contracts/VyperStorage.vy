@@ -1,4 +1,3 @@
-
 # Minimual contract that stores a value
 
 stored_data: uint256

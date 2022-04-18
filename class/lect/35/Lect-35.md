@@ -21,6 +21,11 @@ Lecture 35 - Alternative to Solidity
 
 ## in the news
 
+1. Axie Infinite, $625 million (150,000 ETH) theft was done by the Lazarus criminal group.
+This is the same folks that did the WanaCry Raonsomware - and it is a state sponsored
+North Korea entity.
+2. Ethereum-based Stablecoin protocol Beanstalk looses $182 million - goes from stable
+to 0.
 
 ## Vyper
 
@@ -91,5 +96,69 @@ ganache.  So will need to have:
 ```
 
 ```
+
+
+
+## Really Simple Contract
+
+```
+  1: # Minimual contract that stores a value
+  2: 
+  3: stored_data: uint256
+  4: 
+  5: @external
+  6: def set(new_value : uint256):
+  7:     self.stored_data = new_value
+  8: 
+  9: @external
+ 10: @view
+ 11: def get() -> uint256:
+ 12:     return self.stored_data
+
+
+```
+
+1. Comments start with a '#'
+2. No special stuff for declaring the licenses for the contract
+3. No special pragma to define the version of the language
+4. No name for the contract - it is the file name.
+5. Contract-global data is defined in the outer scope (lines 2..4)
+6. External functions are declared "external" with a "decorator", `@external`.  (Line 5)
+7. Functions use `def name` (line 6)
+8. Declarations are `name : type` (line 6)
+9. Data is referred to with `self.` (line 7)
+9. non-transactional functions (views) are declared with a decorator, `@view`.   (Line 10)
+9. The return type for a function is specified with `-> type` (line 11)
+9. Way fewer reserved words - just "return" (line 12)
+
+
+```
+  1: const VyperStorage = artifacts.require("VyperStorage");
+  2: 
+  3: contract("VyperStorage", () => {
+  4:   it("...should store the value 89.", async () => {
+  5:     const storage = await VyperStorage.deployed();
+  6: 
+  7:     // Set value of 89
+  8:     await storage.set(89);
+  9: 
+ 10:     // Get stored value
+ 11:     const storedData = await storage.get();
+ 12: 
+ 13:     assert.equal(storedData, 89, "The value 89 was not stored.");
+ 14:   });
+ 15: });
+
+
+```
+
+testing...
+1. Still using JS and Mocha.
+2. Very little difference between the test.
+3. Line 1 - load the contract
+4. Line 7 - call to method - transaction
+4. Line 11 - call to view 
+4. Line 13 - check data is correct
+
 
 

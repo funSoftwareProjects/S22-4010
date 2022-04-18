@@ -1,9 +1,9 @@
 
 PP=`pwd`
-FN=Lect-34
+FN=Lect-35
 DIR=../../../
 IMG=
-PY= sip01.go
+PY= 
 
 all: setup all2
 

@@ -76,6 +76,9 @@ func main() {
 	fmt.Printf(`%s/api/login%s, send-data=%s{"username":"alice","x":%d}%s`+"\n",
 		MiscLib.ColorYellow, MiscLib.ColorReset, MiscLib.ColorYellow, x, MiscLib.ColorReset)
 	dbr := database["alice"]
+
+	//
+
 	v := dbr.v
 	fmt.Printf(`Server looks up in the database 'v' for "alice", v=%d`+"\n", v)
 
@@ -141,6 +144,8 @@ func main() {
 		y := dbr.y // calculated on server and saved.
 		fmt.Printf(`Server looks up in the database 'v','e','y' for "alice", v=%d`+"\n", v)
 
+		//
+
 		t3 := big.NewInt(0)
 		t3.Exp(alpha, y, p)
 		t4 := big.NewInt(0)
@@ -177,6 +182,7 @@ func main() {
 
 }
 
+// Not! Not a cryptographic random number generation!
 func genRan(m int) int64 {
 	return int64(rand.Intn(m))
 }

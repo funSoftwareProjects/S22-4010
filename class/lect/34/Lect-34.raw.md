@@ -1,6 +1,6 @@
 m4_include(../../../setup.m4)
 
-Lecture 24 - Zero Knowledge Identification System
+Lecture 34 - Zero Knowledge Identification System
 =====================================
 
 ## Reading
@@ -40,6 +40,17 @@ So if you can't do the authentication on the chip or device. What about just
 adding Two Factor Authentication after the device is scanned. Basically have the
 QR or RFID send you to a page where you have to authenticate using a device
 (iPhone, Android) and provide proof of your authenticity at that point.
+
+
+Zero knowledge based chains - ZCache
+----------------------------------
+
+Monero claims to hide who spent the money by "mixing" it into a set of 6 other
+transfers.  
+
+ZCache uses cryptography.  Specifically RFC-8235
+"Schnorr Non-interactive Zero-Knowledge Proof"
+
 
 
 Zero knowledge proof for use as ID

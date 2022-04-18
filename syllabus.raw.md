@@ -224,7 +224,7 @@ This is an approximate schedule.  Updates will be noted in class.
 |                                 |    |                                                                            |
 | Mon&nbsp;Apr&nbsp;06,&nbsp;2020 | 28 | Concurrency in Go, Go routines, Locks, Channels                            |
 | Wed&nbsp;Apr&nbsp;08,&nbsp;2020 | 29 | How ECDSA works, the Basics of public key security.                        |
-| Fri&nbsp;Apr&nbsp;10,&nbsp;2020 | 30 | Functional programming and contracts (Begining of IOHK stuff)              |
+| Fri&nbsp;Apr&nbsp;10,&nbsp;2020 | 30 | Functional programming and contracts (Beginning of IOHK stuff)             |
 |                                 |    | Homework 7 Due - Test-Net ERC-20/ERC-721 based contract.                   |
 |                                 |    |                                                                            |
 | Mon&nbsp;Apr&nbsp;13,&nbsp;2020 | 31 | Insurance companies and Non fungible Tokens                                |

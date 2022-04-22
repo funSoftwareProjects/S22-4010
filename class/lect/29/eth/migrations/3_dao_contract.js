@@ -5,8 +5,12 @@ const DaoVoterContractUpgradableV1 = artifacts.require("DaoVoterContractUpgradab
 
 module.exports = (deployer) => {
 	deployer.then(async () => {
-		await deployer.deploy(DaoVoterContract);
-		await deployer.deploy(DaoVoterContract, DaoVoterContractV1.address, 10000 );	// Address, Version(as number)
+
+		// Load Contract
+		await deployer.deploy(DaoVoterContractUpgradableV1);
+
+		// Create proxy
+		await deployer.deploy(DaoVoterContract, DaoVoterContractUpgradableV1.address, 10000);	
 	});
 };
 

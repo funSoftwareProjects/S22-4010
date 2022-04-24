@@ -28,4 +28,12 @@ gen_go:
 		solc --bin KVPair.sol -o . --overwrite )
 	( cd ./contracts ; \
 		abigen --bin=KVPair.bin --abi=KVPair.abi --pkg=KVPair --out=KVPair.go )
+	echo
+	mkdir -p Simple777Token
+	( cd ./contracts ; \
+		solc --abi Simple777Token.sol -o . --overwrite )
+	( cd ./contracts ; \
+		solc --bin Simple777Token.sol -o . --overwrite )
+	( cd ./contracts ; \
+		abigen --bin=Simple777Token.bin --abi=Simple777Token.abi --pkg=Simple777Token --out=./Simple777Token/Simple777Token.go )
 

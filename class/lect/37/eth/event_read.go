@@ -16,8 +16,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/pschlump/godebug"
 
-	// store "github.com/Univ-Wyo-Education/S22-4010/class/lect/37/eth/contracts_event_read" // for demo
-	kv "github.com/Univ-Wyo-Education/S22-4010/class/lect/37/eth/contracts" // for demo
+	kv "github.com/Univ-Wyo-Education/S22-4010/class/lect/37/eth/contracts"
 )
 
 type CfgType struct {

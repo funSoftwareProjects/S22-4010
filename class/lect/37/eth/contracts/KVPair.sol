@@ -9,7 +9,7 @@ contract KVPair {
 
 	constructor() { }
 
-	function setKVPari(bytes32 key, bytes32 value) external {
+	function setKVPair(bytes32 key, bytes32 value) external {
 		theData[key] = value;
 		emit SetKVEvent(key, value);
 	}

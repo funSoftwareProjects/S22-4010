@@ -1,0 +1,106 @@
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x38c65b7ff370ec7c93579c293896df39216fb5ae03c7f994ee4dfbe6590c1188
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xBE06E4F257B2dD54cBD8c08B2D3505450286F466
+   > block number:        9
+   > block timestamp:     1650636622
+   > account:             0x7590482466BA98E793473Dc170D9539157B88512
+   > balance:             999.996979867742492183
+   > gas used:            201199 (0x311ef)
+   > gas price:           2.802931769 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000563947068991031 ETH
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.000563947068991031 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'KVPair'
+   ------------------
+   > transaction hash:    0xcfad88d9322bf1c49d15bd4b95baf8be5abdc144ee4667eb0a14b2f16c6b6f69
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x29bC4a95C253002fDdC244d3160C00841C3E11bD
+   > block number:        11
+   > block timestamp:     1650636622
+   > account:             0x7590482466BA98E793473Dc170D9539157B88512
+   > balance:             999.996391955601648662
+   > gas used:            168685 (0x292ed)
+   > gas price:           2.732478177 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000460928081287245 ETH
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.000460928081287245 ETH
+
+
+3_erc777.js
+===========
+
+   Deploying 'Simple777Token'
+   --------------------------
+   > transaction hash:    0x126abe1072ca137b8b9dfe0501437d87639c10832748302bb026d94ff11aaae9
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xB8B3bd2d6C7C006899A94c12893b7653f7f5C5d3
+   > block number:        15
+   > block timestamp:     1650636625
+   > account:             0x7590482466BA98E793473Dc170D9539157B88512
+   > balance:             999.90895574141289052
+   > gas used:            2768734 (0x2a3f5e)
+   > gas price:           2.637327465 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00730205822147931 ETH
+
+
+   Deploying 'Simple777Recipient'
+   ------------------------------
+   > transaction hash:    0x13543e831157ed76cd370811dc9e87e44c5ddb7a79b8f837249b30199ea7ce1b
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x872B759e7d238d19eaF42D5fD06D8736Ea0D38ad
+   > block number:        16
+   > block timestamp:     1650636625
+   > account:             0x7590482466BA98E793473Dc170D9539157B88512
+   > balance:             999.907931441204713498
+   > gas used:            390458 (0x5f53a)
+   > gas price:           2.623330059 gwei
+   > value sent:          0 ETH
+   > total cost:          0.001024300208177022 ETH
+
+
+   Deploying 'Simple777Sender'
+   ---------------------------
+   > transaction hash:    0xe221f1ac8917367c3bcb5540147cab3ac4a6a9c4df29ea141290a37543bc2b3f
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x909B16e90e78a057C307a431dB74CC632CAd9f91
+   > block number:        17
+   > block timestamp:     1650636625
+   > account:             0x7590482466BA98E793473Dc170D9539157B88512
+   > balance:             999.906925828794286562
+   > gas used:            385541 (0x5e205)
+   > gas price:           2.608315096 gwei
+   > value sent:          0 ETH
+   > total cost:          0.001005612410426936 ETH
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.009331970840083268 ETH
+
+Summary
+=======
+> Total deployments:   5
+> Final cost:          0.010356845990361544 ETH
+
+

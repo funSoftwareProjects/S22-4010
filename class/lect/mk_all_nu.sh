@@ -80,6 +80,26 @@ if ls */*/*.js >/dev/null 2>&1 ; then
 		cd $XXX
 	done
 fi
+if ls */*/*.vy >/dev/null 2>&1 ; then
+	XXX=$(pwd)
+	for i in $( find . -name "*.vy" | sed -e '/node_modules/d' ) ; do
+		DN=$(dirname $i)
+		BN=$(basename $i)
+		cd $DN
+		mk_nu $BN
+		cd $XXX
+	done
+fi
+if ls */*/*.sql >/dev/null 2>&1 ; then
+	XXX=$(pwd)
+	for i in $( find . -name "*.sql" | sed -e '/node_modules/d' ) ; do
+		DN=$(dirname $i)
+		BN=$(basename $i)
+		cd $DN
+		mk_nu $BN
+		cd $XXX
+	done
+fi
 
 
 

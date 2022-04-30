@@ -1,0 +1,1101 @@
+<style>
+@font-face {
+	font-family: octicons-link;
+	src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+
+.markdown-body {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.5;
+	color: #24292e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+	color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+	color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+	color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+	color: #24292e;
+}
+
+.markdown-body .pl-ent {
+	color: #22863a;
+}
+
+.markdown-body .pl-k {
+	color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+	color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+	color: #e36209;
+}
+
+.markdown-body .pl-bu {
+	color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+	color: #fafbfc;
+	background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+	color: #fafbfc;
+	background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+	content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+	font-weight: bold;
+	color: #22863a;
+}
+
+.markdown-body .pl-ml {
+	color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+	font-weight: bold;
+	color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+	font-style: italic;
+	color: #24292e;
+}
+
+.markdown-body .pl-mb {
+	font-weight: bold;
+	color: #24292e;
+}
+
+.markdown-body .pl-md {
+	color: #b31d28;
+	background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+	color: #22863a;
+	background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+	color: #e36209;
+	background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+	color: #f6f8fa;
+	background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+	font-weight: bold;
+	color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+	color: #586069;
+}
+
+.markdown-body .pl-sg {
+	color: #959da5;
+}
+
+.markdown-body .pl-corl {
+	text-decoration: underline;
+	color: #032f62;
+}
+
+.markdown-body .octicon {
+	display: inline-block;
+	vertical-align: text-top;
+	fill: currentColor;
+}
+
+.markdown-body a {
+	background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+	outline-width: 0;
+}
+
+.markdown-body strong {
+	font-weight: inherit;
+}
+
+.markdown-body strong {
+	font-weight: bolder;
+}
+
+.markdown-body h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+.markdown-body img {
+	border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+.markdown-body hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+.markdown-body input {
+	font: inherit;
+	margin: 0;
+}
+
+.markdown-body input {
+	overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.markdown-body * {
+	box-sizing: border-box;
+}
+
+.markdown-body input {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.markdown-body a {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.markdown-body a:hover {
+	text-decoration: underline;
+}
+
+.markdown-body strong {
+	font-weight: 600;
+}
+
+.markdown-body hr {
+	height: 0;
+	margin: 15px 0;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body hr::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+	padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body h1 {
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.markdown-body h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.markdown-body h3 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.markdown-body h4 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.markdown-body h5 {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.markdown-body h6 {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.markdown-body p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+	margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+	x-list-style-type: lower-roman;
+	  list-style-type: decimal;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+	list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+	margin-left: 0;
+}
+
+.markdown-body code {
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body .octicon {
+	vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+	padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+	padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+	padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+	padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+	padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+	padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+	padding-left: 40px !important;
+}
+
+.markdown-body::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+	color: inherit;
+	text-decoration: none;
+}
+
+.markdown-body .anchor {
+	float: left;
+	padding-right: 4px;
+	margin-left: -20px;
+	line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 0.25em;
+	padding: 0;
+	margin: 24px 0;
+	background-color: #e1e4e8;
+	border: 0;
+}
+
+.markdown-body blockquote {
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: 0.25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #c6cbd1;
+	border-bottom-color: #959da5;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	color: #1b1f23;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	visibility: visible;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+	font-size: 1.25em;
+}
+
+.markdown-body h4 {
+	font-size: 1em;
+}
+
+.markdown-body h5 {
+	font-size: 0.875em;
+}
+
+.markdown-body h6 {
+	font-size: 0.85em;
+	color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li {
+	word-wrap: break-all;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body li+li {
+	margin-top: 0.25em;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+}
+
+.markdown-body table th {
+	font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f6f8fa;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	box-sizing: content-box;
+	background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+	padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+	padding-right: 20px;
+}
+
+.markdown-body code {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(27,31,35,0.05);
+	border-radius: 3px;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f6f8fa;
+	border-radius: 3px;
+}
+
+.markdown-body pre code {
+	display: inline;
+	max-width: auto;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+	color: #005cc5;
+	border-color: #005cc5;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #d1d5da;
+	border-bottom-color: #c6cbd1;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+	position: relative;
+	z-index: 1;
+	border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+	list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+	margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+	margin: 0 0.2em 0.25em -1.6em;
+	vertical-align: middle;
+}
+
+.markdown-body hr {
+	border-bottom-color: #eee;
+}
+
+</style>
+<style>
+ol {
+    display: block;
+    list-style-type: decimal;
+}
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+
+<div class="markdown-body">
+
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+</style>
+<style>
+.pagebreak { page-break-before: always; }
+.half { height: 200px; }
+.markdown-body {
+    font-size: 12px;
+}
+.markdown-body td {
+    font-size: 12px;
+}
+</style>
+
+<h1>Lecture 29 - Distributed Autonomous Organizations (DAO) and Proxy Contracts</h1>
+
+<h2>What is a DAO?</h2>
+
+<p>A DAO (Decentralized Autonomous Organization) as an organization represented by rules encoded as a transparent computer
+program, controlled by the organization members, and not influenced by a centralized control structure.
+As the rules are embedded into the code, no managers are needed, thus removing any bureaucracy or hierarchy hurdles.</p>
+
+<p>Paul Grahm, founder of Ycombinator, figures that getting rid of the &ldquo;pointy haired&rdquo; manager improves productivity by a 2 to 4x factor.</p>
+
+<p>Wyoming has &ldquo;enshrined&rdquo; this into law&hellip;</p>
+
+<p>The Wyoming DAO Law: <a href="https://www.wyoleg.gov/Legislation/2021/SF0038">https://www.wyoleg.gov/Legislation/2021/SF0038</a></p>
+
+<p>This is similar to another Wyoming invention, the Limited Liability Corporation (LLC).</p>
+
+<p>DAO&rsquo;s do not obligate you from any of the requirements of a corporation or LLC.  They do provide a new
+way to &ldquo;manage&rdquo; an organization.</p>
+
+<p>Some existing organizations have gotten rid of helical management.  Zappos for example - fired all it&rsquo;s managers
+and &ldquo;teams&rdquo; just make decisions on how and what they are going to work on.</p>
+
+<p>Lot&rsquo;s of stuff is &ldquo;organized&rdquo; in different ways.  This is a new form of organization.</p>
+
+<p>Some of the reason for a DAO is the wisdom of the crowd.</p>
+
+<p>Why/How wisdom of the crowd works&hellip;.</p>
+
+<div class="pagebreak"></div>
+
+<p>Most of this is from <a href="https://www.amazon.com/Wisdom-Crowds-James-Surowiecki/dp/0385721706/ref=sr_1_1?crid=267JDRKCNTR2J&amp;keywords=Surowiecki&amp;qid=1649072078&amp;sprefix=surowiecki+%2Caps%2C131&amp;sr=8-1">https://www.amazon.com/Wisdom-Crowds-James-Surowiecki/dp/0385721706/ref=sr_1_1?crid=267JDRKCNTR2J&amp;keywords=Surowiecki&amp;qid=1649072078&amp;sprefix=surowiecki+%2Caps%2C131&amp;sr=8-1</a></p>
+
+<p><img src="surowiecki.jpg" alt="surowiecki.jpg" /></p>
+
+<p>Oinas-Kukkonen in <a href="todo">A. Koohang et al. (Eds): Knowledge Management: Theoretical Foundation. Informing Science Press, Santa Rosa, CA, US, pp. 173-189.</a>
+captures the wisdom of crowds approach with the following eight conjectures:</p>
+
+<ol>
+<li>It is possible to describe how people in a group think as a whole.</li>
+<li>In some cases, groups are remarkably intelligent and are often smarter than the smartest people in them.</li>
+<li>The three conditions for a group to be intelligent are diversity, independence, and decentralization.</li>
+<li>The best decisions are a product of disagreement and contest.</li>
+<li>Too much communication can make the group as a whole less intelligent.</li>
+<li>Information aggregation functionality is needed.</li>
+<li>The right information needs to be delivered to the right people in the right place, at the right time, and in the right way.</li>
+<li>There is no need to chase the expert.</li>
+</ol>
+
+<p>As created in Wyoming the DAO is a &ldquo;staked&rdquo; democracy.</p>
+
+<p>SF0038 (the Wyoming DAO law) has 2 flavors - the human voting flavor and the &ldquo;autonomous&rdquo; system.</p>
+
+<p>Note that &ldquo;diversity, independence, and decentralization&rdquo; are critical factors.    This is a general
+management principal.   You make better decisions when the &ldquo;team&rdquo; is diversified.  You get better code
+out of &ldquo;independent&rdquo; workers.   You get more productivity out of decentralized teams.</p>
+
+<h2>Prediction markets</h2>
+
+<p>The most common application is the prediction market, a speculative or betting market created to make verifiable predictions.
+Betfair traded $28 billion last year.   To create a good perdition market the &ldquo;members&rdquo; have to have a financial stake in the
+outcome.   It is not &ldquo;Who do you think will win the 2024 election&rdquo; it is &ldquo;Who will you vote for - with $$ in result.&rdquo;</p>
+
+<p>Betfair has a better than 80% prediction accuracy on elections.</p>
+
+<p>This is the system of &ldquo;wisdom of the crowds&rdquo; that underpins risk forecasts for insurance.</p>
+
+<p>The principle of the prediction market is also used in project management software to let team members predict a project&rsquo;s &ldquo;real&rdquo; deadline and budget for a project.</p>
+
+<h2>problems with wisdom of the crowd</h2>
+
+<p>Examples:</p>
+
+<ol>
+<li>stock market bubbles</li>
+<li>things like the Challenger Disaster</li>
+<li>personality cults</li>
+<li>disinformation</li>
+</ol>
+
+<h2>problems with DAO (human managed)</h2>
+
+<ol>
+<li>What to vote on needs to be delivered, explained and understood. (6, 7 above)</li>
+<li>Voting Actually Taking Place - Members must participate</li>
+<li>Voters voting according to the Wyoming DAO law - tracking / vote-taking is a process</li>
+<li>Votes are recorded - you would think this is easy - it is not.</li>
+</ol>
+
+<h2>Technical Requirements</h2>
+
+<p>From SF0038: &ldquo;An algorithmically managed decentralized autonomous organization may only form under this chapter if the underlying
+smart contracts are able to be updated, modified or otherwise upgraded.&rdquo;</p>
+
+<p>So&hellip; How do you upgrade a smart contract&hellip;</p>
+
+<p>Just a regular contract is forever - once it is written with a transaction to the chain this is immutable data.</p>
+
+<p>The answer is a thing called a &ldquo;Proxy&rdquo; contract.  The Proxy is a contract that is the front end and receives
+the calls - then uses the address of a destination contract and passes the calls on to this other contract.
+The owner of the proxy can point it at any contract.</p>
+
+<h2>The Voting Contract</h2>
+
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: pragma solidity &gt;=0.6.0 &lt;=0.9.0;
+  3: 
+  4: import &quot;@openzeppelin/contracts/token/ERC721/ERC721.sol&quot;;
+  5: 
+  6: contract DaoVoterContractUpgradableV1 is ERC721 {
+  7: 
+  8:     mapping (uint256 =&gt; uint256) public tokenIdToPrice;
+  9:     string private baseURI;
+ 10:     int public nMinted;        // # of tokens minted.
+ 11:     address payable owner;
+ 12: 
+ 13:     event NFTPurchased(uint256 indexed NFT, address seller, address buyer, uint256 price);
+ 14:     event NFTAvailable(uint256 indexed NFT, uint256 price);
+ 15:     event NFTRemoved(uint256 indexed NFT);
+ 16: 
+ 17:     event VoterRegistered(uint256 indexed NFT);
+ 18:     event ProposalRegistered(uint256 indexed NFT);
+ 19: 
+ 20:     constructor() ERC721(&quot;Wyoming NFT&quot;, &quot;WYNFT&quot;) {
+ 21:         owner = payable(msg.sender);
+ 22:     }
+ 23: 
+ 24:     modifier onlyOwner() {
+ 25:         require( msg.sender == owner, &quot;Sender not authorized.&quot;);
+ 26:         // Do not forget the &quot;_;&quot;! It will be replaced by the actual function
+ 27:         // body when the modifier is used.
+ 28:         _;
+ 29:     }
+ 30: 
+ 31:     function initialize(string memory tokenURI) public onlyOwner() {
+ 32:         baseURI = tokenURI;
+ 33:         nMinted = 0;
+ 34:     }
+ 35: 
+ 36:     // Make `_newOwner` the new owner of this contract.
+ 37:     function changeOwner(address payable _newOwner) public onlyOwner() {
+ 38:         owner = _newOwner;
+ 39:     }
+ 40: 
+ 41:     function mintNFT(uint256 _tokenNFT) public returns (uint256) {
+ 42:         uint256 newItemId = _tokenNFT;
+ 43:         _safeMint(msg.sender, newItemId);
+ 44:         nMinted += 1;
+ 45:         return newItemId;
+ 46:    }
+ 47: 
+ 48:     function registerVoter(uint256 _tokenNFT) public returns (uint256) {
+ 49:         uint256 newItemId = _tokenNFT;
+ 50:         _safeMint(msg.sender, newItemId);
+ 51:         nMinted += 1;
+ 52:         emit VoterRegistered(newItemId);
+ 53:         return newItemId;
+ 54:    }
+ 55: 
+ 56:     function createProposal(uint256 _tokenNFT) public returns (uint256) {
+ 57:         uint256 newItemId = _tokenNFT;
+ 58:         _safeMint(msg.sender, newItemId);
+ 59:         nMinted += 1;
+ 60:         ProposalRegistered(newItemId);
+ 61:         return newItemId;
+ 62:    }
+ 63: 
+ 64:     // function balanceOf(address owner) public view virtual override returns (uint256) {
+ 65: 
+ 66:     function _baseURI() internal view override returns (string memory) {
+ 67:         return baseURI;
+ 68:     }
+ 69: 
+ 70:     function allowBuy(uint256 _tokenId, uint256 _price) external {
+ 71:         require(msg.sender == ownerOf(_tokenId), 'Not owner of this token');
+ 72:         require(_price &gt; 0, 'Price must be larger than zero');
+ 73:         tokenIdToPrice[_tokenId] = _price;
+ 74: 
+ 75:         emit NFTAvailable(_tokenId, _price);
+ 76:     }
+ 77: 
+ 78:     function disallowBuy(uint256 _tokenId) external {
+ 79:         require(msg.sender == ownerOf(_tokenId), 'Not owner of this token');
+ 80:         tokenIdToPrice[_tokenId] = 0;
+ 81: 
+ 82:         emit NFTRemoved(_tokenId);
+ 83:     }
+ 84:     
+ 85:     function buy(uint256 _tokenId) external payable {
+ 86:         uint256 price = tokenIdToPrice[_tokenId];
+ 87:         require(price &gt; 0, 'This token is not for sale');
+ 88:         require(msg.value == price, 'Incorrect value');
+ 89:         
+ 90:         address seller = ownerOf(_tokenId);
+ 91:         _transfer(seller, msg.sender, _tokenId);
+ 92:         tokenIdToPrice[_tokenId] = 0; // not for sale anymore
+ 93:         payable(seller).transfer(msg.value); // send the ETH to the seller
+ 94: 
+ 95:         emit NFTPurchased(_tokenId, seller, msg.sender, msg.value);
+ 96:     }
+ 97: 
+ 98:     // This function is called for all messages sent to
+ 99:     // this contract, except plain Ether transfers
+100:     // (there is no other function except the receive function).
+101:     // Any call with non-empty calldata to this contract will execute
+102:     // the fallback function (even if Ether is sent along with the call).
+103:     fallback() external payable {}
+104: 
+105:     // This function is called for plain Ether transfers, i.e.
+106:     // for every call with empty calldata.
+107:     receive() external payable {}
+108: 
+109:     function withdraw( uint256 _amount ) public onlyOwner() {
+110:         owner.transfer(_amount);
+111:     }
+112: 
+113:     // destroy the contract and reclaim the leftover funds.
+114:     function kill() public onlyOwner() {
+115:         //    Calling selfdestruct(address) sends all of the contract's current balance to address.
+116:         selfdestruct(payable(msg.sender));
+117:     }
+118: }
+
+</code></pre>
+
+<h2>The Proxy</h2>
+
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: pragma solidity &gt;=0.6.0 &lt;=0.9.0;
+  3: 
+  4: import &quot;@openzeppelin/contracts/proxy/Proxy.sol&quot;;
+  5: 
+  6: /**
+  7:  * @title DaoVoterContract
+  8:  * @dev Gives the possibility to delegate any call to a foreign implementation.
+  9:  * Implements a proxy to the upgradable DaoVoterContractUpgradableV1 contract.
+ 10:  */
+ 11: contract DaoVoterContract is Proxy {
+ 12: 
+ 13:     address private owner;
+ 14:     address private DaoVoterContractImpl;
+ 15:     uint256 public version;
+ 16: 
+ 17:     modifier onlyOwner() {
+ 18:         require( msg.sender == owner, &quot;Sender not authorized.&quot;);
+ 19:         // Do not forget the &quot;_;&quot;! It will be replaced by the actual function
+ 20:         // body when the modifier is used.
+ 21:         _;
+ 22:     }
+ 23: 
+ 24:     constructor( address _addr, uint256 _version ) Proxy() {
+ 25:         DaoVoterContractImpl = _addr;
+ 26:         owner = msg.sender;
+ 27:         version = _version;
+ 28:     }
+ 29: 
+ 30:     /**
+ 31:     * @dev Make `_newOwner` the new owner of this contract.
+ 32:     */
+ 33:     function changeOwner(address _newOwner) public onlyOwner() {
+ 34:         owner = _newOwner;
+ 35:     }
+ 36:     
+ 37:     /**
+ 38:     * @dev Upgrade the underling contract to a new version. `_newAddr` is the address of
+ 39:     * the new contract. `_newVersion` is the new version number.
+ 40:     */
+ 41:     function upgradeContract(address _newAddr, uint256 _newVersion) public onlyOwner() {
+ 42:         DaoVoterContractImpl = _newAddr;
+ 43:         version = _newVersion;
+ 44:     }
+ 45: 
+ 46:     /**
+ 47:     * @dev Tells the address of the implementation where every call will be delegated.
+ 48:     * @return address of the implementation to which it will be delegated
+ 49:     */
+ 50:     function _implementation() internal view override  returns (address) {
+ 51:         return ( DaoVoterContractImpl );
+ 52:     }
+ 53: 
+ 54: }
+
+</code></pre>
+
+<h2>What is in the &ldquo;Proxy.sol&rdquo;</h2>
+
+<pre><code>  1: // SPDX-License-Identifier: MIT
+  2: // OpenZeppelin Contracts (last updated v4.5.0) (proxy/Proxy.sol)
+  3: 
+  4: pragma solidity ^0.8.0;
+  5: 
+  6: /**
+  7:  * @dev This abstract contract provides a fallback function that delegates all calls to another contract using the EVM
+  8:  * instruction `delegatecall`. We refer to the second contract as the _implementation_ behind the proxy, and it has to
+  9:  * be specified by overriding the virtual {_implementation} function.
+ 10:  *
+ 11:  * Additionally, delegation to the implementation can be triggered manually through the {_fallback} function, or to a
+ 12:  * different contract through the {_delegate} function.
+ 13:  *
+ 14:  * The success and return data of the delegated call will be returned back to the caller of the proxy.
+ 15:  */
+ 16: abstract contract Proxy {
+ 17:     /**
+ 18:      * @dev Delegates the current call to `implementation`.
+ 19:      *
+ 20:      * This function does not return to its internal call site, it will return directly to the external caller.
+ 21:      */
+ 22:     function _delegate(address implementation) internal virtual {
+ 23:         assembly {
+ 24:             // Copy msg.data. We take full control of memory in this inline assembly
+ 25:             // block because it will not return to Solidity code. We overwrite the
+ 26:             // Solidity scratch pad at memory position 0.
+ 27:             calldatacopy(0, 0, calldatasize())
+ 28: 
+ 29:             // Call the implementation.
+ 30:             // out and outsize are 0 because we don't know the size yet.
+ 31:             let result := delegatecall(gas(), implementation, 0, calldatasize(), 0, 0)
+ 32: 
+ 33:             // Copy the returned data.
+ 34:             returndatacopy(0, 0, returndatasize())
+ 35: 
+ 36:             switch result
+ 37:             // delegatecall returns 0 on error.
+ 38:             case 0 {
+ 39:                 revert(0, returndatasize())
+ 40:             }
+ 41:             default {
+ 42:                 return(0, returndatasize())
+ 43:             }
+ 44:         }
+ 45:     }
+ 46: 
+ 47:     /**
+ 48:      * @dev This is a virtual function that should be overriden so it returns the address to which the fallback function
+ 49:      * and {_fallback} should delegate.
+ 50:      */
+ 51:     function _implementation() internal view virtual returns (address);
+ 52: 
+ 53:     /**
+ 54:      * @dev Delegates the current call to the address returned by `_implementation()`.
+ 55:      *
+ 56:      * This function does not return to its internall call site, it will return directly to the external caller.
+ 57:      */
+ 58:     function _fallback() internal virtual {
+ 59:         _beforeFallback();
+ 60:         _delegate(_implementation());
+ 61:     }
+ 62: 
+ 63:     /**
+ 64:      * @dev Fallback function that delegates calls to the address returned by `_implementation()`. Will run if no other
+ 65:      * function in the contract matches the call data.
+ 66:      */
+ 67:     fallback() external payable virtual {
+ 68:         _fallback();
+ 69:     }
+ 70: 
+ 71:     /**
+ 72:      * @dev Fallback function that delegates calls to the address returned by `_implementation()`. Will run if call data
+ 73:      * is empty.
+ 74:      */
+ 75:     receive() external payable virtual {
+ 76:         _fallback();
+ 77:     }
+ 78: 
+ 79:     /**
+ 80:      * @dev Hook that is called before falling back to the implementation. Can happen as part of a manual `_fallback`
+ 81:      * call, or as part of the Solidity `fallback` or `receive` functions.
+ 82:      *
+ 83:      * If overriden should call `super._beforeFallback()`.
+ 84:      */
+ 85:     function _beforeFallback() internal virtual {}
+ 86: }
+
+</code></pre>
+
+</div>
+

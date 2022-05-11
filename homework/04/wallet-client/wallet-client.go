@@ -192,7 +192,6 @@ func main() {
 		}
 		// convert Amount to a string
 		//		Example: amountStr := fmt.Sprintf("%d", Amount)
-
 		// TODO make the call using DoGet to access the server.
 		//		Example: status, body := DoGet(urlStr, "from", *From, "to", *To, "amount", amountStr, "signature", signature, "msg", msg, "memo", *Memo)
 		// TODO - Check the return states of the "GET" call, 200 indicates success, all other codes indicate an error
